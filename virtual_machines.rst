@@ -1,10 +1,8 @@
-***********************
-TMA Software Containers
-***********************
+****************
+Virtual Machines
+****************
 
-Virtual containers were created to speed the process of TMA Software deployment. It enables a developer to interact with the TMA software on their personal work machine if needed. Here you can find the different TMA Software containers that are available along with detailed instructions on how to deploy them.
-
-.. todo:: Create instructions on how to create the containers themselves which may be useful when software updates are needed and containers must be re-created. I suspect this will happen often during commisioning.
+Virtual Machines were created to speed the process of TMA Software deployment. It enables a developer to interact with the TMA software on their personal work machine, usualy with limited functionality. Here you can find the different TMA Software containers that are available along with detailed instructions on how to deploy them.
 
 Windows10
 #########

@@ -11,14 +11,16 @@ The vendor for the TMA is Tekniker. They will be providing a  PDF documents for 
     acronyms
     ccw_aux_cabinet
     ccw_operation
+    configurations.rst
     credentials.rst
-    master_server_list
-    safety_interlocks
-    tma_simulation_configurations.rst
+    documents.rst
     installing_eui.rst
-    docushare_index_table.rst
+    safety_interlocks
+    server_list
+    
     ats_deployment_guide.rst
-    tma_software_containers.rst
+    
+    virtual_machines.rst
 
 .. .. rubric:: References
 

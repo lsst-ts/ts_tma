@@ -1,6 +1,6 @@
-************************
-TMA Document Index Table
-************************
+*********
+Documents
+*********
 
 When attempting to navigate the various documents hosted on Docushare it is
 recommended that you begin here. As of now there is no method known to create
