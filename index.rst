@@ -24,7 +24,7 @@ The vendor for the TMA is Tekniker. They will be providing a  PDF documents for 
 
 .. .. rubric:: References
 
-.. Make in-text citations with: :cite:`bibkey`.
+.. Make in-text citations with: :cite:`bibkey`./Users/aheyer/gitdir/ts_tma/index.rst
 
 .. .. bibliography:: local.bib lsstbib/books.bib lsstbib/lsst.bib lsstbib/lsst-dm.bib lsstbib/refs.bib lsstbib/refs_ads.bib
 ..    :style: lsst_aa

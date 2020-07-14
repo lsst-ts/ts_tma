@@ -1,27 +1,27 @@
 .. image:: https://img.shields.io/badge/tstn--008-lsst.io-brightgreen.svg
-   :target: https://tstn-008.lsst.io
-.. image:: https://travis-ci.com/lsst-tstn/tstn-008.svg
-   :target: https://travis-ci.com/lsst-tstn/tstn-008
+   :target: https://ts-tma.lsst.io
+.. image:: https://travis-ci.com/lsst-tstn/ts-tma.svg
+   :target: https://travis-ci.com/lsst-tstn/ts-tma
 ..
   Uncomment this section and modify the DOI strings to include a Zenodo DOI badge in the README
   .. image:: https://zenodo.org/badge/doi/10.5281/zenodo.#####.svg
      :target: http://dx.doi.org/10.5281/zenodo.#####
 
-###############
-TMA User Guides
-###############
+#################
+TMA Documentation
+#################
 
-TSTN-008
+ts-tma
 ========
 
 The vendor for the TMA is Tekniker. They will be providing a  PDF documents for operating the TMA. In an effort to have consistency across software documentation I will be transcibing the TMA documents onto this TMA Technote. 
 
 **Links:**
 
-- Publication URL: https://tstn-008.lsst.io
-- Alternative editions: https://tstn-008.lsst.io/v
-- GitHub repository: https://github.com/lsst-tstn/tstn-008
-- Build system: https://travis-ci.com/lsst-tstn/tstn-008
+- Publication URL: https://ts-tma.lsst.io
+- Alternative editions: https://ts-tma.lsst.io/v
+- GitHub repository: https://github.com/lsst-tstn/ts-tma
+- Build system: https://travis-ci.com/lsst-tstn/ts-tma
 
 
 Build this technical note
@@ -31,8 +31,8 @@ You can clone this repository and build the technote locally with `Sphinx`_:
 
 .. code-block:: bash
 
-   git clone https://github.com/lsst-tstn/tstn-008
-   cd tstn-008
+   git clone https://github.com/lsst-tstn/ts-tma
+   cd ts-tma
    pip install -r requirements.txt
    make html
 
@@ -52,7 +52,7 @@ The `DM reStructuredText Style Guide`_ is a good resource for how we write reStr
 Remember that images and other types of assets should be stored in the ``_static/`` directory of this repository.
 See ``_static/README.rst`` for more information.
 
-The published technote at https://tstn-008.lsst.io will be automatically rebuilt whenever you push your changes to the ``master`` branch on `GitHub <https://github.com/lsst-tstn/tstn-008>`_.
+The published technote at https://ts-tma.lsst.io will be automatically rebuilt whenever you push your changes to the ``master`` branch on `GitHub <https://github.com/lsst-tstn/ts-tma>`_.
 
 Updating metadata
 =================

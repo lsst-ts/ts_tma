@@ -3,17 +3,17 @@
 # document in git and kept up to date.
 
 # The series identifier. E.g. SQR, DMTN, SMTN, LDM, LSE, etc.
-series: "TSTN"
+series: "TS"
 
 # Document number, as a string. It should be three digits, padded with leading zeros
-serial_number: "008"
+serial_number: "TMA"
 
 # Serial number of the document. E.g. SQR-001
 # NOTE: this field is *planned* for deprecation
-doc_id: "TSTN-008"
+doc_id: "TS-TMA"
 
 # Title of the document, without the series/serial designation
-doc_title: "TMA User Guides"
+doc_title: "Telescope Mount Assembly Documentation"
 
 # Author names, ordered as a list. Each author name should be formatted as 'First Last'
 authors:
