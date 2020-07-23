@@ -1,11 +1,7 @@
-.. image:: https://img.shields.io/badge/tstn--008-lsst.io-brightgreen.svg
+.. image:: https://img.shields.io/badge/ts--tma-lsst.io-brightgreen.svg
    :target: https://ts-tma.lsst.io
-.. image:: https://travis-ci.com/lsst-tstn/ts-tma.svg
-   :target: https://travis-ci.com/lsst-tstn/ts-tma
-..
-  Uncomment this section and modify the DOI strings to include a Zenodo DOI badge in the README
-  .. image:: https://zenodo.org/badge/doi/10.5281/zenodo.#####.svg
-     :target: http://dx.doi.org/10.5281/zenodo.#####
+.. image:: https://github.com/lsst-ts/ts_tma/workflows/CI/badge.svg
+   :target: https://github.com/lsst-ts/ts_tma/actions?query=workflow%3ACI
 
 #################
 TMA Documentation
@@ -21,7 +17,7 @@ The vendor for the TMA is Tekniker. They will be providing a  PDF documents for 
 - Publication URL: https://ts-tma.lsst.io
 - Alternative editions: https://ts-tma.lsst.io/v
 - GitHub repository: https://github.com/lsst-tstn/ts-tma
-- Build system: https://travis-ci.com/lsst-tstn/ts-tma
+- Build system: https://github.com/lsst-ts/ts_tma/actions
 
 
 Build this technical note
