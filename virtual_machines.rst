@@ -11,10 +11,12 @@ The Windows 10 Virtual Machine is required by the MCC to run the EUI. This is be
 
 Pre-requisites
 **************
-1) Install Vagrant
-2) Install VirtualBox
+1) Install Oracle CM VirtualBox
+2) Install Oracle VM VirtualBox Extension Pack
 3) Complete the steps for :ref:`pdm_server`
 
+
+.. _nsv_simulator:
 
 NSV Simulator
 *************
@@ -35,6 +37,42 @@ The NSV Simulator is required to be able to run the EUI. This is a useful simula
 10) Double click the program `ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe` this program is writing random values to the NSV's.
 11) Open the NI Distributed System Manager. Expand one of the items under `localhost`. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
 
+TMA & Axes Simulator
+********************
+The TMA and Axes PXI Simulator is capable of responding to commands sent to it. This is a quick way of verifying changes made to the commanding component, or in other words the MTMount CSC (or in legacy software, the Operation Manager). 
+
+1) Connect to the .. _pdm_server: `fdsa`
+2) Download the file `TSS-Share/TMA/VM_AxesPXI.ova`
+3) Download the file `TSS-Share/TMA/VM_TMA-PXI.ova`
+4) Open Virtual box and navigate to "Host Network Manager"
+
+.. image:: _static/images/hostnetworkmanager.png
+
+5) Create a Host-only adapter using the configuration shown in the two images below, you will need only vboxnet0. 
+
+.. image:: _static/images/hostonlyadapter1.png
+
+.. image:: _static/images/hostonlyadapter2.png
+
+6) Import the VM_Axes.PXI.ova file.
+
+.. image:: _static/images/importPXI1.png
+
+.. image:: _static/images/importPXI2.png
+
+7) Select "Generate new MAC addresses for all network adapters" and import the Virtualmachine.
+
+.. image:: _static/images/importPXI3.png
+
+8) Ensure that under Network settings the virtual machine is using the Host Only adapter that we created.
+
+.. image:: _static/images/importPXI4.png
+
+9) The Virtualmachine should now be able to boot up and obtain an IP address within the range that we specified when configuring the Host only adapter
+
+.. image:: _static/images/importPXI5.png
+
+
 CentOS
 ######
 
@@ -52,7 +90,8 @@ EUI (Engineering User Interface)
 ********************************
 The EUI controls the TMA. It can determine if the EUI itself is in control, if the CSC is in control, or if the Hand Held Device is in control.  
 
-1) Pull the Docker container `docker pull ts-dockerhub.lsst.org/tma_software:develop`
+1) The EUI requires that NSV's are published to work properly, otherwise the program will not allow you to log in. Complete installing the :ref:`nsv_simulator`
+#) Pull the Docker container `docker pull ts-dockerhub.lsst.org/tma_software:develop`
 #) Run the Docker container using the proper arguments to run the Windows X server. Mine for example is `docker run -it -e DISPLAY=$IP:0 -v /tmp/.x11-unix:/tmp/.x11-unix -v /Users/aheyer/gitdir/:/home/saluser/gitdir andrewheyer/tma_software:develop`
 #) Do `labview64`
 #) When asked to "Select files to recover" deselect all and Discard.
