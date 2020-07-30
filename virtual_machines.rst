@@ -11,10 +11,8 @@ The Windows 10 Virtual Machine is required by the MCC to run the EUI. This is be
 
 Pre-requisites
 **************
-1) Install Oracle CM VirtualBox
+1) Install Oracle VM VirtualBox
 2) Install Oracle VM VirtualBox Extension Pack
-3) Complete the steps for :ref:`pdm_server`
-
 
 .. _nsv_simulator:
 
@@ -22,26 +20,27 @@ NSV Simulator
 *************
 The NSV Simulator is required to be able to run the EUI. This is a useful simulator when you wish to verify that the EUI is installed and is able to communicate to the NSV's
 
-1) Download the package.box from 139.229.195.251/TSS-Share/TMA/package.box. You will need to have an OpenVPN account made for you from IT to have access to this shared drive. 
-2) Do `git clone https://github.com/lsst-ts/ts_Vagrantfiles.git`
-3) `cd path/to/ts_Vagrantfiles/mtmount`
-4) Move the `package.box` file into `/path/to/ts_Vagrantfile/mtmount`
-5) Do `vagrant up`
-6) When asked "Which interface should the network bridge to?" select 1
-7) Login into the Windows Virtualmachine. The pw is `vagrant`
-8) Once inside the Windows10 Virtual Machine open the NI Distributed System Manager. There should be an icon for the program on the Desktop.
-9) If you do not see the image below restart the machine, for a reason I do not know the VM has mal booted preventing NSV's from becoming available.
+1) Connect to the PDM server, instructions for :ref:`pdm_server` here.
+#) Download the tma_windows10 Virtualmachine TSS-Share/TMA/tma_windows10.ovf. You will need to have an OpenVPN account made for you from IT to have access to this shared drive. 
+#) Do `git clone https://github.com/lsst-ts/ts_Vagrantfiles.git`
+#) `cd path/to/ts_Vagrantfiles/mtmount`
+#) Move the `package.box` file into `/path/to/ts_Vagrantfile/mtmount`
+#) Do `vagrant up`
+#) When asked "Which interface should the network bridge to?" select 1
+#) Login into the Windows Virtualmachine. The pw is `vagrant`
+#) Once inside the Windows10 Virtual Machine open the NI Distributed System Manager. There should be an icon for the program on the Desktop.
+#) If you do not see the image below restart the machine, for a reason I do not know the VM has mal booted preventing NSV's from becoming available.
 
 .. image:: _static/images/NIDistributedSystemManager.png
 
-10) Double click the program `ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe` this program is writing random values to the NSV's.
-11) Open the NI Distributed System Manager. Expand one of the items under `localhost`. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
+11) Double click the program `ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe` this program is writing random values to the NSV's.
+#) Open the NI Distributed System Manager. Expand one of the items under `localhost`. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
 
 TMA & Axes Simulator
 ********************
 The TMA and Axes PXI Simulator is capable of responding to commands sent to it. This is a quick way of verifying changes made to the commanding component, or in other words the MTMount CSC (or in legacy software, the Operation Manager). 
 
-1) Connect to the .. _pdm_server: `fdsa`
+1) Connect to the PDM server by following the instructions here :ref:`pdm_server`
 2) Download the file `TSS-Share/TMA/VM_AxesPXI.ova`
 3) Download the file `TSS-Share/TMA/VM_TMA-PXI.ova`
 4) Open Virtual box and navigate to "Host Network Manager"
