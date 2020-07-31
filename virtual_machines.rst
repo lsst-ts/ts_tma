@@ -21,20 +21,22 @@ NSV Simulator
 The NSV Simulator is required to be able to run the EUI. This is a useful simulator when you wish to verify that the EUI is installed and is able to communicate to the NSV's
 
 1) Connect to the PDM server, instructions for :ref:`pdm_server` here.
-#) Download the tma_windows10 Virtualmachine TSS-Share/TMA/tma_windows10.ovf. You will need to have an OpenVPN account made for you from IT to have access to this shared drive. 
-#) Do `git clone https://github.com/lsst-ts/ts_Vagrantfiles.git`
-#) `cd path/to/ts_Vagrantfiles/mtmount`
-#) Move the `package.box` file into `/path/to/ts_Vagrantfile/mtmount`
-#) Do `vagrant up`
-#) When asked "Which interface should the network bridge to?" select 1
-#) Login into the Windows Virtualmachine. The pw is `vagrant`
-#) Once inside the Windows10 Virtual Machine open the NI Distributed System Manager. There should be an icon for the program on the Desktop.
-#) If you do not see the image below restart the machine, for a reason I do not know the VM has mal booted preventing NSV's from becoming available.
+2) Download the tma_windows10 Virtualmachine TSS-Share/TMA/tma_windows10.ova.
+3) Open VirtualBox and import the machine, verify that the second network is a bridged adapter.
+
+.. image:: _static/images/NSVNetwork2.png
+
+4) Start the virtualmachine and set the IP address of the second network to be `195.168.1.95` with subnet `255.255.255.0`
+
+.. image:: _static/images/NSVNetwork1.png
+
+5) Once inside the Windows10 Virtual Machine open the NI Distributed System Manager. There should be an icon for the program on the Desktop.
+6) If you do not see the image below restart the machine, for a reason I do not know the VM has mal booted preventing NSV's from becoming available.
 
 .. image:: _static/images/NIDistributedSystemManager.png
 
-11) Double click the program `ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe` this program is writing random values to the NSV's.
-#) Open the NI Distributed System Manager. Expand one of the items under `localhost`. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
+7) Double click the program `ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe` this program is writing random values to the NSV's.
+8) Open the NI Distributed System Manager. Expand one of the items under `localhost`. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
 
 TMA & Axes Simulator
 ********************
