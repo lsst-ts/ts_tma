@@ -13,6 +13,7 @@ Pre-requisites
 **************
 1) Install Oracle VM VirtualBox
 2) Install Oracle VM VirtualBox Extension Pack
+3) Figure out that the subnet IP address of your host machine. My machine was in the subnet `192.168.1.95` so this is what I will use in these steps. The IP address used in these steps MUST be in your subnet, otherwise this windows 10 machine will be unreachable. A user who reviewed this work for example had to use the IP address of `192.168.0.123`. 
 
 .. _nsv_simulator:
 
@@ -86,14 +87,18 @@ Most of the TMA Software is LabVIEW. LabVIEW is a window intensive software and 
 1) Install Docker
 #) Install an X Windows Server
 #) Complete the steps for :ref:`nexus_repo`
+#) Complete the steps for :ref:`nsv_simulator`. *Note down what IP address was used for this step, you will need it later to complete this setup*. Have these NSV's running otherwise the EUI will not be able to run. This is because on startup the EUI is looking for the NSV's. You will see dialogues complaining that it is unable to find certain values with a given IP address that you must configure. 
 
 EUI (Engineering User Interface)
 ********************************
 The EUI controls the TMA. It can determine if the EUI itself is in control, if the CSC is in control, or if the Hand Held Device is in control.  
 
-1) The EUI requires that NSV's are published to work properly, otherwise the program will not allow you to log in. Complete installing the :ref:`nsv_simulator`
+1) Do a global search and replace for `HMIComputers/Configuration/HMIConfig.xml` and `HMIComputers/Configuration/HMITelemetryVariablesURLs.ini`. The value you are searching for is `192.168.1.95` and you are replacing this with the same IP address that you wrote down in the pre-requisite of this task. 
 #) Pull the Docker container `docker pull ts-dockerhub.lsst.org/tma_software:develop`
 #) Run the Docker container using the proper arguments to run the Windows X server. Mine for example is `docker run -it -e DISPLAY=$IP:0 -v /tmp/.x11-unix:/tmp/.x11-unix -v /Users/aheyer/gitdir/:/home/saluser/gitdir andrewheyer/tma_software:develop`
+
+The command which worked for a linux user is `sudo docker run -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v /home/rfactory/lsst/docker/:/home/saluser/gitdir ts-dockerhub.lsst.org/tma_software:develop`
+
 #) Do `labview64`
 #) When asked to "Select files to recover" deselect all and Discard.
 #) Open the `LSST_HMIs.lvproj` file. It should already be listed under "All Recent Files"
