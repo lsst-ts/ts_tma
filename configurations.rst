@@ -1,10 +1,39 @@
+.. _configurations:
+
 **************
 Configurations
 **************
 
-Here you will find sets of instructions that document the different configurations that are avilable. Each of these configurations test a certain functionality. In order of increasing complexity the following are the configurations available to the TMA software.
+The TMA has various softwares which have configuration files. In this document you will find what these various configuration are for and how to change them. 
 
-1. HMI NSV Simulation
+
+.. todo::
+   provide more details to 
+
+Humane Machine Interface
+########################
+
+.. _hmi-telemetry-variables:
+
+HMITelemetryVariables
+*********************
+
+1) Locate the file `HMIComputers/Configuration/HMIConfig.xml` where `HMIComputers` is the root directory to the HMI software. If you are using a virtualmachine this may be inside of `gitrepos` or `gitdir`. 
+
+2) Do a global search and replace on the file. You are searching for `192.168.1.95` and replacing this IP with the one you want it to be.
+
+.. _hmi-config:
+
+HMIConfig
+*********************
+
+1) Locate the file `HMIComputers/Configuration/HMIConfig.xml` where `HMIComputers` is the root directory to the HMI software. If you are using a virtualmachine this may be inside of `gitrepos` or `gitdir`. 
+
+2) Do a global search and replace on the file. You are searching for `192.168.1.95` and replacing this IP with the one you want it to be.
+
+
+.. todo::
+   Consolodate the documentation below as it is repeated in other areas, and does not belong here.
 
 HMI NSV Simulation
 ==================
