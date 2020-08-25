@@ -4,7 +4,6 @@
 # see metadata.yaml in this repo to update document-specific metadata
 
 import os
-from documenteer.sphinxconfig.technoteconf import configure_technote
 from documenteer.sphinxconfig.stackconf import build_package_configs
 
 # Ingest settings from metadata.yaml and use documenteer's configure_technote()
