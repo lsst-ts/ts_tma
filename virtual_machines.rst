@@ -33,7 +33,7 @@ The NSV and HMI Simulation verifies that the NSV's (Network Shared Variables) ar
 4) Done! In summary, once you have completed step 3 you will be able to log into the HMI and observe chaotic values on the GUI jumping randomly every second. These values are the visual representation of the NSV's that are being generated from the Windows 10 NSV simulator and making it to the HMI running on the Docker container. The next step in complexity is to add PXI simulators that a bit more "real". If succesfful with this excercise you should have most of the groundwork ready to attempt :ref:`nsv-hmi-pxi-simulation`
 
 
-.. _nsv-hmi-pxi-simulation
+.. _nsv-hmi-pxi-simulation:
 
 NSV, HMI & PXI Simulation
 *************************
@@ -112,7 +112,7 @@ Pre-requisites
 Docker was chosen to be the virtual host for the CentOS7 Operating System. Below are various simulators that run on the CentOS7 Operating System. However, much of the software requires that you interact with a GUI. As a result instructions the pre-requisites for getting the software running requires that you have an X11 Server configured so that you may open windows from the Docker container. The other odd-ball pre-requisite is that the Docker container has software which is proprietary. This then requires the software to be hosted in a private Docker hub, at the time of writing this the Rubin Observatory project is using a Nexus3 hosting platform for private Docker containers. In order to access this Nexus3 repository you need to gain access by talking to the IT department.
 
 1) Install Docker
-#) Install an X11 Server - I used XQuartz for running on MacOSX however there are other options. 
+#) Install an X11 Server for your OS, :ref:`configure_x11`
 #) Complete the steps for :ref:`nexus_repo`
 
 .. _hmi-virtual-machine:

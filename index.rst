@@ -12,14 +12,12 @@ The vendor for the TMA is Tekniker. They will be providing a  PDF documents for 
     ccw_aux_cabinet
     ccw_operation
     configurations.rst
-    credentials.rst
+    howto_credentials.rst
     documents.rst
     installing_eui.rst
     safety_interlocks
     server_list
-    
     ats_deployment_guide.rst
-    
     virtual_machines.rst
 
 .. .. rubric:: References

@@ -1,8 +1,8 @@
-***********
-Credentials
-***********
+**********************
+How-To's & Credentials
+**********************
 
-List of credentials which are required to access various TMA software repositorys and logins.
+General How-To's and credentials that are needed to interact with the TMA software.
 
 
 .. _pdm_server:
@@ -105,4 +105,20 @@ Creating Host-Only adapter
 Creating a host only adapter within Virtualbox is necessary when you want to have the virtual machine communicating to other machines other than the host. This is because by defauly Virtualbox creates 1 network adapter that is only used to talking to the host machine and generally the one that is used for internet. You should never change the first adapter as this could break your virtualmachine indefinitely. 
 
 
+.. _configure_x11:
 
+Configure X11 Server
+####################
+These instructions are particularly tailored for using an x11 server with Docker, which is where for the TMA Software it is neeeded.
+
+CentOS7
+*******
+
+1) You don't need to install anything extra. You can forward the CentOS7 x11 server simply by sharing it's resources with Docker.
+2) Run Docker using the following arguments `docker run -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/myusername/.Xauthority:rw" [your docker container]`
+
+MacOSX
+******
+
+1) Install Xquartz, https://www.xquartz.org/
+2) Run Docker using the following arguments `docker run -it -e DISPLAY=$IP:0 -v /tmp/.x11-unix:/tmp/.x11-unix -v /Users/aheyer/gitdir/:/home/saluser/gitdir andrewheyer/tma_software:develop`
