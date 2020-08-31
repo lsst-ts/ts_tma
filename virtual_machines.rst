@@ -2,6 +2,13 @@
 Simulators and Virtual Machines
 *******************************
 
+This document describes use of the TMA software simulators. There are three Virtual machines which are used together to simulate varying degress of simulations. The virtual machines are;
+
+- tma_software [Docker running CentOS7]: Contains the HMI and Operation Manager
+- mtmount_default_1592915418340_39039.ova [virtualbox running Windows 10]: contains two things: the Engineering User Interface (EUI) and a simple "NSV simulator" that produces random values that the EUI can display. Runs the Windows operating system.
+- VM_AxesPXI.ova [virtualbox running LabVIEW Realtime 18.0.1]: contains a simple simulator for the axis controller PXI. Warning: this virtual machine uses a lot of CPU cycles.
+- VM_TMA-PXI.ova [virtualbox running LabVIEW Realtime 18.0.1]: contains a simulator for the main PXI (the one that handles commands from the Operation Manager). Warning: this virtual machine also uses a lot of CPU cycles.
+
 These simulators and virtual machines allow quick deployment and interaction with software related to the Telescope Mount Assembly. This page is organized into a handful of sections. The first and most unique section, is :ref:`simulation-arrangements` which describes how the different simulators and virtual machines can be used in concert. This is not to be confused with :ref:`configurations` which discusses the configurations of the TMA software which is incognizant of wether it is running a virtual machine or not. :ref:`simulation-arrangements` on this page is specifically to explain the steps required to configure simulators or virtual machines. where as :ref:`configurations` can be useful on the actual TMA. In fact some of the steps in :ref:`configurations` are done already for you in some of the virtual machines here. 
 
 The rest of the sections contain simulators organized into their operating systems. These sections alone won't be very useful unless you know what you are doing with them. These sections require to do some initial work regardless of whichever simulator you plan to run, these steps are written in a `pre-requisite` section for each OS. 
