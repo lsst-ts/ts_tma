@@ -1,17 +1,20 @@
+
+.. _human-machine-interface:
+
 **************
-Installing EUI
+Installing HMI
 **************
 
-This page contains instructions for installing the EUI from scratch.
+This page contains instructions for installing the HMI from scratch.
 
 
 .. note::
 	Steps from : to : have been completed on a CentOS Docker image here. You must manually complete the image by following steps : to :. Then, on a separate container : to :. 
 
-	This will complete the EUI, you can then using the Windows Virtual Machin here to host your NSV's.
+	This will complete the HMI, you can then using the Windows Virtual Machin here to host your NSV's.
 
 
-.. _eui-installation-prereqs:
+.. _HMI-installation-prereqs:
 
 Pre-requisites
 ==============
@@ -60,9 +63,9 @@ Pre-requisites
 #. Install the following for use with Docker. 
     ``sudo yum install -y yum-utils device-mapper-persistent-data lvm2``
 
-.. _eui-installation:
+.. _HMI-installation:
 
-EUI Installation
+HMI Installation
 ================
 #. Install SAL, latest instructions for this can be found here 
 	.. todo:: 

@@ -1,21 +1,62 @@
-****************
-Virtual Machines
-****************
+*******************************
+Simulators and Virtual Machines
+*******************************
 
-Virtual Machines were created to speed the process of TMA Software deployment. It enables a developer to interact with the TMA software on their personal work machine, usualy with limited functionality. Here you can find the different TMA Software containers that are available along with detailed instructions on how to deploy them.
+This document describes use of the TMA software simulators. There are three Virtual machines which are used together to simulate varying degress of simulations. The virtual machines are;
+
+- tma_software [Docker running CentOS7]: Contains the HMI and Operation Manager
+- mtmount_default_1592915418340_39039.ova [virtualbox running Windows 10]: contains two things: the Engineering User Interface (EUI) and a simple "NSV simulator" that produces random values that the EUI can display. Runs the Windows operating system.
+- VM_AxesPXI.ova [virtualbox running LabVIEW Realtime 18.0.1]: contains a simple simulator for the axis controller PXI. Warning: this virtual machine uses a lot of CPU cycles.
+- VM_TMA-PXI.ova [virtualbox running LabVIEW Realtime 18.0.1]: contains a simulator for the main PXI (the one that handles commands from the Operation Manager). Warning: this virtual machine also uses a lot of CPU cycles.
+
+These simulators and virtual machines allow quick deployment and interaction with software related to the Telescope Mount Assembly. This page is organized into a handful of sections. The first and most unique section, is :ref:`simulation-arrangements` which describes how the different simulators and virtual machines can be used in concert. This is not to be confused with :ref:`configurations` which discusses the configurations of the TMA software which is incognizant of wether it is running a virtual machine or not. :ref:`simulation-arrangements` on this page is specifically to explain the steps required to configure simulators or virtual machines. where as :ref:`configurations` can be useful on the actual TMA. In fact some of the steps in :ref:`configurations` are done already for you in some of the virtual machines here. 
+
+The rest of the sections contain simulators organized into their operating systems. These sections alone won't be very useful unless you know what you are doing with them. These sections require to do some initial work regardless of whichever simulator you plan to run, these steps are written in a `pre-requisite` section for each OS. 
+
+This page is organized this way because there are more than one way to use the same simulator or virtual machine. To reduce redundent documentation :ref:`configurations` describes the different ways that the simulaters and virtual machines can be used.
+
+
+.. _simulation-arrangements:
+
+Simulation Arrangements
+#########################
+
+In this section you will find the different ways that you can run the simulators and virtual machines and why you would want to. These are listed in order of complexity. 
+
+NSV & HMI Simulation
+*********************
+
+The NSV and HMI Simulation verifies that the NSV's (Network Shared Variables) are communicating between a Windows 10 virtual machine which is publishing the NSV's and a Docker container which is running the HMI (Human Machine Interface). This HMI is the actual HMI which is running on the TMA, you can read more about the :ref:`human-machine-interface`. The Docker container you will be pulling is a CentOS7 machine where all the steps described in :ref:`human-machine-interface` have been completed and then exported for quick use.  
+
+1) Begin by finding out what subnet your host machines IP is in, step 2 relies on you to know this. The host machine is the computer you are using to run the virtual machines. If you don't know how find the host machines subnet you can follow the steps in :ref:`finding-your-ip-subnet`.
+
+2) Now that you know what subnet your host machine is in, you must manually assign an IP address to the windows 10 machine you will be creating in this step. Recall that in :ref:`finding-your-ip-subnet` we can assign any IP address we like as long as two rules are followed, these rules also assume that you want to machines to be pingable from other machiens; First that the IP must be in the same subnet and the second is that it must not be an IP address already occupied. Knowing this you are ready to complete the steps in :ref:`nsv-simulator` - your knowledge on subnets is particular needed when assigning an IP address to the windows 10 machine. 
+
+3) Take note of the IP address that you assigned the Windows 10 machine in step 2, we will need it. This is because there are few steps when configuring the HMI that assumes the user to know what IP address they need to assign during a configuration step. In order for the HMI to work it must be able to find the NSV's. The HMI looks for the NSV's based on a few configuration files that you will be setting. These configuration files must contain the IP address which you created in Step 2. Knowing this background and the IP address you assigned in step 2 you are ready to complete the steps in :ref:`hmi-virtual-machine`.
+
+.. note::
+   One last note that I want to make while you go through :ref:`hmi-virtual-machine`, on the steps for setting the IP address on the configuration files it will take you to :ref:`configurations` which may feel round-a-bout. This is because modifying these files are not just for the purpose for this excercise. It is also necessary to modify those files for the real telescope and other variables. To prevent duplication of those steps throughout this documentation it is centralized in one place and crosslinked.  
+
+4) Done! In summary, once you have completed step 3 you will be able to log into the HMI and observe chaotic values on the GUI jumping randomly every second. These values are the visual representation of the NSV's that are being generated from the Windows 10 NSV simulator and making it to the HMI running on the Docker container. The next step in complexity is to add PXI simulators that a bit more "real". If succesfful with this excercise you should have most of the groundwork ready to attempt :ref:`nsv-hmi-pxi-simulation`
+
+
+.. _nsv-hmi-pxi-simulation:
+
+NSV, HMI & PXI Simulation
+*************************
+[TODO - This is what Russell needs to be able to test the CSC, also the Host Only adapter configuration will be updated with this PR]
+
 
 Windows10
 #########
-
-The Windows 10 Virtual Machine is required by the MCC to run the EUI. This is because the EUI must first connect to the NSV's before allowing any user logins. This Virtual Machine is also able to run a variety of simulators. 
+Currently the Windows 10 virtual machine containes a simulator for the NSV's.  
 
 Pre-requisites
 **************
 1) Install Oracle VM VirtualBox
 2) Install Oracle VM VirtualBox Extension Pack
-3) Figure out that the subnet IP address of your host machine. My machine was in the subnet `192.168.1.95` so this is what I will use in these steps. The IP address used in these steps MUST be in your subnet, otherwise this windows 10 machine will be unreachable. A user who reviewed this work for example had to use the IP address of `192.168.0.123`. 
 
-.. _nsv_simulator:
+.. _nsv-simulator:
 
 NSV Simulator
 *************
@@ -23,14 +64,8 @@ The NSV Simulator is required to be able to run the EUI. This is a useful simula
 
 1) Connect to the PDM server, instructions for :ref:`pdm_server` here.
 2) Download the tma_windows10 Virtualmachine TSS-Share/TMA/tma_windows10.ova.
-3) Open VirtualBox and import the machine, verify that the second network is a bridged adapter.
-
-.. image:: _static/images/NSVNetwork2.png
-
-4) Start the virtualmachine and set the IP address of the second network to be `195.168.1.95` with subnet `255.255.255.0`
-
-.. image:: _static/images/NSVNetwork1.png
-
+3) Import the tma_windows10.ovs. This can be done my double clicking the downloaded tma_windows10.ovs file and it will import automatically. If not, you will need to open VirtualBox and manually import it. Accept the default settings when importing.
+4) Attempt to start the virtual machine. A dialogue will complain that it cannot because there is no physical adapter for it. Select "Change Network Settings", select adapter 2 and you will see Virtualbox pre-selected "Bridged Adapter" for you. Click Ok
 5) Once inside the Windows10 Virtual Machine open the NI Distributed System Manager. There should be an icon for the program on the Desktop.
 6) If you do not see the image below restart the machine, for a reason I do not know the VM has mal booted preventing NSV's from becoming available.
 
@@ -38,6 +73,7 @@ The NSV Simulator is required to be able to run the EUI. This is a useful simula
 
 7) Double click the program `ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe` this program is writing random values to the NSV's.
 8) Open the NI Distributed System Manager. Expand one of the items under `localhost`. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
+
 
 TMA & Axes Simulator
 ********************
@@ -75,30 +111,33 @@ The TMA and Axes PXI Simulator is capable of responding to commands sent to it. 
 .. image:: _static/images/importPXI5.png
 
 
-CentOS
-######
-
-A CentOS container is capable of dupliating the Mount Control Computer (MCC). The MCC can run the Engineering User Interface (EUI) which allows controlling of the telescope. The MCC is also the first interact with the Software Abstraction Layer (SAL). Here we will go through the process of deploying a CentOS Docker container.
+CentOS7
+#######
 
 Pre-requisites
 **************
-Most of the TMA Software is LabVIEW. LabVIEW is a window intensive software and as a result requires that you install some method for viewing windows from your Docker container. 
+Docker was chosen to be the virtual host for the CentOS7 Operating System. Below are various simulators that run on the CentOS7 Operating System. However, much of the software requires that you interact with a GUI. As a result instructions the pre-requisites for getting the software running requires that you have an X11 Server configured so that you may open windows from the Docker container. The other odd-ball pre-requisite is that the Docker container has software which is proprietary. This then requires the software to be hosted in a private Docker hub, at the time of writing this the Rubin Observatory project is using a Nexus3 hosting platform for private Docker containers. In order to access this Nexus3 repository you need to gain access by talking to the IT department.
 
 1) Install Docker
-#) Install an X Windows Server
+#) Install an X11 Server for your OS, :ref:`configure_x11`
 #) Complete the steps for :ref:`nexus_repo`
-#) Complete the steps for :ref:`nsv_simulator`. *Note down what IP address was used for this step, you will need it later to complete this setup*. Have these NSV's running otherwise the EUI will not be able to run. This is because on startup the EUI is looking for the NSV's. You will see dialogues complaining that it is unable to find certain values with a given IP address that you must configure. 
 
-EUI (Engineering User Interface)
+.. _hmi-virtual-machine:
+
+HMI (Humane Machine Interface)
 ********************************
-The EUI controls the TMA. It can determine if the EUI itself is in control, if the CSC is in control, or if the Hand Held Device is in control.  
+The HMI is capable of controling and monitoring the TMA. It can determine if the EUI itself is in control, if the CSC is in control, or if the Hand Held Device is in control. It has various displays which report the status of the CCW (Camera Cable Wrap), OSS (Oil Supply Systems) etc;
 
-1) Do a global search and replace for `HMIComputers/Configuration/HMIConfig.xml` and `HMIComputers/Configuration/HMITelemetryVariablesURLs.ini`. The value you are searching for is `192.168.1.95` and you are replacing this with the same IP address that you wrote down in the pre-requisite of this task. 
+The HMI comes preinstalled in a Docker container. If you wish to manually install the HMI you can follow the the :ref:`human-machine-interface` steps. Otherwise you can follow these steps below which explain where to pull a Docker container with the HMI pre-installed for you.
+
+1) Complete the pre-requisite steps.
 #) Pull the Docker container `docker pull ts-dockerhub.lsst.org/tma_software:develop`
 #) Run the Docker container using the proper arguments to run the Windows X server. Mine for example is `docker run -it -e DISPLAY=$IP:0 -v /tmp/.x11-unix:/tmp/.x11-unix -v /Users/aheyer/gitdir/:/home/saluser/gitdir andrewheyer/tma_software:develop`
 
 The command which worked for a linux user is `sudo docker run -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v /home/rfactory/lsst/docker/:/home/saluser/gitdir ts-dockerhub.lsst.org/tma_software:develop`
 
+#) Modify the `HMITelemetryVariablesURls.ini`. The steps for doing these are :ref:`hmi-telemetry-variables`
+#) Modify the `HMIConfig.xml`. The steps for doing these are :ref:`hmi-config`
 #) Do `labview64`
 #) When asked to "Select files to recover" deselect all and Discard.
 #) Open the `LSST_HMIs.lvproj` file. It should already be listed under "All Recent Files"
@@ -108,5 +147,5 @@ The command which worked for a linux user is `sudo docker run -it --net=host --e
 #) A "Resolve Load Conflict" window will appear, double click the middle option. This option also is the only one that has a "14.0" string under "LabVIEW Version". Double click this option.
 #) Ignore the "Load Warning Summary" Dialogue.
 #) Click the run arrow.
-#) Login user=MUser pw=1234
-#) Once logged in we have demonstrated that the EUI is able to communicate to the NSV's. The most simplistic way to generate NSV's is by running the NSV Simulator on a Windows 10 Machine. 
+#) Login using the :ref:`hmi-login` for credentials.
+#) Done!
