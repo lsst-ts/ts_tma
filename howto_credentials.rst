@@ -114,8 +114,10 @@ These instructions are particularly tailored for using an x11 server with Docker
 CentOS7
 *******
 
-1) You don't need to install anything extra. You can forward the CentOS7 x11 server simply by sharing it's resources with Docker.
-2) Run Docker using the following arguments `docker run -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/myusername/.Xauthority:rw" [your docker container]`
+1) Run the command `IP=$(ifconfig em1 | grep inet | awk '$1=="inet" {print $2}')`. You may need to change "em1" to be "eno" or whichever your primary network name is. You can find out what it is by running `ifconfig`. 
+2) Run the command `xhost + $IP`
+3) Run Docker using the following arguments `docker run -it --net=host --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix" [your docker container]`
+4) Now if you run a program that opens up a window, such as `labview64` you should see a windows appear.
 
 MacOSX
 ******
