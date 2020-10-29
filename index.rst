@@ -41,8 +41,8 @@ software for the TMA.
 
 Misc. Documentation
 ===================
-General documentation that is referenced by bother :ref:`user-documentation` or 
-:ref:`developer-documentation` or is unrelated to the two.
+General documentation that is referenced by :ref:`user-documentation` or 
+:ref:`developer-documentation` or is unrelated to the two but still useful.
     
 .. toctree::
     :maxdepth: 1
