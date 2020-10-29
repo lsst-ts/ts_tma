@@ -1,24 +1,60 @@
 
+***********
 Description
-===========
-The vendor for the TMA is Tekniker. They will be providing a  PDF documents for operating the TMA. In an effort to have consistency across software documentation I will be transcibing the TMA documents onto this TMA Technote. 
+***********
+The vendor of the TMA, Tekniker, has been providing documentation for many parts.
+This web version is created so that this documentation becomes transparent and easier
+to update.
+
+
+.. _user-documentation:
+
+User Documentation
+==================
+This documentation is inteded for users of the software that may need to operate the
+TMA on the summit.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :numbered:
+    
+    powering_on_ccw_aux_cabinet.rst
+    operating_eui.rst
 
-    acronyms
-    ccw_aux_cabinet
-    ccw_operation
-    configurations.rst
-    howto_credentials.rst
-    documents.rst
-    installing_eui.rst
-    safety_interlocks
-    server_list
+    
+.. _developer-documentation:    
+
+Developer Documentation
+=======================
+This documentation is intended for users who wish to make maintain, modify, or develop
+software for the TMA.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
     ats_deployment_guide.rst
+    installing_eui.rst
+    safety_interlocks.rst
     virtual_machines.rst
+
+
+Misc. Documentation
+===================
+General documentation that is referenced by bother :ref:`user-documentation` or 
+:ref:`developer-documentation` or is unrelated to the two.
+    
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    acronyms.rst
+    configurations.rst
+    documents.rst
+    howto_credentials.rst
+    server_list
+    
+
 
 .. .. rubric:: References
 

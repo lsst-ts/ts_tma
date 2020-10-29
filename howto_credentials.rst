@@ -57,6 +57,14 @@ Username: MUser
 Password: Tekniker2020
 
 
+.. _ccw-aux-pc-login:
+
+CCW Aux PC Login
+################
+Username: lsst
+Password: Tekniker2015
+
+
 .. _finding-your-ip-subnet:
 
 Finding your IP & Subnet
