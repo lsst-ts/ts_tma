@@ -2,11 +2,9 @@
 Documents
 *********
 
-When attempting to navigate the various documents hosted on Docushare it is
-recommended that you begin here. As of now there is no method known to create
-an index table at the root of a Docushare folder that can display the contents 
-of the folder making navigation difficult. For this reason this index table is
-created to make navigation of the TMA Docushare space simpler. 
+When attempting to navigate the various documents hosted on Docushare it is recommended that you begin here. 
+As of now there is no method known to create an index table at the root of a Docushare folder that can display the contents of the folder making navigation difficult.
+For this reason this index table is here to make navigation of the TMA Docushare space simpler. 
 
 
 .. _LTS-159: https://docushare.lsst.org/docushare/dsweb/Get/LTS-159/LTS-159-Rev5.pdf

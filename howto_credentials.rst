@@ -45,24 +45,24 @@ Accessing Nexus Repo
 
 HMI Login
 #########
-Username: MUser
-Password: 1234
+:Username: MUser
+:Password: 1234
 
 
 .. _mcc-login:
 
 MCC Login
 #########
-Username: MUser
-Password: Tekniker2020
+:Username: MUser
+:Password: Tekniker2020
 
 
 .. _ccw-aux-pc-login:
 
 CCW Aux PC Login
 ################
-Username: lsst
-Password: Tekniker2015
+:Username: lsst
+:Password: Tekniker2015
 
 
 .. _finding-your-ip-subnet:
@@ -80,11 +80,11 @@ MacOSX
 
 CentOS7
 *******
-[TODO]
+.. todo:: Fill out
 
 Windows10
 *********
-[TODO]
+.. todo:: Fill out
 
 .. _changing-your-ip-windows10:
 
