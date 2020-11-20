@@ -3,16 +3,14 @@
 Description
 ***********
 The vendor of the TMA, Tekniker, has been providing documentation for many parts.
-This web version is created so that this documentation becomes transparent and easier
-to update.
+This web version is created so that this documentation becomes transparent and easier to update.
 
 
 .. _user-documentation:
 
 User Documentation
 ==================
-This documentation is inteded for users of the software that may need to operate the
-TMA on the summit.
+This documentation is intended for users of the software that may need to operate the TMA on the summit.
 
 .. toctree::
     :maxdepth: 1
@@ -26,8 +24,7 @@ TMA on the summit.
 
 Developer Documentation
 =======================
-This documentation is intended for users who wish to make maintain, modify, or develop
-software for the TMA.
+This documentation is intended for users who wish to make maintain, modify, or develop software for the TMA.
 
 .. toctree::
     :maxdepth: 1
@@ -41,8 +38,7 @@ software for the TMA.
 
 Misc. Documentation
 ===================
-General documentation that is referenced by :ref:`user-documentation` or 
-:ref:`developer-documentation` or is unrelated to the two but still useful.
+General documentation that is referenced by :ref:`user-documentation` or :ref:`developer-documentation` or is unrelated to the two but still useful.
     
 .. toctree::
     :maxdepth: 1

@@ -10,14 +10,14 @@ Clearing Interlocks when Connected to SAL
 	#. Sieze Control. Go to main menu and select "GUI"
 	#. Override the interlocks, go to the Safety menu and select "override interlocks"
 	#. Clear the erros, go to the CCW and select "clear errors"
-	#. Release overrides, go to Safety and select "realease ovverride"
+	#. Release overrides, go to Safety and select "release override"
 	#. Relinquish Control, to to main menu and select "SAL"
 
 Clearing Interlocks when NOT Connected to SAL
 =============================================
 1. Override the interlocks, go to the Safety menu and select "override interlocks"
-2. Clear the erros, go to the CCW and select "clear errors"
-3. Release overrides, go to Safety and select "realease ovverride"
+2. Clear the errors, go to the CCW and select "clear errors"
+3. Release overrides, go to Safety and select "release override"
 
 Disconnecting the CCW Interlock Systems from Rotator
 ====================================================
@@ -27,7 +27,6 @@ Disconnecting the CCW Interlock Systems from Rotator
 
 	.. figure:: /_static/images/safety_interlock_connections.jpg
 	    :name: safety_interlock_connections
-	    :target: http://target.link/url
 
 	2. Connect the Standalone Safety Interlock connector into the CCW Auxiliary
 	Control Cabinet.
@@ -37,8 +36,9 @@ Disconnecting the CCW Interlock Systems from Rotator
 
 	.. figure:: /_static/images/safety_interlock_standalone_interface.png
 	    :name: safety_interlock_standalone_interface
-	    :target: http://target.link/url
 
 
 Connecting the CCW Interlock Systems to Rotator
 ===================================================
+
+.. todo:: Write this section
