@@ -18,18 +18,22 @@ Humane Machine Interface
 HMITelemetryVariables
 *********************
 
-1) Locate the file `HMIComputers/Configuration/HMIConfig.xml` where `HMIComputers` is the root directory to the HMI software. If you are using a virtualmachine this may be inside of `gitrepos` or `gitdir`. 
+1) Locate the file ``HMIComputers/Configuration/HMIConfig.xml`` where ``HMIComputers`` is the root directory to the HMI software.
+If you are using a virtualmachine this may be inside of ``gitrepos`` or ``gitdir``. 
 
-2) Do a global search and replace on the file. You are searching for `192.168.1.95` and replacing this IP with the one you want it to be.
+2) Do a global search and replace on the file.
+   You are searching for ``192.168.1.95`` and replacing this IP with the one you want it to be.
 
 .. _hmi-config:
 
 HMIConfig
 *********************
 
-1) Locate the file `HMIComputers/Configuration/HMIConfig.xml` where `HMIComputers` is the root directory to the HMI software. If you are using a virtualmachine this may be inside of `gitrepos` or `gitdir`. 
+1) Locate the file ``HMIComputers/Configuration/HMIConfig.xml`` where ``HMIComputers`` is the root directory to the HMI software.
+   If you are using a virtualmachine this may be inside of ``gitrepos`` or ``gitdir``. 
 
-2) Do a global search and replace on the file. You are searching for `192.168.1.95` and replacing this IP with the one you want it to be.
+2) Do a global search and replace on the file.
+   You are searching for ``192.168.1.95`` and replacing this IP with the one you want it to be.
 
 
 .. todo::
@@ -74,7 +78,7 @@ Installing PXI
 2) git pull the PXI software onto the windows machine
 3) Download Tekniker Labview Libraries by clinging https://gitlab.tekniker.es/aut/libraries/labview/labview
 4) Checkout branch LV_2018
-5) copy files in the local folder including the .git folder to Nationa Instruments/LabVIEW2019
+5) copy files in the local folder including the .git folder to National Instruments/LabVIEW2019
 6) Select the preselected option that Labview asks to load
 7) Cancel when labview cannot find the HMI module
 8) Cancel when labview cannot find the DatabaseSettingsConfig.ctl
