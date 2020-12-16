@@ -42,7 +42,7 @@ Nothing special is needed in this machine.
 Speedgoat
 ---------
 
-The Speedgoat is used to simulate the main axis behaviour in real time. 
+The Speedgoat is used to simulate the main axis behavior in real time. 
 
 - Speedgoat
 
@@ -102,7 +102,7 @@ Follow next steps to deploy this software
 Simulate limits
 ^^^^^^^^^^^^^^^
 
-This software allows to simulate the behaviour of some subsystem limits switches. Those limits could be part of safety system or EtherCAT distributed IOs.
+This software allows to simulate the behavior of some subsystem limits switches. Those limits could be part of safety system or EtherCAT distributed IOs.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/simulatelimits
 Follow next steps to deploy this software
 
@@ -148,13 +148,11 @@ This is the PXI where the control code for all subsystems is running. To be able
 
 	.. figure:: /_static/images/TMAPXIpic1.png
 	    :name: TMA_PXI_pic1
-	    :target: http://target.link/url
 	 
 	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
 
 	.. figure:: /_static/images/TMAPXIpic2.png
 	    :name: TMA_PXI_pic2
-	    :target: http://target.link/url
 
 4. Continue with steps 3.a to 3.c of the point 6.2 in the Deployment document.
 5. Open the RT_MCS_Main.vi
@@ -165,4 +163,3 @@ This is the PXI where the control code for all subsystems is running. To be able
  
  	.. figure:: /_static/images/TMAPXIpic3.png
 	    :name: TMA_PXI_pic3
-	    :target: http://target.link/url
