@@ -258,7 +258,15 @@ This is the PXI where the control code for all subsystems is running. To be able
 	    :target: http://target.link/url
 
 4. Continue with steps 3.a to 3.c of the point 6.2 in the Deployment document.
-5. Open the RT_MCS_Main.vi
+5. Open the RT_MCS_Main.vi (for testing the hole project)
+
+  a. To test just one subsystem some specific test VIs can be found inside the corresponding subsystem folder. For example the Balancing specific test VI shown bellow:
+
+	.. figure:: /_static/images/TmaPxi_Test_BAL_TaskVI.png
+	    :name: Test VI for the balancing subsystem
+	    :target: http://target.link/url
+
+
 6. Run the VI
 7. When the vi is deployed to the target, disconnect the target
 
