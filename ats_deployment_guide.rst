@@ -308,3 +308,69 @@ This is the PXI where the control code for the main axes is running. To be able 
  	.. figure:: /_static/images/TMAPXIpic3.png
 	    :name: AXES_PXI_pic3
 	    :target: http://target.link/url
+
+Safety code deployment
+=======================
+
+The code that runs on the PILZ controller to simulate the behaviour of the TMA IS.
+The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/testdualmodbus
+
+1. Open the "TestDualModbus" project with PAS4000 version 1.18.0
+2. Activate the "TestDualModbus"
+
+	.. figure:: /_static/images/PASS4000activateProject.png
+	    :name: PASS4000activateProject
+	    :target: http://target.link/url
+
+3. Open the online network editor
+
+	.. figure:: /_static/images/PASS4000onlineNetworkEditor.png
+	    :name: PASS4000onlineNetworkEditor
+	    :target: http://target.link/url
+
+4. Scan project to scan the network to verify that the PILZ CPU is connected
+
+	.. figure:: /_static/images/PASS4000scan.png
+	    :name: PASS4000scan
+	    :target: http://target.link/url
+
+5. Close the online network editor
+6. Download the project
+
+  a. Open the Project downloader:
+
+	.. figure:: /_static/images/PASS4000downloadCode.png
+	    :name: PASS4000downloadCode
+	    :target: http://target.link/url
+
+  If asked to build changes say YES
+
+	.. figure:: /_static/images/PASS4000buildChanges.png
+	    :name: PASS4000buildChanges
+	    :target: http://target.link/url
+
+  b. Start download:
+
+	.. figure:: /_static/images/PASS4000startDownload.png
+	    :name: PASS4000startDownload
+	    :target: http://target.link/url
+
+  c. Confirm download:
+
+	.. figure:: /_static/images/PASS4000confirmDownload.png
+	    :name: PASS4000confirmDownload
+	    :target: http://target.link/url
+
+  d. Download completed:
+
+	.. figure:: /_static/images/PASS4000downloadCompleted.png
+	    :name: PASS4000downloadCompleted
+	    :target: http://target.link/url
+
+7. Logout:
+
+	.. figure:: /_static/images/PASS4000logout.jpg
+	    :name: PASS4000logout
+	    :target: http://target.link/url
+
+8. Close the PAS4000
