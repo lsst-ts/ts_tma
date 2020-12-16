@@ -26,13 +26,6 @@ Reference documents
     .. todo::
     	obtain the table information from the ts_xml table
 
-
-
-Hardware configuration
-========================
-
-The hardware configuration is explained in a separated file, reference 2.
-
 Software deployment
 ========================
 Each hardware has different software parts, and some hardware had more than one software part. In the following sections each hardware element is explained.
@@ -43,9 +36,6 @@ Windows Machine
 In the Windows Machine some simulators and some tools are running. 
 Start installing the Force EtherCAT Variables installer, that will install the LabVIEW runtime needed in many other tools and simulators.
 		
-Requirements
-^^^^^^^^^^^^^^^^^^
-
 Force EtherCAT Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol. The value written using this tool will 
@@ -213,7 +203,7 @@ Follow next steps to deploy this software:
 7. Run OilSupplySystemSimulator.exe
 
 SpeedgoatManager
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 This is a simulator tool used for the robot framework tests to connect to the Speedgoat.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/speedgoat
@@ -222,6 +212,29 @@ Follow next steps to deploy this software:
 
 1. Get the latest version of the compiled code from here: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/speedgoat/speedgoatmanagerbinaries
 2. Paste it to the windows machine
+
+Linux Machine
+-------------
+		
+In the Linux Machine the secondary axis simulators and the robot framework tests are running.
+
+secondaryAxisSil
+^^^^^^^^^^^^^^^^
+
+This is a simulator for the secondary axes (bosch axes), this simulator contains a modbus server that connects to the TMA PXI to transmit the status of each of the axes.
+The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissil
+
+Follow the steps defined in the secondaryAxisSilREADME_.
+
+.. _secondaryAxisSilREADME: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissil/-/blob/master/README.md
+
+robotFramework
+^^^^^^^^^^^^^^^^
+
+This refers to the automatic test framework the installation steps to setup the environment for robot framework is explained here: https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework/-/wikis/Installation
+
+The source code and more documentation can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework
+
 
 TMA PXI
 ============
