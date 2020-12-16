@@ -254,3 +254,36 @@ This is the PXI where the control code for all subsystems is running. To be able
  	.. figure:: /_static/images/TMAPXIpic3.png
 	    :name: TMA_PXI_pic3
 	    :target: http://target.link/url
+
+
+AXES PXI
+============
+
+This is the PXI where the control code for the main axes is running. To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document 
+
+1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
+2. Open the LSST_MainControllerPXI.lvproj.
+3. Ensure that in the project properties the Conditional Disable Symbol “HIL” is set to “True”
+
+	a. Right click in the Axes PXI an select properties
+
+	.. figure:: /_static/images/TMAPXIpic1.png
+	    :name: AXES_PXI_pic1
+	    :target: http://target.link/url
+	 
+	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
+
+	.. figure:: /_static/images/TMAPXIpic2.png
+	    :name: AXES_PXI_pic2
+	    :target: http://target.link/url
+
+4. Continue with steps 3.a to 3.c of the point 7.2 in the Deployment document.
+5. Open the MAIN_AxesPXI.vi
+6. Run the VI
+7. When the vi is deployed to the target, disconnect the target
+
+	a. Right click AXES_PXI target and click Disconnect
+ 
+ 	.. figure:: /_static/images/TMAPXIpic3.png
+	    :name: AXES_PXI_pic3
+	    :target: http://target.link/url
