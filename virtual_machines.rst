@@ -2,7 +2,7 @@
 Simulators and Virtual Machines
 *******************************
 
-This document describes use of the TMA software simulators. There are three Virtual machines which are used together to simulate varying degress of simulations. The virtual machines are;
+This document describes use of the TMA software simulators. There are three Virtual machines which are used together to simulate varying degrees of simulations. The virtual machines are;
 
 - tma_software [Docker running CentOS7]: Contains the HMI and Operation Manager
 - mtmount_default_1592915418340_39039.ova [virtualbox running Windows 10]: contains two things: the Engineering User Interface (EUI) and a simple "NSV simulator" that produces random values that the EUI can display. Runs the Windows operating system.
@@ -11,9 +11,9 @@ This document describes use of the TMA software simulators. There are three Virt
 
 These simulators and virtual machines allow quick deployment and interaction with software related to the Telescope Mount Assembly. This page is organized into a handful of sections. The first and most unique section, is :ref:`simulation-arrangements` which describes how the different simulators and virtual machines can be used in concert. This is not to be confused with :ref:`configurations` which discusses the configurations of the TMA software which is incognizant of wether it is running a virtual machine or not. :ref:`simulation-arrangements` on this page is specifically to explain the steps required to configure simulators or virtual machines. where as :ref:`configurations` can be useful on the actual TMA. In fact some of the steps in :ref:`configurations` are done already for you in some of the virtual machines here. 
 
-The rest of the sections contain simulators organized into their operating systems. These sections alone won't be very useful unless you know what you are doing with them. These sections require to do some initial work regardless of whichever simulator you plan to run, these steps are written in a `pre-requisite` section for each OS. 
+The rest of the sections contain simulators organized into their operating systems. These sections alone won't be very useful unless you know what you are doing with them. These sections require to do some initial work regardless of whichever simulator you plan to run, these steps are written in a ``pre-requisite`` section for each OS. 
 
-This page is organized this way because there are more than one way to use the same simulator or virtual machine. To reduce redundent documentation :ref:`configurations` describes the different ways that the simulaters and virtual machines can be used.
+This page is organized this way because there are more than one way to use the same simulator or virtual machine. To reduce redundent documentation :ref:`configurations` describes the different ways that the simulators and virtual machines can be used.
 
 
 .. _simulation-arrangements:
@@ -44,12 +44,12 @@ The NSV and HMI Simulation verifies that the NSV's (Network Shared Variables) ar
 
 NSV, HMI & PXI Simulation
 *************************
-[TODO - This is what Russell needs to be able to test the CSC, also the Host Only adapter configuration will be updated with this PR]
+.. todo:: This is what Russell needs to be able to test the CSC, also the Host Only adapter configuration will be updated with this PR
 
 
 Windows10
 #########
-Currently the Windows 10 virtual machine containes a simulator for the NSV's.  
+Currently the Windows 10 virtual machine contains a simulator for the NSV's.  
 
 Pre-requisites
 **************
@@ -71,8 +71,8 @@ The NSV Simulator is required to be able to run the EUI. This is a useful simula
 
 .. image:: _static/images/NIDistributedSystemManager.png
 
-7) Double click the program `ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe` this program is writing random values to the NSV's.
-8) Open the NI Distributed System Manager. Expand one of the items under `localhost`. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
+7) Double click the program ``ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe`` this program is writing random values to the NSV's.
+8) Open the NI Distributed System Manager. Expand one of the items under ``localhost``. You should see these values changing at random. We have now demonstrated that the NSV simulator is functioning properly. We verify the values are indeed deployed and being changed via the NI Distributed System Manger.
 
 
 TMA & Axes Simulator
@@ -80,8 +80,8 @@ TMA & Axes Simulator
 The TMA and Axes PXI Simulator is capable of responding to commands sent to it. This is a quick way of verifying changes made to the commanding component, or in other words the MTMount CSC (or in legacy software, the Operation Manager). 
 
 1) Connect to the PDM server by following the instructions here :ref:`pdm_server`
-2) Download the file `TSS-Share/TMA/VM_AxesPXI.ova`
-3) Download the file `TSS-Share/TMA/VM_TMA-PXI.ova`
+2) Download the file ``TSS-Share/TMA/VM_AxesPXI.ova``
+3) Download the file ``TSS-Share/TMA/VM_TMA-PXI.ova``
 4) Open Virtual box and navigate to "Host Network Manager"
 
 .. image:: _static/images/hostnetworkmanager.png
@@ -126,22 +126,22 @@ Docker was chosen to be the virtual host for the CentOS7 Operating System. Below
 
 HMI (Humane Machine Interface)
 ********************************
-The HMI is capable of controling and monitoring the TMA. It can determine if the EUI itself is in control, if the CSC is in control, or if the Hand Held Device is in control. It has various displays which report the status of the CCW (Camera Cable Wrap), OSS (Oil Supply Systems) etc;
+The HMI is capable of controlling and monitoring the TMA. It can determine if the EUI itself is in control, if the CSC is in control, or if the Hand Held Device is in control. It has various displays which report the status of the CCW (Camera Cable Wrap), OSS (Oil Supply Systems) etc;
 
 The HMI comes preinstalled in a Docker container. If you wish to manually install the HMI you can follow the the :ref:`human-machine-interface` steps. Otherwise you can follow these steps below which explain where to pull a Docker container with the HMI pre-installed for you.
 
 1) Complete the pre-requisite steps.
-#) Pull the Docker container `docker pull ts-dockerhub.lsst.org/tma_software:develop`
-#) Run the Docker container using the proper arguments to run the Windows X server. Mine for example is `docker run -it -e DISPLAY=$IP:0 -v /tmp/.x11-unix:/tmp/.x11-unix -v /Users/aheyer/gitdir/:/home/saluser/gitdir andrewheyer/tma_software:develop`
+#) Pull the Docker container ``docker pull ts-dockerhub.lsst.org/tma_software:develop``
+#) Run the Docker container using the proper arguments to run the Windows X server. Mine for example is ``docker run -it -e DISPLAY=$IP:0 -v /tmp/.x11-unix:/tmp/.x11-unix -v /Users/aheyer/gitdir/:/home/saluser/gitdir andrewheyer/tma_software:develop``
 
-The command which worked for a linux user is `sudo docker run -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v /home/rfactory/lsst/docker/:/home/saluser/gitdir ts-dockerhub.lsst.org/tma_software:develop`
+The command which worked for a linux user is ``sudo docker run -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v /home/rfactory/lsst/docker/:/home/saluser/gitdir ts-dockerhub.lsst.org/tma_software:develop``
 
-#) Modify the `HMITelemetryVariablesURls.ini`. The steps for doing these are :ref:`hmi-telemetry-variables`
-#) Modify the `HMIConfig.xml`. The steps for doing these are :ref:`hmi-config`
-#) Do `labview64`
+#) Modify the ``HMITelemetryVariablesURls.ini``. The steps for doing these are :ref:`hmi-telemetry-variables`
+#) Modify the ``HMIConfig.xml``. The steps for doing these are :ref:`hmi-config`
+#) Do ``labview64``
 #) When asked to "Select files to recover" deselect all and Discard.
-#) Open the `LSST_HMIs.lvproj` file. It should already be listed under "All Recent Files"
-#) When asked to find "FGV_BasicFGVAction.ctl" open the drop down selection from the top. The last item from this drop down menu will have a path ending with "/_controles", open this path. You will see the `FGV_BasicFGVAction.ctl` file here. Double click it.
+#) Open the ``LSST_HMIs.lvproj`` file. It should already be listed under "All Recent Files"
+#) When asked to find "FGV_BasicFGVAction.ctl" open the drop down selection from the top. The last item from this drop down menu will have a path ending with "/_controles", open this path. You will see the ``FGV_BasicFGVAction.ctl`` file here. Double click it.
 #) Ignore the "Load Warning Summary" Dialogue.
 #) The Labview project should now be open, expand "Main" and double click "HMIMain_EUI.VI"
 #) A "Resolve Load Conflict" window will appear, double click the middle option. This option also is the only one that has a "14.0" string under "LabVIEW Version". Double click this option.

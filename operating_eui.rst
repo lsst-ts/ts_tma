@@ -8,12 +8,19 @@ Below you will find instructions for operating the EUI.
 Operating EUI
 =============
 	#. Open a terminal window.
-	#. Execute ``ulimit -s 100000``.
-	#. Navigate to Labview 2018 ``cd /usr/local/natinst/LabVIEW-2018-64``.
-	#. Start Labview 2018 ``./labview``.
-	#. Open the EUI Main project.
+	
+	.. prompt:: bash
+
+		ulimit -s 100000
+		cd /usr/local/natinst/LabVIEW-2018-64
+		./labview
+
+	#. Open the ``LSST_HMIs.lvproj`` under ``Recent Projects``.
+	#. Go to :menuselection:`Main --> HMIMain_EUI.vi`
+	#. Double click ``HMIMain_EUI.vi``
 	#. Find any missing libraries in the 2018 path.
 	#. Close any warning
+	#. Log in using :ref:`HMI Credentials <hmi-login>`
 
 	.. warning:: If SAL kernel crashes computer must be restarted
 

@@ -19,6 +19,8 @@ Turning on the CCW Aux Cabinet
 
 	#. The cabinet is now powered on, which means the PC to operate the EUI is also powered on.
 
+	.. note:: It may take a bit for the PC to power on.
+
 Debugging the PILZ box
 ======================
 Sometimes when resetting the interlocks on the CCW, the PILZ box does not reset properly.
@@ -37,7 +39,9 @@ Turning off the CCW Aux Cabinet
 ===============================
 When finished with the CCW on the summit for an extended time on the summit, it is summit policy that the cabinet should be turned off.
 
-1. Close down the EUI by clicking in the top of the window manager :menuselection:`labview --> Quit`
+1. Disable the drives by clicking :guilabel:`Off` under :guilabel:`Control`
+#. Hit the e-stop on the side of the CCW auxiliary cabinet.
+#. Close down the EUI by clicking in the top of the window manager :menuselection:`labview --> Quit`
 #. A window will pop up that asks about saving, click :guilabel:`Don't save all and quit`
 #. Turn off the computer in the top right of the window manager click the task bar and then the power icon then select :guilabel:`Shutdown`
 #. Turn off the monitor on the back side click the knob and then down to shut off the monitor

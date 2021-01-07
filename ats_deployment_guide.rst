@@ -26,8 +26,50 @@ Reference documents
     .. todo::
     	obtain the table information from the ts_xml table
 
-Software deployment
+Hardware configuration
 ========================
+
+In this section the needed hardware and its configuration is explained.
+	
+Windows Machine
+---------------
+
+This is a Windows 10 machine where LabVIEW simulators and tools will run. Also, a specific tool to manage to simulator in the Speedgoat is implemented here.
+Nothing special is needed in this machine.
+
+Speedgoat
+---------
+
+The Speedgoat is used to simulate the main axis behavior in real time. 
+
+- Speedgoat
+
+	- Serial Number: 4539 (ItemID 109200)
+	- Options:
+
+		- CPUCorei74200 (ItemID 109211)
+		- SSD500GB (ItemID 109048)
+
+- Input/Output modules:
+	- Ethercat Slaves, IO750 (x2) (ItemID 2B7506)
+	- IO 306
+
+Software configuration will be downloaded using Tekniker made tool.
+
+PILZ CPU
+--------
+
+This will be used to simulate and test safety software
+
+- PIlz PSSu 4000 ref 314070 
+- PSSu E F 4DI-T 
+- PSSu E F 4DO 0.5-T 
+	
+The configuration of hardware is part of the project where the code is included, some configuration will be explained in section 4.
+
+
+Software deployment
+===================
 Each hardware has different software parts, and some hardware had more than one software part. In the following sections each hardware element is explained.
 	
 Windows Machine
@@ -129,7 +171,7 @@ Follow next steps to deploy this software:
 Simulate limits
 ^^^^^^^^^^^^^^^
 
-This software allows to simulate the behaviour of some subsystem limits switches. Those limits could be part of safety system or EtherCAT distributed IOs.
+This software allows to simulate the behavior of some subsystem limits switches. Those limits could be part of safety system or EtherCAT distributed IOs.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/simulatelimits
 
 Follow next steps to deploy this software:
@@ -249,13 +291,11 @@ This is the PXI where the control code for all subsystems is running. To be able
 
 	.. figure:: /_static/images/TMAPXIpic1.png
 	    :name: TMA_PXI_pic1
-	    :target: http://target.link/url
 	 
 	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
 
 	.. figure:: /_static/images/TMAPXIpic2.png
 	    :name: TMA_PXI_pic2
-	    :target: http://target.link/url
 
 4. Continue with steps 3.a to 3.c of the point 6.2 in the Deployment document.
 5. Open the RT_MCS_Main.vi (for testing the hole project)
@@ -310,7 +350,7 @@ This is the PXI where the control code for the main axes is running. To be able 
 	    :target: http://target.link/url
 
 Safety code deployment
-=======================
+======================
 
 The code that runs on the PILZ controller to simulate the behaviour of the TMA IS.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/testdualmodbus
