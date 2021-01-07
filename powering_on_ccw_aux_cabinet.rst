@@ -19,7 +19,7 @@ Turning on the CCW Aux Cabinet
 
 	#. The cabinet is now powered on, which means the PC to operate the EUI is also powered on.
 
-	.. note:: It may take a bit for the PC to power on.
+	.. note:: It may take about 2 to 3 minutes for the PC to power on.
 
 Debugging the PILZ box
 ======================
@@ -34,6 +34,20 @@ You can handle this by turning the pilz box on and off again.
 
 .. figure:: /_static/images/pilz_power_plug.jpg
 	:name: pilz_power_plug
+
+Power Cycling the PILZ box
+==========================
+If the PILZ box cannot communicate with the controller, the box will remain in fault.
+A current work-around is to power cycle the box.
+
+1. Unplug the rightmost power cable in the bottom row of power cables
+2. Plug in the cable
+3. The array of LEDs should be green
+
+The real solution is to check the wiring.
+
+.. figure:: /_static/images/pilz_power_cycle.jpg
+	:name: pilz_power_cycle
 
 Turning off the CCW Aux Cabinet
 ===============================
