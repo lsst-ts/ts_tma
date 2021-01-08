@@ -1,6 +1,6 @@
-*************
+#############
 Operating EUI
-*************
+#############
 
 Below you will find instructions for operating the EUI.
 
