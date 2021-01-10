@@ -1,6 +1,6 @@
-********************
+####################
 ATS Deployment Guide
-********************
+####################
 
 .. contents:: Table of Contents
 
@@ -11,23 +11,34 @@ The document will show the hardware configuration in section 3 and software depl
 
 
 Reference documents
-========================
+===================
 
-    +----+----------------------------+----------------------+---------+
-    | Nº | Document                   | code                 | Version |
-    +====+============================+======================+=========+
-    | 1  | Deployment document        | 3151_MCS_0036        | 1.0     | 
-    +----+----------------------------+----------------------+---------+
-    |    |                            |                      |         |
-    +----+----------------------------+----------------------+---------+
-    |    |                            |                      |         |
-    +----+----------------------------+----------------------+---------+
+.. list-table::
+	:header-rows: 1
 
-    .. todo::
-    	obtain the table information from the ts_xml table
+	* - N°
+	  - Document
+	  - code
+	  - Version
+	* - 1
+	  - Deployment document
+	  - 3151_MCS_0036
+	  - 1.0
+	* -
+	  -
+	  -
+	  -
+	* -
+	  -
+	  -
+	  -
+
+
+.. todo::
+    obtain the table information from the ts_xml table
 
 Hardware configuration
-========================
+======================
 
 In this section the needed hardware and its configuration is explained.
 	
@@ -73,15 +84,17 @@ Software deployment
 Each hardware has different software parts, and some hardware had more than one software part. In the following sections each hardware element is explained.
 	
 Windows Machine
--------------------
+---------------
 		
 In the Windows Machine some simulators and some tools are running. 
 Start installing the Force EtherCAT Variables installer, that will install the LabVIEW runtime needed in many other tools and simulators.
 		
+Requirements
+^^^^^^^^^^^^
+
 Force EtherCAT Variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol. The value written using this tool will 
-overwrite any set value, so any slave value will be overwritten with the written value.
+^^^^^^^^^^^^^^^^^^^^^^^^
+This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol. The value written using this tool will overwrite any set value, so any slave value will be overwritten with the written value.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars.
 
 Follow next steps to deploy this software:
@@ -279,7 +292,7 @@ The source code and more documentation can be found in https://gitlab.tekniker.e
 
 
 TMA PXI
-============
+=======
 
 This is the PXI where the control code for all subsystems is running. To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document 
 		

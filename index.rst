@@ -1,7 +1,7 @@
 
-***********
+###########
 Description
-***********
+###########
 The vendor of the TMA, Tekniker, has been providing documentation for many parts.
 This web version is created so that this documentation becomes transparent and easier to update.
 

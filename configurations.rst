@@ -1,22 +1,23 @@
 .. _configurations:
 
-**************
+##############
 Configurations
-**************
+##############
 
-The TMA has various softwares which have configuration files. In this document you will find what these various configuration are for and how to change them. 
+The TMA has various softwares which have configuration files.
+In this document you will find what these various configuration are for and how to change them. 
 
 
 .. todo::
    provide more details to 
 
 Humane Machine Interface
-########################
+========================
 
 .. _hmi-telemetry-variables:
 
 HMITelemetryVariables
-*********************
+---------------------
 
 1) Locate the file ``HMIComputers/Configuration/HMIConfig.xml`` where ``HMIComputers`` is the root directory to the HMI software.
 If you are using a virtualmachine this may be inside of ``gitrepos`` or ``gitdir``. 
@@ -27,7 +28,7 @@ If you are using a virtualmachine this may be inside of ``gitrepos`` or ``gitdir
 .. _hmi-config:
 
 HMIConfig
-*********************
+---------
 
 1) Locate the file ``HMIComputers/Configuration/HMIConfig.xml`` where ``HMIComputers`` is the root directory to the HMI software.
    If you are using a virtualmachine this may be inside of ``gitrepos`` or ``gitdir``. 

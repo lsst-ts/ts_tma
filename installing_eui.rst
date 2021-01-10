@@ -1,15 +1,16 @@
 
 .. _human-machine-interface:
 
-**************
+##############
 Installing HMI
-**************
+##############
 
 This page contains instructions for installing the HMI from scratch.
 
 
 .. note::
-	Steps from : to : have been completed on a CentOS Docker image here. You must manually complete the image by following steps : to :. Then, on a separate container : to :. 
+	Steps from : to : have been completed on a CentOS Docker image here.
+	You must manually complete the image by following steps : to :. Then, on a separate container : to :. 
 
 	This will complete the HMI, you can then using the Windows Virtual Machin here to host your NSV's.
 
@@ -21,7 +22,8 @@ Pre-requisites
 1. Obtain Tekniker Install files.
 
 	#. Speak with IT to get acces to the network server called "Pavo"
-	#. Copy the folder named "Tekniker Software" onto your local computer. This folder contains Intellection Property from our vendor, remember not to share this software.
+	#. Copy the folder named "Tekniker Software" onto your local computer.
+	   This folder contains Intellection Property from our vendor, remember not to share this software.
 
 #. Install Git. 
 
@@ -69,11 +71,12 @@ HMI Installation
 ================
 #. Install SAL, latest instructions for this can be found here 
 	.. todo:: 
-		Insert SAL technote installation guide. for ts_xml use commit f9156b8bf300e6381b2d505da058c6b6475aed1f.
+		Insert SAL technote installation guide.
+		For ts_xml use commit f9156b8bf300e6381b2d505da058c6b6475aed1f.
 
 
 Install TMA Operation Manager
-------------------------------------------
+-----------------------------
 	
 	#. ``git clone https://gitlab.tekniker.es/sai/projects/3151-LSST/lsst.git``
 	#. ``cd lsst``
@@ -85,7 +88,7 @@ Install TMA Operation Manager
 	#. ``make``
 
 Install LabVIEW and dependencies
------------------------------------------------
+--------------------------------
 
 	#. Install Labview 2015 32 bit. LabVIEW package manager runs on Labview 2015. This is the only reason we install LV 2015.
 
@@ -112,8 +115,12 @@ Install LabVIEW and dependencies
 		.. note::
 			 if it is your first time running labVIEW you will need to make sure the port on Labview 2018 is configured and has localhost.
 
-		#. ``OpenG Toolkit``, as of writing this has all but two dependencies installed. The uninstalled dependencies are ``OpenG Port IO`` and ``OpenG Toolkit``. We only need the Toolkit, you can find the link for a manual download here https://sourceforge.net/projects/opengtoolkit/files/lib_openg_toolkit/4.x/openg.org_lib_openg_toolkit-4.0.1.9.vip/download. 
-		#. ``GPower All Toolsets``, as of writing this all but two dependencies installed. The uninstalled dependencies are GPower Timing, and GPower Events. We only need Gpower Timing, attempt to install it on VI Package Manager by searching for it just as you would normally search and install any package. 
+		#. ``OpenG Toolkit``, as of writing this has all but two dependencies installed.
+		   The uninstalled dependencies are ``OpenG Port IO`` and ``OpenG Toolkit``.
+		   We only need the Toolkit, you can find the link for a manual download here https://sourceforge.net/projects/opengtoolkit/files/lib_openg_toolkit/4.x/openg.org_lib_openg_toolkit-4.0.1.9.vip/download. 
+		#. ``GPower All Toolsets``, as of writing this all but two dependencies installed.
+		   The uninstalled dependencies are GPower Timing, and GPower Events.
+		   We only need Gpower Timing, attempt to install it on VI Package Manager by searching for it just as you would normally search and install any package. 
 		#. ``Hidden Gems``
 		#. ``NI GOOP Development Suite``
 		#. ``NI Event Logger Library``
