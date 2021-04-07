@@ -16,8 +16,8 @@ This documentation is intended for users of the software that may need to operat
     :maxdepth: 1
     :titlesonly:
     
-    powering_on_ccw_aux_cabinet.rst
-    operating_eui.rst
+    docs_user/powering_on_ccw_aux_cabinet.rst
+    docs_user/operating_eui.rst
 
     
 .. _developer-documentation:    
@@ -30,10 +30,10 @@ This documentation is intended for users who wish to make maintain, modify, or d
     :maxdepth: 1
     :titlesonly:
 
-    ats_deployment_guide.rst
-    installing_eui.rst
-    safety_interlocks.rst
-    virtual_machines.rst
+    docs_developer/ats_deployment_guide.rst
+    docs_developer/installing_eui.rst
+    docs_developer/safety_interlocks.rst
+    docs_developer/virtual_machines.rst
 
 
 Misc. Documentation
@@ -44,11 +44,11 @@ General documentation that is referenced by :ref:`user-documentation` or :ref:`d
     :maxdepth: 1
     :titlesonly:
 
-    acronyms.rst
-    configurations.rst
-    documents.rst
-    howto_credentials.rst
-    server_list
+    docs_misc/acronyms.rst
+    docs_misc/configurations.rst
+    docs_misc/documents.rst
+    docs_misc/howto_credentials.rst
+    docs_misc/server_list
     
 
 

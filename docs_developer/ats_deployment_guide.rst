@@ -302,12 +302,12 @@ This is the PXI where the control code for all subsystems is running. To be able
 
 	a. Right click in the project an select properties
 
-	.. figure:: /_static/images/TMAPXIpic1.png
+	.. figure:: ../_static/images/TMAPXIpic1.png
 	    :name: TMA_PXI_pic1
 	 
 	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
 
-	.. figure:: /_static/images/TMAPXIpic2.png
+	.. figure:: ../_static/images/TMAPXIpic2.png
 	    :name: TMA_PXI_pic2
 
 4. Continue with steps 3.a to 3.c of the point 6.2 in the Deployment document.
@@ -315,7 +315,7 @@ This is the PXI where the control code for all subsystems is running. To be able
 
   a. To test just one subsystem some specific test VIs can be found inside the corresponding subsystem folder. For example the Balancing specific test VI shown bellow:
 
-	.. figure:: /_static/images/TmaPxi_Test_BAL_TaskVI.png
+	.. figure:: ../_static/images/TmaPxi_Test_BAL_TaskVI.png
 	    :name: Test VI for the balancing subsystem
 	    :target: http://target.link/url
 
@@ -325,7 +325,7 @@ This is the PXI where the control code for all subsystems is running. To be able
 
 	a. Right click TMA_PXI target and click Disconnect
  
- 	.. figure:: /_static/images/TMAPXIpic3.png
+ 	.. figure:: ../_static/images/TMAPXIpic3.png
 	    :name: TMA_PXI_pic3
 	    :target: http://target.link/url
 
@@ -341,13 +341,13 @@ This is the PXI where the control code for the main axes is running. To be able 
 
 	a. Right click in the Axes PXI an select properties
 
-	.. figure:: /_static/images/TMAPXIpic1.png
+	.. figure:: ../_static/images/TMAPXIpic1.png
 	    :name: AXES_PXI_pic1
 	    :target: http://target.link/url
 	 
 	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
 
-	.. figure:: /_static/images/TMAPXIpic2.png
+	.. figure:: ../_static/images/TMAPXIpic2.png
 	    :name: AXES_PXI_pic2
 	    :target: http://target.link/url
 
@@ -358,7 +358,7 @@ This is the PXI where the control code for the main axes is running. To be able 
 
 	a. Right click AXES_PXI target and click Disconnect
  
- 	.. figure:: /_static/images/TMAPXIpic3.png
+ 	.. figure:: ../_static/images/TMAPXIpic3.png
 	    :name: AXES_PXI_pic3
 	    :target: http://target.link/url
 
@@ -371,19 +371,19 @@ The source code and more documentation about configuration can be found in https
 1. Open the "TestDualModbus" project with PAS4000 version 1.18.0
 2. Activate the "TestDualModbus"
 
-	.. figure:: /_static/images/PASS4000activateProject.png
+	.. figure:: ../_static/images/PASS4000activateProject.png
 	    :name: PASS4000activateProject
 	    :target: http://target.link/url
 
 3. Open the online network editor
 
-	.. figure:: /_static/images/PASS4000onlineNetworkEditor.png
+	.. figure:: ../_static/images/PASS4000onlineNetworkEditor.png
 	    :name: PASS4000onlineNetworkEditor
 	    :target: http://target.link/url
 
 4. Scan project to scan the network to verify that the PILZ CPU is connected
 
-	.. figure:: /_static/images/PASS4000scan.png
+	.. figure:: ../_static/images/PASS4000scan.png
 	    :name: PASS4000scan
 	    :target: http://target.link/url
 
@@ -392,37 +392,37 @@ The source code and more documentation about configuration can be found in https
 
   a. Open the Project downloader:
 
-	.. figure:: /_static/images/PASS4000downloadCode.png
+	.. figure:: ../_static/images/PASS4000downloadCode.png
 	    :name: PASS4000downloadCode
 	    :target: http://target.link/url
 
   If asked to build changes say YES
 
-	.. figure:: /_static/images/PASS4000buildChanges.png
+	.. figure:: ../_static/images/PASS4000buildChanges.png
 	    :name: PASS4000buildChanges
 	    :target: http://target.link/url
 
   b. Start download:
 
-	.. figure:: /_static/images/PASS4000startDownload.png
+	.. figure:: ../_static/images/PASS4000startDownload.png
 	    :name: PASS4000startDownload
 	    :target: http://target.link/url
 
   c. Confirm download:
 
-	.. figure:: /_static/images/PASS4000confirmDownload.png
+	.. figure:: ../_static/images/PASS4000confirmDownload.png
 	    :name: PASS4000confirmDownload
 	    :target: http://target.link/url
 
   d. Download completed:
 
-	.. figure:: /_static/images/PASS4000downloadCompleted.png
+	.. figure:: ../_static/images/PASS4000downloadCompleted.png
 	    :name: PASS4000downloadCompleted
 	    :target: http://target.link/url
 
 7. Logout:
 
-	.. figure:: /_static/images/PASS4000logout.jpg
+	.. figure:: ../_static/images/PASS4000logout.jpg
 	    :name: PASS4000logout
 	    :target: http://target.link/url
 

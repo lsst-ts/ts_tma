@@ -14,15 +14,15 @@ Accessing La Serena PDM Server
 
 	2. Download OpenVPN and enter the IP address ``139.229.195.251``. Connect to this IP.
 
-	.. image:: _static/images/openvpn1.png
+	.. image:: ../_static/images/openvpn1.png
 
 	3. Enter the credential given to you by IT
 
-	.. image:: _static/images/openvpn2.png
+	.. image:: ../_static/images/openvpn2.png
 
 	4. Connect to the server using the mac finder
 
-	.. image:: _static/images/openvpn3.png
+	.. image:: ../_static/images/openvpn3.png
 
 	5. Now in your finder window you will have access to the TSS-Share folder.
 
@@ -38,7 +38,7 @@ Accessing Nexus Repo
 
 	3. You should now be able to pull any of the repositories from the ``ts-dockerhub`` folder within https://repo-nexus.lsst.org/nexus/#browse/welcome. The one that this documentation is concerned with is ``tma_software``
 
-	.. image:: _static/images/nexus3server.png
+	.. image:: ../_static/images/nexus3server.png
 
 
 .. _hmi-login:
