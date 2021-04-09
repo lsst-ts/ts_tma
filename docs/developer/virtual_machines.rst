@@ -101,7 +101,7 @@ This is a useful simulator when you wish to verify that the EUI is installed and
    There should be an icon for the program on the Desktop.
 6) If you do not see the image below restart the machine, for a reason I do not know the VM has mal booted preventing NSV's from becoming available.
 
-.. image:: _static/images/NIDistributedSystemManager.png
+.. image:: ../../_static/images/NIDistributedSystemManager.png
 
 7) Double click the program ``ATSSimulatorsAndTools/SimulateTelemetry/SimulateTelemetry.exe`` this program is writing random values to the NSV's.
 8) Open the NI Distributed System Manager.
@@ -121,31 +121,31 @@ This is a quick way of verifying changes made to the commanding component, or in
 3) Download the file ``TSS-Share/TMA/VM_TMA-PXI.ova``
 4) Open Virtual box and navigate to "Host Network Manager"
 
-.. image:: _static/images/hostnetworkmanager.png
+.. image:: ../../_static/images/hostnetworkmanager.png
 
 5) Create a Host-only adapter using the configuration shown in the two images below, you will need only vboxnet0. 
 
-.. image:: _static/images/hostonlyadapter1.png
+.. image:: ../../_static/images/hostonlyadapter1.png
 
-.. image:: _static/images/hostonlyadapter2.png
+.. image:: ../../_static/images/hostonlyadapter2.png
 
 6) Import the VM_Axes.PXI.ova file.
 
-.. image:: _static/images/importPXI1.png
+.. image:: ../../_static/images/importPXI1.png
 
-.. image:: _static/images/importPXI2.png
+.. image:: ../../_static/images/importPXI2.png
 
 7) Select "Generate new MAC addresses for all network adapters" and import the virtual machine.
 
-.. image:: _static/images/importPXI3.png
+.. image:: ../../_static/images/importPXI3.png
 
 8) Ensure that under Network settings the virtual machine is using the Host Only adapter that we created.
 
-.. image:: _static/images/importPXI4.png
+.. image:: ../../_static/images/importPXI4.png
 
 9) The virtual machine should now be able to boot up and obtain an IP address within the range that we specified when configuring the Host only adapter
 
-.. image:: _static/images/importPXI5.png
+.. image:: ../../_static/images/importPXI5.png
 
 
 CentOS 7
