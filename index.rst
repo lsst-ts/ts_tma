@@ -49,7 +49,7 @@ General documentation that is referenced by :ref:`user-documentation` or :ref:`d
     docs_misc/documents.rst
     docs_misc/howto_credentials.rst
     docs_misc/server_list
-    
+    docs_misc/virtualbox_pas4000_connection.rst
 
 
 .. .. rubric:: References

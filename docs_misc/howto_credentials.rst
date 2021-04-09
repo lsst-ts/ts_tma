@@ -86,13 +86,15 @@ Windows 10
 ----------
 .. todo:: Fill out
 
-.. _changing-your-ip-windows10:
+.. _manually-setting-ip:
 
 Manually setting an IP address
 ==============================
 
 Manually setting the IP address of a machine is common practice when quickly setting up a network of computers together. When you manually set an IP address of a machine with the intention of enabling it to talk to another machine you need to be sure of two things. The first is you need to be sure that the IP of the two machines are on the same subnet. The second is that no two machines on the same subnet can occupy the same IP. Here are a few steps to help you manually configure the IP address depending on the OS of that machine.
 
+
+.. _manually-setting-ip-w10:
 
 Windows 10
 ----------
@@ -101,7 +103,7 @@ Windows 10
 2) Select "Network and Internet"
 3) Select "Network and Sharing Center"
 4) Select "Change adapter settings"
-5) Double click the adapter you wish to manually set the IP address for. Generally, the first adapter is for ethernet.
+5) Double click the adapter you wish to manually set the IP address for. Generally, the first adapter is for the VM to communicated to ethernet.
    Any adapters after that are for connecting to other hardware.
    In the case of this documentation, the second adapter is the one we want to manually set the adapter for. 
 6) Select "Properties", accept any dialogues boxes that ask you if you want to make changes. 
@@ -145,3 +147,5 @@ Change HHD IP Address
 =====================
 Locate the XML file ``HMIConfig.xml`` in the last ``/configuration`` directory of the software directory and then search for ``hhd`` and look for ``--hhd-ip`` option and change the address there.
 Then restart the EUI.
+
+
