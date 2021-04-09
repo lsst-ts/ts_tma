@@ -14,7 +14,7 @@ Turning on the CCW Aux Cabinet
 	#. Wait 2 minutes.
 	#. Restart the cRIO by pressing the reset button shown below.
 
-	.. figure:: ../_static/images/crio_reset_button.png
+	.. figure:: ../../_static/images/crio_reset_button.png
 	    :name: crio_reset_button
 
 	#. The cabinet is now powered on, which means the PC to operate the EUI is also powered on.
@@ -32,7 +32,7 @@ You can handle this by turning the pilz box on and off again.
 3. Plug it in again
 4. An array of green lights should come up
 
-.. figure:: ../_static/images/pilz_power_plug.jpg
+.. figure:: ../../_static/images/pilz_power_plug.jpg
 	:name: pilz_power_plug
 
 Power Cycling the PILZ box
@@ -46,7 +46,7 @@ A current work-around is to power cycle the box.
 
 The real solution is to check the wiring.
 
-.. figure:: ../_static/images/pilz_power_cycle.jpg
+.. figure:: ../../_static/images/pilz_power_cycle.jpg
 	:name: pilz_power_cycle
 
 Turning off the CCW Aux Cabinet

@@ -16,8 +16,8 @@ This documentation is intended for users of the software that may need to operat
     :maxdepth: 1
     :titlesonly:
     
-    docs_user/powering_on_ccw_aux_cabinet.rst
-    docs_user/operating_eui.rst
+    docs/user/powering_on_ccw_aux_cabinet.rst
+    docs/user/operating_eui.rst
 
     
 .. _developer-documentation:    
@@ -30,10 +30,10 @@ This documentation is intended for users who wish to make maintain, modify, or d
     :maxdepth: 1
     :titlesonly:
 
-    docs_developer/ats_deployment_guide.rst
-    docs_developer/installing_eui.rst
-    docs_developer/safety_interlocks.rst
-    docs_developer/virtual_machines.rst
+    docs/developer/ats_deployment_guide.rst
+    docs/developer/installing_eui.rst
+    docs/developer/safety_interlocks.rst
+    docs/developer/virtual_machines.rst
 
 
 Misc. Documentation
@@ -44,12 +44,12 @@ General documentation that is referenced by :ref:`user-documentation` or :ref:`d
     :maxdepth: 1
     :titlesonly:
 
-    docs_misc/acronyms.rst
-    docs_misc/configurations.rst
-    docs_misc/documents.rst
-    docs_misc/howto_credentials.rst
-    docs_misc/server_list
-    docs_misc/virtualbox_pas4000_connection.rst
+    docs/misc/acronyms.rst
+    docs/misc/configurations.rst
+    docs/misc/documents.rst
+    docs/misc/howto_credentials.rst
+    docs/misc/server_list
+    docs/misc/virtualbox_pas4000_connection.rst
 
 
 .. .. rubric:: References

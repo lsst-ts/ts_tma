@@ -14,9 +14,10 @@ Prerequisite
 
 Configure vm network
 ====================
-1. Identify which ethernet port on the host machine you will be using. My method of doing this is by doing ifconfig before plugging in the PILZ hardware into the host machine ethernet port.
+1. Identify which ethernet port on the host machine you will be using.
+My method of doing this is by doing ifconfig before plugging in the PILZ hardware into the host machine ethernet port.
 
-	.. figure:: ../_static/images/unpluggedPilz.jpg
+	.. figure:: ../../_static/images/unpluggedPilz.jpg
 
 ::
 
@@ -44,9 +45,10 @@ Configure vm network
 		TX packets 113922  bytes 14119031 (13.4 MiB)
 		TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-2. Then plug in the PILZ hardware into the ethernet port. Not that in the images shown, the PILZ and the Laptop are simply connect to a switch.
+2. Then plug in the PILZ hardware into the ethernet port.
+Not that in the images shown, the PILZ and the Laptop are simply connect to a switch.
 
-	.. figure:: ../_static/images/pluggedPilz.jpg
+	.. figure:: ../../_static/images/pluggedPilz.jpg
 
 ::
 
@@ -75,20 +77,32 @@ Configure vm network
 
 Notice that one of these entries now has "RUNNING" this is the physical ethernet port that is connected to the PILZ hardware.
 
-3. Knowing what physical ethernet port is connected to the PIlz hardware we can set the proper configurations to this card. Open virtualbox and import the windows 10 VM. If you are following these steps from a clean VM then apply these settings. If you are importing the windows 10 TMA virtualbox VM managed by Andrew Heyer then double check anyways to be sure these network settings have been imported properly. 
+3. Knowing what physical ethernet port is connected to the PIlz hardware we can set the proper configurations to this card.
+Open virtualbox and import the windows 10 VM.
+If you are following these steps from a clean VM then apply these settings.
+If you are importing the windows 10 TMA virtualbox VM managed by Andrew Heyer then double check anyways to be sure these network settings have been imported properly. 
 
-	.. figure:: ../_static/images/adapter1settings.png
+	.. figure:: ../../_static/images/adapter1settings.png
 	
-	.. figure:: ../_static/images/adapter2settings.png
+	.. figure:: ../../_static/images/adapter2settings.png
 
-4. The VM should now be able to connect to hardware who is also connected to the adapter we just set. Now we need to open the windows VM and manually set an IP. Take note of the ethernet port we identified and :ref:`manually set the IP address for it to 192.168.1.40<manually-setting-ip>`
+4. The VM should now be able to connect to hardware who is also connected to the adapter we just set.
+Now we need to open the windows VM and manually set an IP. 
+Take note of the ethernet port we identified and :ref:`manually set the IP address for it to 192.168.1.40<manually-setting-ip>`
 
-5. With the physical ethernet port set to the proper IP, the PAS4000 software should now be able to find it. Open the PAS4000 software, either by installing onto a clean windows 10 vm or if you are by importing the VM managed by Andrew Heyer it should already be installed. 
+5. With the physical ethernet port set to the proper IP, the PAS4000 software should now be able to find it. 
+Open the PAS4000 software, either by installing onto a clean windows 10 vm or if you are by importing the VM managed by Andrew Heyer it should already be installed. 
 
-6. Select a PAS4000 project or open a new one. For this exercise it doesn't matter since the scope of this documentation is to show how to succesffuly connect the PAS4000 VM running on a virtualmachine to PILZ hardware. If you do want to learn how to learn more about developing a PAS4000 project then click the help menu item and there is a tutorial that teaches you how to do so.
+6. Select a PAS4000 project or open a new one. 
+For this exercise it doesn't matter since the scope of this documentation is to show how to succesffuly connect the PAS4000 VM running on a virtualmachine to PILZ hardware. 
+If you do want to learn how to learn more about developing a PAS4000 project then click the help menu item and there is a tutorial that teaches you how to do so.
 
-7. Right click on the project, and activate. Enter whatever credentials you need to do this. Select Tools -> Online network editor. Select the ethernet port which is connected to the switch. Its probably ethernet 2.
+7. Right click on the project, and activate. 
+Enter whatever credentials you need to do this. 
+Select Tools -> Online network editor. Select the ethernet port which is connected to the switch. 
+Its probably ethernet 2.
 
-	.. image:: ../_static/images/onlineNetworkEditor.png
+	.. image:: ../../_static/images/onlineNetworkEditor.png
 
-8. Click ok, and select "scan project". Vuala! The PAS4000 software should now have communication to the PILZ hardware and you are all set for development.
+8. Click ok, and select "scan project". 
+Vuala! The PAS4000 software should now have communication to the PILZ hardware and you are all set for development.

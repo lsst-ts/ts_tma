@@ -25,7 +25,7 @@ Disconnecting the CCW Interlock Systems from Rotator
 	One connection leads to the Rotator, the other connection is a standalone connection that is tied to the CCW Auxiliary Control Cabinet.
 	Below circled in red are the connections.
 
-	.. figure:: ../_static/images/safety_interlock_connections.jpg
+	.. figure:: ../../_static/images/safety_interlock_connections.jpg
 	    :name: safety_interlock_connections
 
 	2. Connect the Standalone Safety Interlock connector into the CCW Auxiliary
@@ -33,7 +33,7 @@ Disconnecting the CCW Interlock Systems from Rotator
 
 	3. Wire the removed Safety Interlock cable that is now only connected to the Rotator cabinet as described below
 
-	.. figure:: ../_static/images/safety_interlock_standalone_interface.png
+	.. figure:: ../../_static/images/safety_interlock_standalone_interface.png
 	    :name: safety_interlock_standalone_interface
 
 
