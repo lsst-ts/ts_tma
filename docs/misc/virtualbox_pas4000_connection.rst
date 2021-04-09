@@ -4,7 +4,9 @@
 Virtualbox PAS4000 Connection
 #############################
 
-The PILZ development software known as PAS4000 must run on a windows machine. Since I greatly dislike windows, I used a CentOS7 host machine running a windows 10 virtualmachine to run PAS4000. What you will learn on this document is how to get connectivity from the PAS4000 running on a virtualmachine to your PILZ hardware.
+The PILZ development software known as PAS4000 must run on a windows machine. 
+Since I greatly dislike windows, I used a CentOS7 host machine running a windows 10 virtualmachine to run PAS4000.
+What you will learn on this document is how to get connectivity from the PAS4000 running on a virtualmachine to your PILZ hardware.
 
 Prerequisite
 ============
@@ -105,4 +107,4 @@ Its probably ethernet 2.
 	.. image:: ../../_static/images/onlineNetworkEditor.png
 
 8. Click ok, and select "scan project". 
-Vuala! The PAS4000 software should now have communication to the PILZ hardware and you are all set for development.
+Voila! The PAS4000 software should now have communication to the PILZ hardware and you are all set for development.
