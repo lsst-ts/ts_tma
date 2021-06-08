@@ -1,26 +1,56 @@
 
+###########
 Description
-===========
-The vendor for the TMA is Tekniker. They will be providing a  PDF documents for operating the TMA. In an effort to have consistency across software documentation I will be transcibing the TMA documents onto this TMA Technote. 
+###########
+The vendor of the TMA, Tekniker, has been providing documentation for many parts.
+This web version is created so that this documentation becomes transparent and easier to update.
+
+
+.. _user-documentation:
+
+User Documentation
+==================
+This documentation is intended for users of the software that may need to operate the TMA on the summit.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :numbered:
+    
+    docs/user/powering_on_ccw_aux_cabinet.rst
+    docs/user/operating_eui.rst
 
-    acronyms
-    ccw_aux_cabinet
-    ccw_operation
-    configurations.rst
-    credentials.rst
-    documents.rst
-    installing_eui.rst
-    safety_interlocks
-    server_list
     
-    ats_deployment_guide.rst
+.. _developer-documentation:    
+
+Developer Documentation
+=======================
+This documentation is intended for users who wish to make maintain, modify, or develop software for the TMA.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    docs/developer/ats_deployment_guide.rst
+    docs/developer/installing_eui.rst
+    docs/developer/safety_interlocks.rst
+    docs/developer/virtual_machines.rst
+
+
+Misc. Documentation
+===================
+General documentation that is referenced by :ref:`user-documentation` or :ref:`developer-documentation` or is unrelated to the two but still useful.
     
-    virtual_machines.rst
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    docs/misc/acronyms.rst
+    docs/misc/configurations.rst
+    docs/misc/documents.rst
+    docs/misc/howto_credentials.rst
+    docs/misc/server_list
+    docs/misc/virtualbox_pas4000_connection.rst
+
 
 .. .. rubric:: References
 
