@@ -6,8 +6,7 @@ ATS Deployment Guide
 
 Introduction
 ============
-This document describes the procedure run the automatic test system.
-The document will show the hardware configuration in section 3 and software deployment in section 4.
+This document describes the procedure to setup and run the automatic test system.
 
 
 Reference documents
@@ -42,16 +41,36 @@ Hardware configuration
 
 In this section the needed hardware and its configuration is explained.
 	
-Windows Machine
----------------
+Development PC
+--------------
 
-This is a Windows 10 machine where LabVIEW simulators and tools will run. Also, a specific tool to manage to simulator in the Speedgoat is implemented here.
-Nothing special is needed in this machine.
+This is a Windows 10 machine where LabVIEW simulators and tools will run.
+It is currently a Virtual Machine located on a hypervisor under the url tma-windows.ls.lsst.org.
+It can be accessed on the lsst-wap network or by using the anyconnect vpn.
+Access can be granted by filing an IHS ticket with IT.
+Also, a specific tool to manage to simulator in the Speedgoat is implemented here.
+
+**Labview**
+
+* Need to be granted access by IT to activate a license on the LabVIEW License Server located on lsst-pdm
+
+.. warning:: lsst-pdm is being replaced sometime in the future.
+	New location is yet to be determined.
+
+Tools needed:
+
+* LabVIEW 2018 SP1 - installer zips located on Pavo
+* LabVIEW License manager - downloadable on NI website
+* JKI LabVIEW VI Package Manager - JKI account needed
+* NI MAX
+* LabVIEW packages listed in the table in section 4 of 3151_MCS_0036
+* VI packages listed in section 4
+* Tekniker made VIs - location of the files to be solved eventually
 
 Speedgoat
 ---------
 
-The Speedgoat is used to simulate the main axis behavior in real time. 
+The Speedgoat is used to simulate the main axis behavior in real time.
 
 - Speedgoat
 
@@ -67,6 +86,12 @@ The Speedgoat is used to simulate the main axis behavior in real time.
 
 Software configuration will be downloaded using Tekniker made tool.
 
+Tools needed:
+
+* MatLab
+* Simulink
+* TBD
+
 PILZ CPU
 --------
 
@@ -81,24 +106,23 @@ The configuration of hardware is part of the project where the code is included,
 
 Software deployment
 ===================
-Each hardware has different software parts, and some hardware had more than one software part. In the following sections each hardware element is explained.
+Each hardware has different software and in some cases more than one running on it.
+In the following section, the software is installed on the computers.
 	
-Windows Machine
----------------
+TMA Windows
+-----------
 		
-In the Windows Machine some simulators and some tools are running. 
+In the Windows Machine some simulators and some tools are running.
 Start installing the Force EtherCAT Variables installer, that will install the LabVIEW runtime needed in many other tools and simulators.
-		
-Requirements
-^^^^^^^^^^^^
 
 Force EtherCAT Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^
-This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol. The value written using this tool will overwrite any set value, so any slave value will be overwritten with the written value.
+This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol.
+The value written using this tool will overwrite any set value, so any slave value will be overwritten with the written value.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars.
 
 Follow next steps to deploy this software:
-			
+
 1. If the installer is available continue to step 6
 2. Clone the repository in the link above
 3. Open the project ForceEtherCATVars.lvproj
@@ -112,7 +136,7 @@ Follow next steps to deploy this software:
 Read/Write Network Shared Variables Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This tool allows reading and writing data from network shared variables to other simulators and back using a TCP based custom protocol.
+This tool allows reading and writing data from network shared variables to other simulators and uses a TCP based custom protocol.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables
 
 Follow next steps to deploy this software:
@@ -121,7 +145,7 @@ Follow next steps to deploy this software:
 2. Clone the repository in the link above
 3. Open the project ReadVariables.lvproj
 4. Go to “Build Specifications” and right click in “Executable” to select “Build”
-5. When build finishes go to build folder and copy all files and folder 
+5. When build finishes go to build folder and copy all files and folder
 6. Paste compilation files to desired destination in Windows Machine
 7. Open the "data" folder and open "WriteReadVarConfig.xml".
 8. Change the path of the field TCP_configuration_file to point to TCP_ServerConfig.xml file in the same data folder.
@@ -226,7 +250,7 @@ The cabinets included in this simulator are:
 - TMA_EL_PD_CBT_0002 (Elevation Power Distribution 2)
 
 extensionSimulatorForDP
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the extensions of the deployable platforms, this simulator manages the digital inputs that tell the Safety system the status of the extensions of the deployable platforms.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/dpextensionssimulator
@@ -268,10 +292,13 @@ Follow next steps to deploy this software:
 1. Get the latest version of the compiled code from here: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/speedgoat/speedgoatmanagerbinaries
 2. Paste it to the windows machine
 
-Linux Machine
--------------
+TMA Centos
+----------
 		
 In the Linux Machine the secondary axis simulators and the robot framework tests are running.
+This is a Virtual Machine running on a hypervisor that is located under tma-centos.ls.lsst.org.
+It can be accessed either on the lsst-wap network or by using the anyconnect vpn.
+Access can be granted by filing an IHS ticket with Vera C. Rubin Observatory IT.
 
 secondaryAxisSil
 ^^^^^^^^^^^^^^^^
@@ -279,14 +306,16 @@ secondaryAxisSil
 This is a simulator for the secondary axes (bosch axes), this simulator contains a modbus server that connects to the TMA PXI to transmit the status of each of the axes.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissil
 
+Because of the use of certain internal libaries in the source code, download the compiled binaries from https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissilbinaries
+
 Follow the steps defined in the secondaryAxisSilREADME_.
 
 .. _secondaryAxisSilREADME: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissil/-/blob/master/README.md
 
 robotFramework
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
-This refers to the automatic test framework the installation steps to setup the environment for robot framework is explained here: https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework/-/wikis/Installation
+This refers to the automatic test framework the installation steps to setup the environment for robot framework is explained `here: <https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework/-/wikis/Installation>`_
 
 The source code and more documentation can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework
 
@@ -317,7 +346,6 @@ This is the PXI where the control code for all subsystems is running. To be able
 
 	.. figure:: ../../_static/images/TmaPxi_Test_BAL_TaskVI.png
 	    :name: Test VI for the balancing subsystem
-	    :target: http://target.link/url
 
 
 6. Run the VI
@@ -327,13 +355,13 @@ This is the PXI where the control code for all subsystems is running. To be able
  
  	.. figure:: ../../_static/images/TMAPXIpic3.png
 	    :name: TMA_PXI_pic3
-	    :target: http://target.link/url
 
 
 AXES PXI
-============
+========
 
-This is the PXI where the control code for the main axes is running. To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document 
+This is the PXI where the control code for the main axes is running.
+To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document
 
 1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
 2. Open the LSST_MainControllerPXI.lvproj.
@@ -343,13 +371,11 @@ This is the PXI where the control code for the main axes is running. To be able 
 
 	.. figure:: ../../_static/images/TMAPXIpic1.png
 	    :name: AXES_PXI_pic1
-	    :target: http://target.link/url
 	 
 	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
 
 	.. figure:: ../../_static/images/TMAPXIpic2.png
 	    :name: AXES_PXI_pic2
-	    :target: http://target.link/url
 
 4. Continue with steps 3.a to 3.c of the point 7.2 in the Deployment document.
 5. Open the MAIN_AxesPXI.vi
@@ -360,12 +386,11 @@ This is the PXI where the control code for the main axes is running. To be able 
  
  	.. figure:: ../../_static/images/TMAPXIpic3.png
 	    :name: AXES_PXI_pic3
-	    :target: http://target.link/url
 
 Safety code deployment
 ======================
 
-The code that runs on the PILZ controller to simulate the behaviour of the TMA IS.
+The code that runs on the PILZ controller to simulate the behaviour of the TMA Interlock System.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/testdualmodbus
 
 1. Open the "TestDualModbus" project with PAS4000 version 1.18.0
@@ -373,19 +398,16 @@ The source code and more documentation about configuration can be found in https
 
 	.. figure:: ../../_static/images/PASS4000activateProject.png
 	    :name: PASS4000activateProject
-	    :target: http://target.link/url
 
 3. Open the online network editor
 
 	.. figure:: ../../_static/images/PASS4000onlineNetworkEditor.png
 	    :name: PASS4000onlineNetworkEditor
-	    :target: http://target.link/url
 
 4. Scan project to scan the network to verify that the PILZ CPU is connected
 
 	.. figure:: ../../_static/images/PASS4000scan.png
 	    :name: PASS4000scan
-	    :target: http://target.link/url
 
 5. Close the online network editor
 6. Download the project
@@ -394,36 +416,30 @@ The source code and more documentation about configuration can be found in https
 
 	.. figure:: ../../_static/images/PASS4000downloadCode.png
 	    :name: PASS4000downloadCode
-	    :target: http://target.link/url
 
   If asked to build changes say YES
 
 	.. figure:: ../../_static/images/PASS4000buildChanges.png
 	    :name: PASS4000buildChanges
-	    :target: http://target.link/url
 
   b. Start download:
 
 	.. figure:: ../../_static/images/PASS4000startDownload.png
 	    :name: PASS4000startDownload
-	    :target: http://target.link/url
 
   c. Confirm download:
 
 	.. figure:: ../../_static/images/PASS4000confirmDownload.png
 	    :name: PASS4000confirmDownload
-	    :target: http://target.link/url
 
   d. Download completed:
 
 	.. figure:: ../../_static/images/PASS4000downloadCompleted.png
 	    :name: PASS4000downloadCompleted
-	    :target: http://target.link/url
 
 7. Logout:
 
 	.. figure:: ../../_static/images/PASS4000logout.jpg
 	    :name: PASS4000logout
-	    :target: http://target.link/url
 
 8. Close the PAS4000
