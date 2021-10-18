@@ -24,7 +24,7 @@ This documentation is intended for users of the software that may need to operat
 
 Developer Documentation
 =======================
-This documentation is intended for users who wish to make maintain, modify, or develop software for the TMA.
+This documentation is intended for users who wish to maintain, modify, or develop software for the TMA.
 
 .. toctree::
     :maxdepth: 1

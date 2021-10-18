@@ -50,7 +50,7 @@ The meat and potatoes of this configuration is to modify a configuration file to
 
 	1. Install the HMI, if you have not done so you can find the instructions here [TO DO]
 	#. Speak with IT to get access to the network server called "Pavo"
-	#. Copy the folder named "Tekniker Software" onto your local computer. This folder contains Intellection Property from our vendor, remember not to share this software.
+	#. Copy the folder named "Tekniker Software" onto your local computer. This folder contains Intellectual Property from our vendor, remember not to share this software.
 	#. On a Windows machine copy NSV Simulator from the Tekniker Software folder onto the local computer.
 	#. Identify the IP Address of the Windows machine. The IP address that I set my windows machine to is 192.168.1.11. Manually set yours if you need to.
 	#. Identify the IP Address of the CentOS machine which is running the HMI. I manually set mine to be 192.168.1.10. Manually set yours if you need to. 
