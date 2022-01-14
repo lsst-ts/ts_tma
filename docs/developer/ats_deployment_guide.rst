@@ -2,11 +2,10 @@
 ATS Deployment Guide
 ####################
 
-.. contents:: Table of Contents
-
 Introduction
 ============
 This document describes the procedure to setup and run the automatic test system.
+This assumes that the machine is freshly provisioned.
 
 
 Reference documents
@@ -23,18 +22,6 @@ Reference documents
 	  - Deployment document
 	  - 3151_MCS_0036
 	  - 1.0
-	* -
-	  -
-	  -
-	  -
-	* -
-	  -
-	  -
-	  -
-
-
-.. todo::
-    obtain the table information from the ts_xml table
 
 Hardware configuration
 ======================
@@ -46,13 +33,13 @@ Development PC
 
 This is a Windows 10 machine where LabVIEW simulators and tools will run.
 It is currently a Virtual Machine located on a hypervisor under the url tma-windows.ls.lsst.org.
-It can be accessed on the lsst-wap network or by using the anyconnect vpn.
+It can be accessed on the lsst-wap network or by using the anyconnect or openconnect vpn.
 Access can be granted by filing an IHS ticket with IT.
-Also, a specific tool to manage to simulator in the Speedgoat is implemented here.
+Also, a specific tool to manage to simulator in the Speedgoat is running here.
 
 **Labview**
 
-* Need to be granted access by IT to activate a license on the LabVIEW License Server located on lsst-pdm
+* Need your NI account to be granted access by IT to activate a license on the LabVIEW License Server located on lsst-pdm
 
 .. warning:: lsst-pdm is being replaced sometime in the future.
 	New location is yet to be determined.
@@ -60,9 +47,9 @@ Also, a specific tool to manage to simulator in the Speedgoat is implemented her
 Tools needed:
 
 * LabVIEW 2018 SP1 - installer zips located on Pavo
-* LabVIEW License manager - downloadable on NI website
+* LabVIEW License manager - location TBD version should be <= 4.0
 * JKI LabVIEW VI Package Manager - JKI account needed
-* NI MAX
+* NI MAX - included with LabVIEW
 * LabVIEW packages listed in the table in section 4 of 3151_MCS_0036
 * VI packages listed in section 4
 * Tekniker made VIs - location of the files to be solved eventually
@@ -88,9 +75,9 @@ Software configuration will be downloaded using Tekniker made tool.
 
 Tools needed:
 
-* MatLab
+* MatLab 2020a
 * Simulink
-* TBD
+* Speedgoat IO libraries
 
 PILZ CPU
 --------
@@ -106,7 +93,7 @@ The configuration of hardware is part of the project where the code is included,
 
 Software deployment
 ===================
-Each hardware has different software and in some cases more than one running on it.
+Each machine has different software running on them.
 In the following section, the software is installed on the computers.
 	
 TMA Windows
@@ -123,14 +110,13 @@ The source code and more documentation about configuration can be found in https
 
 Follow next steps to deploy this software:
 
-1. If the installer is available continue to step 6
-2. Clone the repository in the link above
-3. Open the project ForceEtherCATVars.lvproj
-4. Go to “Build Specifications” and right click in “ForceIOs” to select “Build”
-5. Go to “Build Specifications” and right click in “ForceEtherCatVars Installer” to select “Build”
-6. When compilation is finished, open location and copy the “Volume” folder to Windows Machine
-7. Install the tool using the “install.exe”
-8. Run ForceIOs.exe.
+1. Clone the repository https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars
+2. Open the project ForceEtherCATVars.lvproj
+3. Go to “Build Specifications” and right click in “ForceIOs” to select “Build”
+4. Go to “Build Specifications” and right click in “ForceEtherCatVars Installer” to select “Build”
+5. When compilation is finished, open location and copy the “Volume” folder to Windows Machine
+6. Install the tool using the “install.exe”
+7. Run ForceIOs.exe.
 		
 
 Read/Write Network Shared Variables Tool
@@ -141,15 +127,14 @@ The source code and more documentation about configuration can be found in https
 
 Follow next steps to deploy this software:
 
-1. If the installer or executable is available continue to step 6 
-2. Clone the repository in the link above
-3. Open the project ReadVariables.lvproj
-4. Go to “Build Specifications” and right click in “Executable” to select “Build”
-5. When build finishes go to build folder and copy all files and folder
-6. Paste compilation files to desired destination in Windows Machine
-7. Open the "data" folder and open "WriteReadVarConfig.xml".
-8. Change the path of the field TCP_configuration_file to point to TCP_ServerConfig.xml file in the same data folder.
-9. Run ReadWriteNSVs.exe
+1. Clone the repository https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables
+2. Open the project ReadVariables.lvproj
+3. Go to “Build Specifications” and right click in “Executable” to select “Build”
+4. When build finishes go to build folder and copy all files and folder
+5. Paste compilation files to desired destination in Windows Machine
+6. Open the "data" folder and open "WriteReadVarConfig.xml".
+7. Change the path of the field TCP_configuration_file to point to TCP_ServerConfig.xml file in the same data folder.
+8. Run ReadWriteNSVs.exe
 
 This tool is used for reading the variables from 3 different hosts the configuration for each of the instances can be found here: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables/-/tree/develop/Configuration
 
@@ -165,13 +150,12 @@ The source code and more documentation about configuration can be found in https
 
 Follow next steps to deploy this software:
 
-1. If the installer or executable is available continue to step 6 
-2. Clone the repository in the link above
-3. Open the project BoschPowerSupplySimulator.lvproj
-4. Go to “Build Specifications” and right click in “Executable” to select “Build”
-5. When build finishes go to build folder and copy all files and folder 
-6. Paste compilation files to desired destination in Windows Machine
-7. Run BoschPowerSupplySimulator.exe
+1. Clone the repository https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/boschpowersupply/boschpowersupplysimulator
+2. Open the project BoschPowerSupplySimulator.lvproj
+3. Go to “Build Specifications” and right click in “Executable” to select “Build”
+4. When build finishes go to build folder and copy all files and folder 
+5. Paste compilation files to desired destination in Windows Machine
+6. Run BoschPowerSupplySimulator.exe
 
 motorThermalModelSimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -181,13 +165,12 @@ The source code and more documentation about configuration can be found in https
 
 Follow next steps to deploy this software:
 
-1. If the installer or executable is available continue to step 6 
-2. Clone the repository in the link above
-3. Open the project motorThermalModelSimulator.lvproj
-4. Go to “Build Specifications” and right click in “Executable” to select “Build”
-5. When build finishes go to build folder and copy all files and folder 
-6. Paste compilation files to desired destination in Windows Machine
-7. Run motorThermalModelSimulator.exe
+1. Clone the repository in the link above https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/motorthermalmodel/motorthermalmodelsimulator
+2. Open the project motorThermalModelSimulator.lvproj
+3. Go to “Build Specifications” and right click in “Executable” to select “Build”
+4. When build finishes go to build folder and copy all files and folder 
+5. Paste compilation files to desired destination in Windows Machine
+6. Run motorThermalModelSimulator.exe
 
 PhasePowerSupplySimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -281,6 +264,26 @@ Follow next steps to deploy this software:
 6. Paste compilation files to desired destination in Windows Machine
 7. Run OilSupplySystemSimulator.exe
 
+.. _deploy-speedgoat:
+
+Speedgoat
+^^^^^^^^^
+This provides the motion model for the TMA using specialized hardware.
+The Speedgoat Manager will handle loading the model and managing the configurations.
+
+1. Install matlab 2020a with the following dependencies
+
+	* Simulink
+	* Simulink Real Time
+	* Simulink coder
+	* Matlab Coder
+
+2. `Install Speedgoat IO for Matlab 2020a <https://www.speedgoat.com/help/slrt/page/configuration/refentry_host_software_installation>`_
+3. Run the `slrtexplorer` command in matlab
+4. Configure it to look for the target's ip address as 192.168.17.1
+5. Clone the model repository
+6. Run the model
+
 SpeedgoatManager
 ^^^^^^^^^^^^^^^^^
 
@@ -290,7 +293,8 @@ The source code and more documentation about configuration can be found in https
 Follow next steps to deploy this software:
 
 1. Get the latest version of the compiled code from here: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/speedgoat/speedgoatmanagerbinaries
-2. Paste it to the windows machine
+2. Change the ip address setting to become the windows machine's ip address
+3. Paste it to the windows machine
 
 TMA Centos
 ----------
@@ -319,11 +323,16 @@ This refers to the automatic test framework the installation steps to setup the 
 
 The source code and more documentation can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework
 
+HMI
+===
+
+See :ref:`hmi-virtual-machine` for running the HMI and operation manager docker container.
+
 
 TMA PXI
 =======
 
-This is the PXI where the control code for all subsystems is running. To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document 
+This is the PXI where the control code for all subsystems is running. To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document.
 		
 1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
 2. Open the LSST_MainControllerPXI.lvproj.

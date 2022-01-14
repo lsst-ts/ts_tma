@@ -9,7 +9,7 @@ In this document you will find what these various configuration are for and how 
 
 
 .. todo::
-   provide more details to 
+   provide more details to configure things.
 
 Humane Machine Interface
 ========================
@@ -61,10 +61,10 @@ The meat and potatoes of this configuration is to modify a configuration file to
 	6. Open HMICOmputers/Configuration/HMIConfig.xml. This file contains paths, IP Addresses, and locations to various elements of the HMI. 
 
 	#. Look for a tag named <ErrorTaskDirectoryPath dim='[5]' type='String'>. There will be a series of <String> tags below. These series of tags make a path to the ErrorHistory folder. Modify these strings to the path of your local machine. Don't forget to update the integer value '5' if you change the number of <String> tags.
-	#. Look for a tag named <TMA_Management_Linux_Options mems="3">. There will be a nested tag named <Working_Path type="Path">/home/Andrew/gitrepos/lsst/tma_management/build</Working_Path>. Modify this path to the path of your local machine.
-	#. Look for a tag named <WindowTelemetryDirectoryPath dim='[5]' type='String'>. There will be a series of <String> tags below. These series of tags make a path to the WindowsLogging folder. Modify these strings to the path of your local machine. Don't forget to update the integer value '5' if you change the number of <String> tags. We are done editing this file, save and close. 
+	#. Look for a tag named ``<TMA_Management_Linux_Options mems="3">``. There will be a nested tag named ``<Working_Path type="Path">/home/Andrew/gitrepos/lsst/tma_management/build</Working_Path>``. Modify this path to the path of your local machine.
+	#. Look for a tag named ``<WindowTelemetryDirectoryPath dim='[5]' type='String'>``. There will be a series of ``<String>`` tags below. These series of tags make a path to the WindowsLogging folder. Modify these strings to the path of your local machine. Don't forget to update the integer value '5' if you change the number of ``<String>`` tags. We are done editing this file, save and close. 
 
-	#. Open HMIComputers/Configuration/HMITelemetryVariablesURLs.ini. This file contains URL's, IP's, and other configuration tags.
+	#. Open ``HMIComputers/Configuration/HMITelemetryVariablesURLs.ini``. This file contains URL's, IP's, and other configuration tags.
 	#. Do a global search for 10.1.22.154 and replace these with the IP address of the Windows machine running the NSV Simulator. In my case I will be replacing them with 192.168.1.11. At the time of writing this document there are 1116 occurances when doing a global search and replace. 
 	#. Do a global search for 192.168.209.10 and replace these with the IP address of the Windows machine running the NSV Simulator. In my case I will be replacing them with 192.168.1.11. At the time of writing this document there are 282 occurances when doing a global search and replace.
 
@@ -77,11 +77,11 @@ Installing PXI
 
 1) Install a git tool, I use source tree
 2) git pull the PXI software onto the windows machine
-3) Download Tekniker Labview Libraries by clinging https://gitlab.tekniker.es/aut/libraries/labview/labview
+3) Download Tekniker Labview Libraries by cloning https://gitlab.tekniker.es/aut/libraries/labview/labview
 4) Checkout branch LV_2018
 5) copy files in the local folder including the .git folder to National Instruments/LabVIEW2019
 6) Select the preselected option that Labview asks to load
 7) Cancel when labview cannot find the HMI module
 8) Cancel when labview cannot find the DatabaseSettingsConfig.ctl
 9) Cancel when labview cannot find the Axis Data.ctl
-10) When labview asks to find FGV_BasicFGVAction.ctl find it my navigating to Program Files (x86)\National Instruments\LabVIEW 2019\templates\TeknikerTemplates\_controles
+10) When labview asks to find FGV_BasicFGVAction.ctl find it my navigating to ``Program Files (x86)\National Instruments\LabVIEW 2019\templates\TeknikerTemplates\_controles``

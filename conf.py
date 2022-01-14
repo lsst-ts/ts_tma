@@ -10,3 +10,5 @@ project = "ts-tma"
 html_theme_options["logotext"] = project
 html_title = project
 html_short_title = project
+extensions += ["sphinx.ext.autosectionlabel"]
+autosectionlabel_prefix_document = True

@@ -48,3 +48,8 @@ Changing Settings
 #. In the column next to :guilabel:`Value` it should change to the color red for modified.
 #. In the right-most top-most column under :guilabel:`Control` click :guilabel:`Write` under :guilabel:`Apply Changes temporarily`
 #. In the column that changed to red it should become orange for written.
+
+Moving the CCW
+==============
+
+.. todo:: Write this section

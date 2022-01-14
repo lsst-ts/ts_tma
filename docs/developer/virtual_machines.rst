@@ -159,7 +159,7 @@ However, much of the software requires that you interact with a GUI.
 As a result instructions the pre-requisites for getting the software running requires that you have an X11 Server configured so that you may open windows from the Docker container.
 The other odd-ball pre-requisite is that the Docker container has software which is proprietary.
 This then requires the software to be hosted in a private Docker hub, at the time of writing this the Rubin Observatory project is using a Nexus3 hosting platform for private Docker containers.
-In order to access this Nexus3 repository you need to gain access by talking to the IT department.
+In order to access this Nexus3 repository you need to gain access by filing a ticket with the IT department.
 
 1) Install Docker
 #) Install an X11 Server for your OS, :ref:`configure_x11`

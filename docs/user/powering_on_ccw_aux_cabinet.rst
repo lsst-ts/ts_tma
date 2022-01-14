@@ -1,6 +1,6 @@
-###########################
-Powering On CCW Aux Cabinet
-###########################
+###############
+CCW Aux Cabinet
+###############
 
 Below you will find useful instructions when working on CCW Auxiliary Cabinet.
 Keep in mind this cabinet is only temporary to allow independent operation of the CCW from the other elements of the TMA.
