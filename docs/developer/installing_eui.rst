@@ -10,9 +10,10 @@ This page contains instructions for installing the HMI from scratch.
 
 .. note::
 	Steps from : to : have been completed on a CentOS Docker image here.
-	You must manually complete the image by following steps : to :. Then, on a separate container : to :. 
+	You must manually complete the image by following steps after the install Labview Package manager section.
+	Then follow the instructions to install the MariaDB image.
 
-	This will complete the HMI, you can then using the Windows Virtual Machin here to host your NSV's.
+	This will complete the installation of the HMI, you can then use the Windows Virtual Machine to host your NSV's.
 
 
 .. _HMI-installation-prereqs:
@@ -21,9 +22,9 @@ Pre-requisites
 ==============
 1. Obtain Tekniker Install files.
 
-	#. Speak with IT to get acces to the network server called "Pavo"
-	#. Copy the folder named "Tekniker Software" onto your local computer.
-	   This folder contains Intellection Property from our vendor, remember not to share this software.
+	#. File a ticket with IT to get access to the network server called "Pavo"
+	#. Copy the folder named "Tekniker Software" inside of the TSS Share folder onto your local computer.
+	   This folder contains Intellectual Property from our vendor, remember not to share this software.
 
 #. Install Git. 
 
@@ -102,7 +103,7 @@ Install LabVIEW and dependencies
 		#. Copy LabVIEW2018 from the Tekniker Software folder onto your local computer.
 		#. Extract the file.
 		#. CD LabVIEW2018 
-		#. ./INSTALL say yes to everythin3/31/20g.
+		#. ./INSTALL say yes to everything.
 
 	#. Install Labview package manager https://vipm.jki.net/download, then install the following libraries. 
 
@@ -114,6 +115,7 @@ Install LabVIEW and dependencies
 
 		.. note::
 			 if it is your first time running labVIEW you will need to make sure the port on Labview 2018 is configured and has localhost.
+			 Activating the remote port on Labview is under the tool menu
 
 		#. ``OpenG Toolkit``, as of writing this has all but two dependencies installed.
 		   The uninstalled dependencies are ``OpenG Port IO`` and ``OpenG Toolkit``.
@@ -178,11 +180,14 @@ Install LabVIEW and dependencies
 	12.	Edit contrab file to execute the python code that generates the backups: 
 		``sudo crontab -e``
 	13.	Add the following lines (Note: that the paths may change for each specific installation.):
+		
 		.. code:: bash
 		
-		5 12 * * * /home/lsst/Documents/Docker/mariadb-docker/createbackup.pl
+			5 12 * * * /home/lsst/Documents/Docker/mariadb-docker/createbackup.pl
+		
 		.. code:: bash
 		
-		5 13 * * * docker run --rm -v /home/lsst/Documents/Docker/mariadb-docker/python:/script -v /home/lsst/Documents/Docker/mariadb-docker/backup:/backup python:3.7 python /script/main.py
+			5 13 * * * docker run --rm -v /home/lsst/Documents/Docker/mariadb-docker/python:/script -v /home/lsst/Documents/Docker/mariadb-docker/backup:/backup python:3.7 python /script/main.py
+	
 	14.	Save and exit crontab editor: 
 		``:wq``

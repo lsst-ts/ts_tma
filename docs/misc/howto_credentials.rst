@@ -88,7 +88,13 @@ CentOS7
 
 Windows 10
 ----------
-.. todo:: Fill out
+1. Type "Network" into the search bar
+2. Click the result that says "Network settings"
+3. Click "Details" underneath the wireless network info
+
+1. Open a terminal
+2. Type ``ifconfig``
+3. Look wlan or eth interface
 
 .. _manually-setting-ip:
 
