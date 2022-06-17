@@ -1,12 +1,12 @@
-#############
-Operating EUI
-#############
+#################
+Operating the EUI
+#################
 
 Below you will find instructions for operating the EUI.
 
 
-Operating EUI
-=============
+Starting the EUI
+================
 	#. Open a terminal window.
 	
 	.. prompt:: bash
