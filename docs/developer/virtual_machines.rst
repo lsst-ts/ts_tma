@@ -38,7 +38,7 @@ These are listed in order of complexity.
 NSV & HMI Simulation
 --------------------
 
-The NSV and HMI Simulation verifies that the NSV's (Network Shared Variables) are communicating between a Windows 10 virtual machine which is publishing the NSV's and a Docker container which is running the HMI (Human Machine Interface).
+The NSV and HMI Simulation verifies that the NSVs (Network Shared Variables) are communicating between a Windows 10 virtual machine which is publishing the NSV's and a Docker container which is running the HMI (Human Machine Interface).
 This HMI is the actual HMI which is running on the TMA, you can read more about the :ref:`human-machine-interface`.
 The Docker container you will be pulling is a CentOS7 machine where all the steps described in :ref:`human-machine-interface` have been completed and then exported for quick use.  
 
@@ -75,7 +75,7 @@ NSV, HMI & PXI Simulation
 
 Windows 10
 ==========
-Currently the Windows 10 virtual machine contains a simulator for the NSV's.  
+Currently the Windows 10 virtual machine contains a simulator for the NSVs.  
 
 Pre-requisites
 --------------
@@ -200,3 +200,74 @@ The command which worked for a linux user is ``sudo docker run -it --net=host --
 #) Click the run arrow.
 #) Login using the :ref:`hmi-login` for credentials.
 #) Done!
+
+NI Linux RT
+===========
+This is how we create a VM that runs NI's Real Time Linux OS.
+
+1. Grab the recovery image from the labview RT Images folder
+#. Create a VM using Virtual Box
+
+.. figure:: /_static/images/tma-vm-system-settings.png
+   
+   The system settings for the VM.
+
+#. Make sure that the EFI option is enabled otherwise the VM will not boot correctly.
+
+.. figure:: /_static/images/tma-vm-network-settings.png
+
+   The network settings for the VM.
+
+#. Set the network adapter to use bridged mode for both ethernet cards.
+#. Start the installer
+#. Follow the installer instructions, just click ``y``.
+#. Reboot the VM
+
+.. figure:: /_static/images/tma-vm.png
+
+   A successful VM start.
+
+To finish the installation, use the NI MAX software to configure the "PXI".
+This will setup and install the necessary configurations to setup the device.
+Also change the host name to "TMA-PXI" or "AXES-PXI" depending on which one has not yet been created.
+
+After installing the OS, we now install and configure the ethercat library.
+
+1. Clone the `ethercat library <https://gitlab.com/etherlab.org/ethercat>`_.
+2. Download and install the automake and autoconf packages using the opkg manager.
+
+
+.. prompt:: bash
+
+   ./configure
+   make
+   make modules
+
+Then copy the configuration files to the appropriate locations
+
+.. prompt:: bash
+
+   cd /opt/ethercat
+   cp etc/sysconfig/ethercat /etc/sysconfig
+   ln -s etc/init.d/ethercat /etc/init.d/
+
+Now edit the configuration file located at :file:`/etc/sysconfig/ethercat` to update the main ethercat card's MAC Address.
+
+.. code:: 
+
+   MASTER0_DEVICE = "ff:ff:ff:ff:ff:ff" # fill out with ethercat supported card
+
+And then fill out the device drivers for the child devices.
+
+.. code:: 
+
+   DEVICE_MODULES="" # fill out with the particular driver 
+   # Possible values : 8139 too , e100 , e1000 , e1000e , r8169 , generic , ccat , igb . Choose generic if unknown
+
+Then start the ethercat service.
+
+.. prompt:: bash
+
+   /etc/init.d/ethercat start
+
+Then you can start installing the :ref:`PXI controller software <docs/developer/ats_deployment_guide:tma pxi>`.

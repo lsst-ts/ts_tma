@@ -39,20 +39,17 @@ Also, a specific tool to manage to simulator in the Speedgoat is running here.
 
 **Labview**
 
-* Need your NI account to be granted access by IT to activate a license on the LabVIEW License Server located on lsst-pdm
-
-.. warning:: lsst-pdm is being replaced sometime in the future.
-	New location is yet to be determined.
+* You need your NI account to be granted access by IT to activate a license on the LabVIEW License Server located on nlm-labview-1.lsst.org
 
 Tools needed:
 
-* LabVIEW 2018 SP1 - installer zips located on Pavo
-* LabVIEW License manager - location TBD version should be <= 4.0
-* JKI LabVIEW VI Package Manager - JKI account needed
+* LabVIEW 2020 - installer zips located on Pavo or on NI's website with NI SSP enabled account
+* LabVIEW License manager - Download on NI's website
+* JKI LabVIEW VI Package Manager - JKI account needed - Free edition is good enough
 * NI MAX - included with LabVIEW
-* LabVIEW packages listed in the table in section 4 of 3151_MCS_0036
-* VI packages listed in section 4
-* Tekniker made VIs - location of the files to be solved eventually
+* LabVIEW packages listed in the table in section 4 of 3151_MCS_0036 - All of the packages that the installer comes with except for NI statemachine which is now a VIPM package.
+* VI packages listed in section 4 of the deployment document
+* Tekniker made VIs - https://github.com/lsst-ts/ts_tekniker_labview_template *private repo*
 
 Speedgoat
 ---------
@@ -77,7 +74,7 @@ Tools needed:
 
 * MatLab 2020a
 * Simulink
-* Speedgoat IO libraries
+* Speedgoat IO libraries - `Found on speedgoat's website using a speedgoat account <https://www.speedgoat.com/desktopmodules/2sxc/api/app/SpeedgoatExtranet/api/Downloads/DownloadFile?FolderName=Q1ioLpQTXkicnnUD5ML3Sw&fileName=speedgoat_io_blockset_9_4_0_3_R2020a_build_26200.zip>`_
 
 PILZ CPU
 --------
@@ -106,7 +103,7 @@ Force EtherCAT Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^
 This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol.
 The value written using this tool will overwrite any set value, so any slave value will be overwritten with the written value.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars.
+The source code and more documentation about configuration can be found in `forceethercatvars(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars>`_.
 
 Follow next steps to deploy this software:
 
@@ -123,7 +120,7 @@ Read/Write Network Shared Variables Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This tool allows reading and writing data from network shared variables to other simulators and uses a TCP based custom protocol.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables
+The source code and more documentation about configuration can be found in `readvariables(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables>`_.
 
 Follow next steps to deploy this software:
 
@@ -146,7 +143,7 @@ BoschPowerSupplySimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the bosch power supply, this simulator manages the digital inputs that tell the TMA PXI the status of the power supply.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/boschpowersupply/boschpowersupplysimulator
+The source code and more documentation about configuration can be found in `boschpowersupplysimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/boschpowersupply/boschpowersupplysimulator>`_
 
 Follow next steps to deploy this software:
 
@@ -160,8 +157,8 @@ Follow next steps to deploy this software:
 motorThermalModelSimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a simulator for the thermal behaviour of the phase motors, this simulator manages the analog inputs that tell the TMA PXI the temperatures of the motors and uses this values to control the output signal of the valve to manage the temperature of them.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/motorthermalmodel/motorthermalmodelsimulator
+This is a simulator for the thermal behavior of the phase motors, this simulator manages the analog inputs that tell the TMA PXI the temperatures of the motors and uses this values to control the output signal of the valve to manage the temperature of them.
+The source code and more documentation about configuration can be found in `motorthermalmodelsimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/motorthermalmodel/motorthermalmodelsimulator>`_.
 
 Follow next steps to deploy this software:
 
@@ -176,7 +173,7 @@ PhasePowerSupplySimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the phase power supply, this simulator manages the analog inputs that tell the TMA PXI the status of the power supply.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/phasepowersupply/phasepowersupplysimulator
+The source code and more documentation about configuration can be found in `phasepowersupplysimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/phasepowersupply/phasepowersupplysimulator>`_.
 
 Follow next steps to deploy this software:
 
@@ -191,8 +188,9 @@ Follow next steps to deploy this software:
 Simulate limits
 ^^^^^^^^^^^^^^^
 
-This software allows to simulate the behavior of some subsystem limits switches. Those limits could be part of safety system or EtherCAT distributed IOs.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/simulatelimits
+This software allows to simulate the behavior of some subsystem limit switches.
+Those limits could be part of safety system or EtherCAT distributed IOs.
+The source code and more documentation about configuration can be found in `simulatelimits(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/simulatelimits>`_.
 
 Follow next steps to deploy this software:
 
@@ -204,14 +202,15 @@ Follow next steps to deploy this software:
 6. Paste compiled files to desired destination in the Windows Machine
 7. Open the "data" folder and open "GeneralConfiguration.xml" 
 8. Change the first path of the field TCP_senders_configuration_Path to point to ForceECATVars_TCP_SenderConfig.xml file in the same data folder.
-9. Change dim='[X]' to dim='[1]' for "TCP_senders_configuration_Path" and for "LimitsDefinition" tags. We are only using the first configured limit becauseyou need the safety full simulator with PILZ hardware to use other limits, When you get this hardware (perhaps you have one on the submit) we can download code to it and use those other limits.
+9. Change dim='[X]' to dim='[1]' for "TCP_senders_configuration_Path" and for "LimitsDefinition" tags. 
+   We are only using the first configured limit because you need the safety full simulator with PILZ hardware to use other limits, when you get this hardware (perhaps you have one on the submit) we can download code to it and use those other limits.
 10. Run SimulateLimits.exe
 
 cabinetTemperatureControllerSimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the temperature controller of the cabinets, this simulator contains the simulator of the different temperature controllers available all over the telescope.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/cabinettemperaturecontroller/cabinet-az0001
+The source code and more documentation about configuration can be found in `cabinet-az0001(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/cabinettemperaturecontroller/cabinet-az0001>`_.
 
 Follow next steps to deploy this software:
 
@@ -236,7 +235,7 @@ extensionSimulatorForDP
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the extensions of the deployable platforms, this simulator manages the digital inputs that tell the Safety system the status of the extensions of the deployable platforms.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/dpextensionssimulator
+The source code and more documentation about configuration can be found in `dpextensionssimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/dpextensionssimulator>`_.
 
 Follow next steps to deploy this software:
 
@@ -252,7 +251,7 @@ OilSupplySystemSimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the Oil Supply System (OSS), this simulator contains a modbus server that connects to the TMA PXI to transmit the status of the OSS.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/oilsupplysystem/oilsupplysystemsimulator
+The source code and more documentation about configuration can be found in `oilsupplysystemsimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/oilsupplysystem/oilsupplysystemsimulator>`_.
 
 Follow next steps to deploy this software:
 
@@ -264,12 +263,11 @@ Follow next steps to deploy this software:
 6. Paste compilation files to desired destination in Windows Machine
 7. Run OilSupplySystemSimulator.exe
 
-.. _deploy-speedgoat:
-
-Speedgoat
-^^^^^^^^^
+Deploy Speedgoat
+^^^^^^^^^^^^^^^^
 This provides the motion model for the TMA using specialized hardware.
 The Speedgoat Manager will handle loading the model and managing the configurations.
+Before starting to deploy the model, make sure that the :ref:`docs/developer/ats_deployment_guide:speedgoatmanager` is running.
 
 1. Install matlab 2020a with the following dependencies
 
@@ -282,10 +280,10 @@ The Speedgoat Manager will handle loading the model and managing the configurati
 3. Run the `slrtexplorer` command in matlab
 4. Configure it to look for the target's ip address as 192.168.17.1
 5. Clone the model repository
-6. Run the model
+6. Build/deploy and run the model
 
 SpeedgoatManager
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 This is a simulator tool used for the robot framework tests to connect to the Speedgoat.
 The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/speedgoat
@@ -332,7 +330,12 @@ See :ref:`hmi-virtual-machine` for running the HMI and operation manager docker 
 TMA PXI
 =======
 
-This is the PXI where the control code for all subsystems is running. To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document.
+The "PXI" is actually a desktop tower running Alma Linux 8 with a VM running NIRT Linux.
+
+You'll need to install the ethercat library and configure it correctly in order to see the CRIO client that's connected to the desktop server. See :ref:`docs/developer/virtual_machines:NI Linux RT`.
+
+This is the PXI where the control code for all subsystems is running.
+To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document.
 		
 1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
 2. Open the LSST_MainControllerPXI.lvproj.
@@ -349,9 +352,9 @@ This is the PXI where the control code for all subsystems is running. To be able
 	    :name: TMA_PXI_pic2
 
 4. Continue with steps 3.a to 3.c of the point 6.2 in the Deployment document.
-5. Open the RT_MCS_Main.vi (for testing the hole project)
+5. Open the RT_MCS_Main.vi (for testing the whole project)
 
-  a. To test just one subsystem some specific test VIs can be found inside the corresponding subsystem folder. For example the Balancing specific test VI shown bellow:
+  a. To test just one subsystem some specific test VIs can be found inside the corresponding subsystem folder. For example the Balancing specific test VI shown below:
 
 	.. figure:: ../../_static/images/TmaPxi_Test_BAL_TaskVI.png
 	    :name: Test VI for the balancing subsystem
@@ -368,6 +371,8 @@ This is the PXI where the control code for all subsystems is running. To be able
 
 AXES PXI
 ========
+
+The "PXI" is actually a desktop tower running Alma Linux 8 with a VM running NIRT Linux. See :ref:`docs/developer/virtual_machines:NI Linux RT`
 
 This is the PXI where the control code for the main axes is running.
 To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document
@@ -399,8 +404,8 @@ To be able to configure the AXES PXI, the development PC should be configured as
 Safety code deployment
 ======================
 
-The code that runs on the PILZ controller to simulate the behaviour of the TMA Interlock System.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/testdualmodbus
+The code that runs on the PILZ controller to simulate the behavior of the TMA Interlock System.
+The source code and more documentation about configuration can be found in `testdualmodbus(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/testdualmodbus>`_
 
 1. Open the "TestDualModbus" project with PAS4000 version 1.18.0
 2. Activate the "TestDualModbus"

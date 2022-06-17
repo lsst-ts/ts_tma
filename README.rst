@@ -11,7 +11,7 @@ ts-tma
 ======
 
 The vendor for the TMA is Tekniker.
-They will be providing a  PDF documents for operating the TMA.
+They will be providing PDF documents for operating the TMA.
 In an effort to have consistency across software documentation I will be transcribing the TMA documents onto this TMA Technote. 
 
 **Links:**
