@@ -330,7 +330,7 @@ See :ref:`hmi-virtual-machine` for running the HMI and operation manager docker 
 TMA PXI
 =======
 
-The "PXI" is actually a desktop tower running Alma Linux 8 with a VM running NIRT Linux.
+The "PXI" is actually a virtual machine on a vmware esxi hypervisor.
 
 You'll need to install the ethercat library and configure it correctly in order to see the CRIO client that's connected to the desktop server. See :ref:`docs/developer/virtual_machines:NI Linux RT`.
 
@@ -372,7 +372,7 @@ To be able to configure the TMA PXI, the development PC should be configured as 
 AXES PXI
 ========
 
-The "PXI" is actually a desktop tower running Alma Linux 8 with a VM running NIRT Linux. See :ref:`docs/developer/virtual_machines:NI Linux RT`
+The "PXI" is actually a virtual machine on an esxi hypervisor running NIRT Linux. See :ref:`docs/developer/virtual_machines:NI Linux RT`
 
 This is the PXI where the control code for the main axes is running.
 To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document
