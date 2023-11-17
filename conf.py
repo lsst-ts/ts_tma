@@ -3,7 +3,7 @@
 # Sphinx configuration file
 # see metadata.yaml in this repo to update document-specific metadata
 
-from documenteer.conf.pipelinespkg import *
+from documenteer.conf.guide import *
 
 
 project = "ts-tma"
