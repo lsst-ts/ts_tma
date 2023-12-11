@@ -12,30 +12,31 @@ Reference documents
 ===================
 
 .. list-table::
-	:header-rows: 1
+  :header-rows: 1
 
-	* - N°
-	  - Document
-	  - code
-	  - Version
-	* - 1
-	  - Deployment document
-	  - 3151_MCS_0036
-	  - 1.0
+  * - N°
+    - Document
+    - code
+    - Version
+  * - 1
+    - Deployment document
+    - 3151_MCS_0036
+    - 1.0
 
 Hardware configuration
 ======================
 
 In this section the needed hardware and its configuration is explained.
-	
+  
 Development PC
 --------------
 
 This is a Windows 10 machine where LabVIEW simulators and tools will run.
 It is currently a Virtual Machine located on a hypervisor under the url tma-windows.ls.lsst.org.
-It can be accessed on the lsst-wap network or by using the anyconnect or openconnect vpn.
+It uses RDP for remote access and is under the LDAP domain.
+It can be accessed on the lsst-wap network or by using the openconnect vpn.
 Access can be granted by filing an IHS ticket with IT.
-Also, a specific tool to manage to simulator in the Speedgoat is running here.
+Also, a specific tool to manage the model in the Speedgoat is running here.
 
 **Labview**
 
@@ -49,6 +50,7 @@ Tools needed:
 * NI MAX - included with LabVIEW
 * LabVIEW packages listed in the table in section 4 of 3151_MCS_0036 - All of the packages that the installer comes with except for NI statemachine which is now a VIPM package.
 * VI packages listed in section 4 of the deployment document
+* QMT database MySQL can be downloaded from the source repo.
 * Tekniker made VIs - https://github.com/lsst-ts/ts_tekniker_labview_template *private repo*
 
 Speedgoat
@@ -58,15 +60,14 @@ The Speedgoat is used to simulate the main axis behavior in real time.
 
 - Speedgoat
 
-	- Serial Number: 4539 (ItemID 109200)
-	- Options:
+  - Options:
 
-		- CPUCorei74200 (ItemID 109211)
-		- SSD500GB (ItemID 109048)
+    - CPUCorei74200 (ItemID 109211)
+    - SSD500GB (ItemID 109048)
 
 - Input/Output modules:
-	- Ethercat Slaves, IO750 (x2) (ItemID 2B7506)
-	- IO 306
+  - Ethercat Slaves, IO750 (x2) (ItemID 2B7506)
+  - IO 306
 
 Software configuration will be downloaded using Tekniker made tool.
 
@@ -84,7 +85,7 @@ This will be used to simulate and test safety software
 - PIlz PSSu 4000 ref 314070 
 - PSSu E F 4DI-T 
 - PSSu E F 4DO 0.5-T 
-	
+  
 The configuration of hardware is part of the project where the code is included, some configuration will be explained in section 4.
 
 
@@ -92,10 +93,10 @@ Software deployment
 ===================
 Each machine has different software running on them.
 In the following section, the software is installed on the computers.
-	
+  
 TMA Windows
 -----------
-		
+    
 In the Windows Machine some simulators and some tools are running.
 Start installing the Force EtherCAT Variables installer, that will install the LabVIEW runtime needed in many other tools and simulators.
 
@@ -103,18 +104,18 @@ Force EtherCAT Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^
 This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol.
 The value written using this tool will overwrite any set value, so any slave value will be overwritten with the written value.
-The source code and more documentation about configuration can be found in `forceethercatvars(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars>`_.
+The source code and more documentation about configuration can be found in :fab:`gitlab` `forceethercatvars <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars>`_.
 
 Follow next steps to deploy this software:
 
-1. Clone the repository https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars
+1. Clone the repository :fab:`gitlab` `forceethercatvars <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars>`_.
 2. Open the project ForceEtherCATVars.lvproj
 3. Go to “Build Specifications” and right click in “ForceIOs” to select “Build”
 4. Go to “Build Specifications” and right click in “ForceEtherCatVars Installer” to select “Build”
 5. When compilation is finished, open location and copy the “Volume” folder to Windows Machine
 6. Install the tool using the “install.exe”
 7. Run ForceIOs.exe.
-		
+    
 
 Read/Write Network Shared Variables Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -271,10 +272,10 @@ Before starting to deploy the model, make sure that the :ref:`docs/developer/ats
 
 1. Install matlab 2020a with the following dependencies
 
-	* Simulink
-	* Simulink Real Time
-	* Simulink coder
-	* Matlab Coder
+  * Simulink
+  * Simulink Real Time
+  * Simulink coder
+  * Matlab Coder
 
 2. `Install Speedgoat IO for Matlab 2020a <https://www.speedgoat.com/help/slrt/page/configuration/refentry_host_software_installation>`_
 3. Run the `slrtexplorer` command in matlab
@@ -296,7 +297,7 @@ Follow next steps to deploy this software:
 
 TMA Centos
 ----------
-		
+    
 In the Linux Machine the secondary axis simulators and the robot framework tests are running.
 This is a Virtual Machine running on a hypervisor that is located under tma-centos.ls.lsst.org.
 It can be accessed either on the lsst-wap network or by using the anyconnect vpn.
@@ -321,85 +322,140 @@ This refers to the automatic test framework the installation steps to setup the 
 
 The source code and more documentation can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework
 
+.. list-table:: Hostnames for the ATS
+  :widths: 50 50
+  :header-rows: 1
+
+  * - Name
+    - Host Name/IP Address
+  * - TMA PXI
+    - ats-tma-pxi01.ls.lsst.org (139.229.145.241)
+  * - AXES PXI
+    - ats-tma-axes-pxi.ls.lsst.org (139.229.145.242)
+  * - AUX PXI
+    - 139.229.145.238
+  * - PILZ
+    - tma-windows.ls.lsst.org (139.229.145.101)
+  * - HMI/MCC
+    - tma-centos.ls.lsst.org (139.229.145.102)
+
+
 HMI
 ===
 
-See :ref:`hmi-virtual-machine` for running the HMI and operation manager docker container.
+The HMI is installed as a LabVIEW runtime executable on the TMA CentOS machine.
+The operation manager is installed as an RPM package which leverages systemd service architecture.
 
 
 TMA PXI
 =======
 
-The "PXI" is actually a desktop tower running Alma Linux 8 with a VM running NIRT Linux.
+The PXI is a model 1086.
 
-You'll need to install the ethercat library and configure it correctly in order to see the CRIO client that's connected to the desktop server. See :ref:`docs/developer/virtual_machines:NI Linux RT`.
+Use NI-MAX to install NI Linux RT system image along with Variable Engine and Ethercat driver.
+
+Then create configuration directories and files using `this document <https://gitlab.tekniker.es/publico/3151-lsst/documentation/pxicontroller_documentation/-/blob/master/80%20DeployOnTargets/01%20TMA%20PXI.md?ref_type=heads>`_.
+
+.. prompt:: bash
+
+  mkdir -p /c/Configuration/CAR_TCP /c/Configuration/DiscreteStateReporting /c/Configuration/EIB /c/Configuration/Safety /c/Configuration/TekNSVs /c/Configuration/axisManagementComm
+
+Find the files under the `ESIfiles` directory of the PXIController repo.
+Most of the folders match the names on the cRIO.
+Some of the files have the suffix ForATS and those are the ones that you want to copy.
 
 This is the PXI where the control code for all subsystems is running.
 To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document.
-		
+    
 1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
-2. Open the LSST_MainControllerPXI.lvproj.
+2. Open the LSST_MainControllerPXIATS.lvproj under the ATS folder.
 3. Ensure that in the project properties the Conditional Disable Symbol “HIL” is set to “True”
 
-	a. Right click in the project an select properties
+  a. Right click in the project an select properties
 
-	.. figure:: ../../_static/images/TMAPXIpic1.png
-	    :name: TMA_PXI_pic1
-	 
-	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
+  .. figure:: ../../_static/images/TMAPXIpic1.png
+      :name: TMA_PXI_pic1
+   
+  b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
 
-	.. figure:: ../../_static/images/TMAPXIpic2.png
-	    :name: TMA_PXI_pic2
+  .. figure:: ../../_static/images/TMAPXIpic2.png
+     :name: TMA_PXI_pic2
+#. Update target address to use `ats-tma-pxi01.ls.lsst.org`
+#. Save project.
 
-4. Continue with steps 3.a to 3.c of the point 6.2 in the Deployment document.
-5. Open the RT_MCS_Main.vi (for testing the whole project)
-
-  a. To test just one subsystem some specific test VIs can be found inside the corresponding subsystem folder. For example the Balancing specific test VI shown below:
-
-	.. figure:: ../../_static/images/TmaPxi_Test_BAL_TaskVI.png
-	    :name: Test VI for the balancing subsystem
-
-
-6. Run the VI
-7. When the vi is deployed to the target, disconnect the target
-
-	a. Right click TMA_PXI target and click Disconnect
- 
- 	.. figure:: ../../_static/images/TMAPXIpic3.png
-	    :name: TMA_PXI_pic3
+#. Save the project.
+#. Close the project.
+#. Under tools, clear build cache
+#. Close labview
+#. Open labview
+#. Open project.
+#. Open main.vi
+#. Close main.vi
+#. Configure ethercat project to match hardware connection order and change ID to 0.
+#. Build target
+#. Deploy target
 
 
 AXES PXI
 ========
 
-The "PXI" is actually a desktop tower running Alma Linux 8 with a VM running NIRT Linux. See :ref:`docs/developer/virtual_machines:NI Linux RT`
+The PXI is a model 1086.
+
+Start by adding the necessary configuration files from `ESIfiles` using `this document <https://gitlab.tekniker.es/publico/3151-lsst/documentation/pxicontroller_documentation/-/blob/master/80%20DeployOnTargets/03%20AXES%20PXI.md?ref_type=heads>`_.
+
+.. prompt:: bash
+
+  mkdir -p /c/Configuration/axisManagementComm
 
 This is the PXI where the control code for the main axes is running.
 To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document
 
 1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
-2. Open the LSST_MainControllerPXI.lvproj.
+2. Open the LSST_MainAxesPXIATS.lvproj under the ATS.
 3. Ensure that in the project properties the Conditional Disable Symbol “HIL” is set to “True”
 
-	a. Right click in the Axes PXI an select properties
+  a. Right click in the Axes PXI an select properties
 
-	.. figure:: ../../_static/images/TMAPXIpic1.png
-	    :name: AXES_PXI_pic1
-	 
-	b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
+  .. figure:: ../../_static/images/TMAPXIpic1.png
+      :name: AXES_PXI_pic1
+   
+  b. In the opened window go to Conditional Disable Symbols page and set the value for HIL symbol to “True”.
 
-	.. figure:: ../../_static/images/TMAPXIpic2.png
-	    :name: AXES_PXI_pic2
+  .. figure:: ../../_static/images/TMAPXIpic2.png
+     :name: AXES_PXI_pic2
 
-4. Continue with steps 3.a to 3.c of the point 7.2 in the Deployment document.
-5. Open the MAIN_AxesPXI.vi
-6. Run the VI
-7. When the vi is deployed to the target, disconnect the target
+#. Update project target to ats-tma-axes-pxi.ls.lsst.org
+#. Save project.
+#. Close project.
+#. Clean build cache
+#. Close LabVIEW
+#. Open LabVIEW
+#. Open project
+#. Open main.vi
+#. Close main.vi
+#. Configure ethercat with ethercat project to match connection order
+#. Build target
+#. Deploy to target
 
-	a. Right click AXES_PXI target and click Disconnect
- 
- 	.. figure:: ../../_static/images/TMAPXIpic3.png
-	    :name: AXES_PXI_pic3
+AUX PXI
+=======
+The PXI is a virtual machine running NI RT linux.
+
+Start by setting up the configuration directory using `this document <https://gitlab.tekniker.es/publico/3151-lsst/documentation/pxicontroller_documentation/-/blob/master/80%20DeployOnTargets/02%20AUX%20PXI.md?ref_type=heads>`_.
+You can find the files in the `ESIFiles` directory inside of the `PXIController` repo.
+
+#. Open AuxMainControllerATS under ATS folder.
+#. Save project.
+#. Close project
+#. Clear cache
+#. Close labview
+#. open labview
+#. Open project
+#. Open main.vi
+#. Close main.vi
+#. Build target
+#. Deploy network variables
+#. Deploy target
 
 Safety code deployment
 ======================
@@ -410,50 +466,50 @@ The source code and more documentation about configuration can be found in `test
 1. Open the "TestDualModbus" project with PAS4000 version 1.18.0
 2. Activate the "TestDualModbus"
 
-	.. figure:: ../../_static/images/PASS4000activateProject.png
-	    :name: PASS4000activateProject
+  .. figure:: ../../_static/images/PASS4000activateProject.png
+     :name: PASS4000activateProject
 
 3. Open the online network editor
 
-	.. figure:: ../../_static/images/PASS4000onlineNetworkEditor.png
-	    :name: PASS4000onlineNetworkEditor
+  .. figure:: ../../_static/images/PASS4000onlineNetworkEditor.png
+      :name: PASS4000onlineNetworkEditor
 
 4. Scan project to scan the network to verify that the PILZ CPU is connected
 
-	.. figure:: ../../_static/images/PASS4000scan.png
-	    :name: PASS4000scan
+  .. figure:: ../../_static/images/PASS4000scan.png
+      :name: PASS4000scan
 
 5. Close the online network editor
 6. Download the project
 
   a. Open the Project downloader:
 
-	.. figure:: ../../_static/images/PASS4000downloadCode.png
-	    :name: PASS4000downloadCode
+  .. figure:: ../../_static/images/PASS4000downloadCode.png
+     :name: PASS4000downloadCode
 
   If asked to build changes say YES
 
-	.. figure:: ../../_static/images/PASS4000buildChanges.png
-	    :name: PASS4000buildChanges
+  .. figure:: ../../_static/images/PASS4000buildChanges.png
+     :name: PASS4000buildChanges
 
   b. Start download:
 
-	.. figure:: ../../_static/images/PASS4000startDownload.png
-	    :name: PASS4000startDownload
+  .. figure:: ../../_static/images/PASS4000startDownload.png
+     :name: PASS4000startDownload
 
   c. Confirm download:
 
-	.. figure:: ../../_static/images/PASS4000confirmDownload.png
-	    :name: PASS4000confirmDownload
+  .. figure:: ../../_static/images/PASS4000confirmDownload.png
+     :name: PASS4000confirmDownload
 
   d. Download completed:
 
-	.. figure:: ../../_static/images/PASS4000downloadCompleted.png
-	    :name: PASS4000downloadCompleted
+  .. figure:: ../../_static/images/PASS4000downloadCompleted.png
+     :name: PASS4000downloadCompleted
 
 7. Logout:
 
-	.. figure:: ../../_static/images/PASS4000logout.jpg
-	    :name: PASS4000logout
+  .. figure:: ../../_static/images/PASS4000logout.jpg
+     :name: PASS4000logout
 
 8. Close the PAS4000
