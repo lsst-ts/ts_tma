@@ -437,6 +437,22 @@ To be able to configure the AXES PXI, the development PC should be configured as
 #. Build target
 #. Deploy to target
 
+FGPA Deployment
+^^^^^^^^^^^^^^^
+The AXES cRIO runs FPGA code that needs to be deployed.
+Use the NI Package Manager to install the FPGA package and its dependencies.
+Otherwise find a FPGA compile server that's located on the network.
+
+.. todo:: Find a list of working FPGA compile servers.
+
+1. Open the AXES (not for ATS) project.
+#. Change the AXES target IP address to the AXES ATS IP address.
+#. Open the FPGA target under the cRIO folder.
+#. Build the FPGA target locally or with a FPGA compile server.
+#. Download to the target.
+
+.. note:: The simulink model needs to be deployed on the speedgoat before the fpga code will work.
+
 AUX PXI
 =======
 The PXI is a virtual machine running NI RT linux.
