@@ -1,0 +1,4 @@
+[submodule "ts_tma_tma-documentation_maintenance-documents_deployment"]
+	path = ts_tma_tma-documentation_maintenance-documents_deployment
+	url = ../ts_tma_tma-documentation_maintenance-documents_deployment.git
+	branch = master
