@@ -23,6 +23,7 @@ This section is for documentation for the TMA users.
     :titlesonly:
     
     docs/ts_tma_tma-documentation_eui-manual-english/index
+    docs/ts_tma_tma-documentation_tma-faults/TMA Faults
 
 .. _maintenance-documentation:
 

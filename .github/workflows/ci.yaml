@@ -19,6 +19,7 @@ jobs:
 
       - name: Python install
         run: |
+          apt-get install plantuml -y
           python -m pip install --upgrade pip
           python -m pip install ltd-conveyor
           python -m pip install -r requirements.txt

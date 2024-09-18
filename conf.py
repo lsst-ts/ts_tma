@@ -10,4 +10,5 @@ project = "ts-tma"
 html_title = project
 html_short_title = project
 extensions += ["sphinx.ext.autosectionlabel"]
+extensions += ['sphinxcontrib.plantuml']
 autosectionlabel_prefix_document = True
