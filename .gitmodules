@@ -10,3 +10,7 @@
 	path = docs/ts_tma_tma-documentation_eui-manual-english
 	url = ../ts_tma_tma-documentation_eui-manual-english.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-faults"]
+	path = docs/ts_tma_tma-documentation_tma-faults
+	url = ../ts_tma_tma-documentation_tma-faults.git
+	branch = master
