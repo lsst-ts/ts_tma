@@ -16,5 +16,5 @@ This documentation is for maintaining the TMA.
     :maxdepth: 1
     :titlesonly:
     
-    ts_tma_tma-documentation_maintenance-documents_deployment/deployment
+    docs/ts_tma_tma-documentation_maintenance-documents_deployment/deployment
 
