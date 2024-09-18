@@ -46,3 +46,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_motor-dc-voltagedropcauses
 	url = ../ts_tma_tma-documentation_maintenance-documents_main-power-supply_motor-dc-voltagedropcauses.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times
+	url = ../ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times.git
+	branch = master

@@ -44,4 +44,5 @@ This is for documentation for maintaining the TMA.
     EtherCAT - EtherCAT Line Diagnostic <docs/ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic/EtherCAT-Line-Diagnostic>
     EtherCAT - Update EtherCAT Slave <docs/ts_tma_tma-documentation_maintenance-documents_ethercat_update-ethercat-slave/Update-EtherCAT-Slave>
     Main Power Supply - Motor DC Voltage Drop Causes <docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_motor-dc-voltagedropcauses/Motor-DC-Voltage-Drop-Causes>
+    Main Power Supply - Power Supply Charge Times <docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times/Power-Supply-Charge>
 
