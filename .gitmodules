@@ -6,3 +6,7 @@
 	path = docs/ts_tma_tma-documentation_0-project-acronyms
 	url = ../ts_tma_tma-documentation_0-project-acronyms.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_eui-manual-english"]
+	path = docs/ts_tma_tma-documentation_eui-manual-english
+	url = ../ts_tma_tma-documentation_eui-manual-english.git
+	branch = master
