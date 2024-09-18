@@ -86,3 +86,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_eui-user-management
 	url = ../ts_tma_tma-documentation_maintenance-documents_eui-user-management.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_changing-ips"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_changing-ips
+	url = ../ts_tma_tma-documentation_maintenance-documents_changing-ips.git
+	branch = master

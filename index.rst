@@ -54,4 +54,5 @@ This is for documentation for maintaining the TMA.
     Settings Database Editor <docs/ts_tma_tma-documentation_maintenance-documents_settings-database-editor/Settings-Database-Editor>
     Locking Pins Without Home <docs/ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins/Locking-Pins-Without-Home>
     Manage EUI Users <docs/ts_tma_tma-documentation_maintenance-documents_eui-user-management/Manage-EUI-Users>
+    Change IPs <docs/ts_tma_tma-documentation_maintenance-documents_changing-ips/Change-IPs>
 
