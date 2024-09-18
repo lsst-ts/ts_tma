@@ -2,3 +2,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_deployment
 	url = ../ts_tma_tma-documentation_maintenance-documents_deployment.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_0-project-acronyms"]
+	path = docs/ts_tma_tma-documentation_0-project-acronyms
+	url = ../ts_tma_tma-documentation_0-project-acronyms.git
+	branch = master
