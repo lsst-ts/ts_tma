@@ -34,3 +34,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status
 	url = ../ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic
+	url = ../ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic.git
+	branch = master

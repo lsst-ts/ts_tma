@@ -41,4 +41,5 @@ This is for documentation for maintaining the TMA.
     EIB - Check Encoder Tape <docs/ts_tma_tma-documentation_maintenance-documents_eib_check-encoder-tape/Check-Encoder-Tape>
     EIB - Change IP <docs/ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip/Change-IP>
     EtherCAT - Manage EtherCAT Line Status <docs/ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status/Manage-EtherCAT-Line-Status>
+    EtherCAT - EtherCAT Line Diagnostic <docs/ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic/EtherCAT-Line-Diagnostic>
 
