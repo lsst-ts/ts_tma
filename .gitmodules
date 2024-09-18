@@ -30,3 +30,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip
 	url = ../ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status
+	url = ../ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status.git
+	branch = master
