@@ -90,3 +90,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_changing-ips
 	url = ../ts_tma_tma-documentation_maintenance-documents_changing-ips.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_electrical-schematics"]
+	path = docs/ts_tma_tma-documentation_electrical-schematics
+	url = ../ts_tma_tma-documentation_electrical-schematics.git
+	branch = master
