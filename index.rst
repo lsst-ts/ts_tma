@@ -24,11 +24,12 @@ This section is for documentation for the TMA users.
     
     docs/ts_tma_tma-documentation_eui-manual-english/index
     docs/ts_tma_tma-documentation_tma-faults/TMA Faults
+    docs/ts_tma_tma-documentation_training_2023-october/Training
 
 .. _maintenance-documentation:
 
 Maintenance Documentation
-==================
+=========================
 This is for documentation for maintaining the TMA.
 
 .. toctree::
