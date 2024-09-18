@@ -72,3 +72,4 @@ This is TMA general documentation.
     docs/ts_tma_tma-documentation_mcs-sw-design/MCS_SW_Design_Report
     docs/ts_tma_tma-documentation_verifications_lts-103-mcs/LTS-103
     docs/ts_tma_tma-documentation_reports_encoder-performance-after-ip-change/Encoder-Performance-After-IP-Change
+    docs/ts_tma_tma-documentation_ethernet-conexions/Ethernet-Connections
