@@ -68,3 +68,4 @@ This is TMA general documentation.
     :titlesonly:
     
     docs/ts_tma_tma-documentation_mcs-equipment-general-description/MCS_Equipment_General_Description
+    docs/ts_tma_tma-documentation_mcs-operation/MCS_Operation
