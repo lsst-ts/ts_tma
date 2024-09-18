@@ -39,4 +39,5 @@ This is for documentation for maintaining the TMA.
     docs/ts_tma_tma-documentation_maintenance-documents_deployment/deployment
     EIB - Position Measurement and References <docs/ts_tma_tma-documentation_maintenance-documents_eib_position-measurement-and-references/Position-Measurement-and-References>
     EIB - Check Encoder Tape <docs/ts_tma_tma-documentation_maintenance-documents_eib_check-encoder-tape/Check-Encoder-Tape>
+    EIB - Change IP <docs/ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip/Change-IP>
 

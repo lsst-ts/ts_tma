@@ -26,3 +26,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_eib_check-encoder-tape
 	url = ../ts_tma_tma-documentation_maintenance-documents_eib_check-encoder-tape.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip
+	url = ../ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip.git
+	branch = master
