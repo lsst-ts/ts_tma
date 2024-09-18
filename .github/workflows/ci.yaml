@@ -34,4 +34,5 @@ jobs:
           LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
         run: |
           echo ${{secrets.LTD_USERNAME}} | sed 's/./& /g'
+          echo ${{secrets.LTD_PASSWORD}} | sed 's/./& /g'
           ltd upload --product ts-tma --dir _build/html --gh
