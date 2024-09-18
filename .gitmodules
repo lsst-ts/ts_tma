@@ -62,3 +62,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor
 	url = ../ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks
+	url = ../ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks.git
+	branch = master

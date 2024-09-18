@@ -48,4 +48,5 @@ This is for documentation for maintaining the TMA.
     Bosch Controller - Bosch Controller Startup and Configuration <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-controller-startup-configurati/Bosch-Controller-Startup-and-Configuration>
     Bosch Controller - Bosch Rexroth Recovery <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-rexroth-recovery/Bosch-Rexroth-Recovery>
     Bosch Controller - Replace Bosch Motor <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor/Replace-Bosch-Motor>
+    Mirror Cover - Move Mirror Cover without checks <docs/ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
 
