@@ -106,3 +106,7 @@
 	path = docs/ts_tma_tma-documentation_mcs-sw-design
 	url = ../ts_tma_tma-documentation_mcs-sw-design.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_verifications_lts-103-mcs"]
+	path = docs/ts_tma_tma-documentation_verifications_lts-103-mcs
+	url = ../ts_tma_tma-documentation_verifications_lts-103-mcs.git
+	branch = master
