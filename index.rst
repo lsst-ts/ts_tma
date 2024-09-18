@@ -57,3 +57,14 @@ This is for documentation for maintaining the TMA.
     Change IPs <docs/ts_tma_tma-documentation_maintenance-documents_changing-ips/Change-IPs>
     docs/ts_tma_tma-documentation_electrical-schematics/index
 
+.. _tma-general:
+
+TMA General
+=========================
+This is TMA general documentation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    
+    docs/ts_tma_tma-documentation_mcs-equipment-general-description/MCS_Equipment_General_Description
