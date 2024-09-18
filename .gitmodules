@@ -66,3 +66,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks
 	url = ../ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_mechanical-elements_brakes-replacement"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_mechanical-elements_brakes-replacement
+	url = ../ts_tma_tma-documentation_maintenance-documents_mechanical-elements_brakes-replacement.git
+	branch = master
