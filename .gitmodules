@@ -78,3 +78,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_settings-database-editor
 	url = ../ts_tma_tma-documentation_maintenance-documents_settings-database-editor.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins
+	url = ../ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins.git
+	branch = main
