@@ -69,3 +69,4 @@ This is TMA general documentation.
     
     docs/ts_tma_tma-documentation_mcs-equipment-general-description/MCS_Equipment_General_Description
     docs/ts_tma_tma-documentation_mcs-operation/MCS_Operation
+    docs/ts_tma_tma-documentation_mcs-sw-design/MCS_SW_Design_Report
