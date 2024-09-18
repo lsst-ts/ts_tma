@@ -82,3 +82,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins
 	url = ../ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins.git
 	branch = main
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_eui-user-management"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_eui-user-management
+	url = ../ts_tma_tma-documentation_maintenance-documents_eui-user-management.git
+	branch = master
