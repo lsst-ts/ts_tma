@@ -110,3 +110,7 @@
 	path = docs/ts_tma_tma-documentation_verifications_lts-103-mcs
 	url = ../ts_tma_tma-documentation_verifications_lts-103-mcs.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_reports_encoder-performance-after-ip-change"]
+	path = docs/ts_tma_tma-documentation_reports_encoder-performance-after-ip-change
+	url = ../ts_tma_tma-documentation_reports_encoder-performance-after-ip-change.git
+	branch = main
