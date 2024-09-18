@@ -47,4 +47,5 @@ This is for documentation for maintaining the TMA.
     Main Power Supply - Power Supply Charge Times <docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times/Power-Supply-Charge>
     Bosch Controller - Bosch Controller Startup and Configuration <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-controller-startup-configurati/Bosch-Controller-Startup-and-Configuration>
     Bosch Controller - Bosch Rexroth Recovery <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-rexroth-recovery/Bosch-Rexroth-Recovery>
+    Bosch Controller - Replace Bosch Motor <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor/Replace-Bosch-Motor>
 

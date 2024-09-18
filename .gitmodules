@@ -58,3 +58,7 @@
 	path = docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-rexroth-recovery
 	url = ../ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-rexroth-recovery.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor"]
+	path = docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor
+	url = ../ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor.git
+	branch = master
