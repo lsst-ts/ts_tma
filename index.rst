@@ -55,7 +55,8 @@ This is for documentation for maintaining the TMA.
     Locking Pins Without Home <docs/ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins/Locking-Pins-Without-Home>
     Manage EUI Users <docs/ts_tma_tma-documentation_maintenance-documents_eui-user-management/Manage-EUI-Users>
     Change IPs <docs/ts_tma_tma-documentation_maintenance-documents_changing-ips/Change-IPs>
-    docs/ts_tma_tma-documentation_electrical-schematics/index
+
+`Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>`_
 
 .. _tma-general:
 
