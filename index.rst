@@ -89,3 +89,14 @@ This is the TMA Interlock System (TMA-IS) related documentation.
     docs/ts_tma_tma-documentation_tma-is_tma-is-design/TMA_IS_Design
     docs/ts_tma_tma-documentation_tma-is_tma-is-equipment-general-description/TMA IS Equipment General Description
 
+.. _code-docs:
+
+Code docs
+=========
+This is the TMA code related documentation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    
+    docs/ts_tma_tma-documentation_hmi-computers_documentation/index

@@ -134,3 +134,7 @@
 	path = docs/ts_tma_tma-documentation_tma-is_tma-is-equipment-general-description
 	url = ../ts_tma_tma-documentation_tma-is_tma-is-equipment-general-description.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_hmi-computers_documentation"]
+	path = docs/ts_tma_tma-documentation_hmi-computers_documentation
+	url = ../ts_tma_tma-documentation_hmi-computers_documentation.git
+	branch = master
