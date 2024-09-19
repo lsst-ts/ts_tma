@@ -10,7 +10,7 @@ This site collects all the TMA documentation.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_tma-documentation_0-project-acronyms/Acronyms
+    docs/tma_0-project-acronyms/Acronyms
 
 .. _user-documentation:
 
@@ -22,9 +22,9 @@ This section is for documentation for the TMA users.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_tma-documentation_eui-manual-english/index
-    docs/ts_tma_tma-documentation_tma-faults/TMA Faults
-    docs/ts_tma_tma-documentation_training_2023-october/Training
+    docs/tma_eui-manual-english/index
+    docs/tma_tma-faults/TMA Faults
+    docs/tma_training_2023-october/Training
 
 .. _maintenance-documentation:
 
@@ -36,25 +36,25 @@ This is for documentation for maintaining the TMA.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_tma-documentation_maintenance-documents_deployment/deployment
-    EIB - Position Measurement and References <docs/ts_tma_tma-documentation_maintenance-documents_eib_position-measurement-and-references/Position-Measurement-and-References>
-    EIB - Check Encoder Tape <docs/ts_tma_tma-documentation_maintenance-documents_eib_check-encoder-tape/Check-Encoder-Tape>
-    EIB - Change IP <docs/ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip/Change-IP>
-    EtherCAT - Manage EtherCAT Line Status <docs/ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status/Manage-EtherCAT-Line-Status>
-    EtherCAT - EtherCAT Line Diagnostic <docs/ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic/EtherCAT-Line-Diagnostic>
-    EtherCAT - Update EtherCAT Slave <docs/ts_tma_tma-documentation_maintenance-documents_ethercat_update-ethercat-slave/Update-EtherCAT-Slave>
-    Main Power Supply - Motor DC Voltage Drop Causes <docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_motor-dc-voltagedropcauses/Motor-DC-Voltage-Drop-Causes>
-    Main Power Supply - Power Supply Charge Times <docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times/Power-Supply-Charge>
-    Bosch Controller - Bosch Controller Startup and Configuration <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-controller-startup-configurati/Bosch-Controller-Startup-and-Configuration>
-    Bosch Controller - Bosch Rexroth Recovery <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-rexroth-recovery/Bosch-Rexroth-Recovery>
-    Bosch Controller - Replace Bosch Motor <docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor/Replace-Bosch-Motor>
-    Mirror Cover - Move Mirror Cover without checks <docs/ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
-    Mechanical Elements - Brakes Replacement <docs/ts_tma_tma-documentation_maintenance-documents_mechanical-elements_brakes-replacement/Brakes-Replacement>
-    NI Linux RT Installation (on none NI HW) <docs/ts_tma_tma-documentation_maintenance-documents_ni-linux-rt-installation/NI-Linux-RT-Installation>
-    Settings Database Editor <docs/ts_tma_tma-documentation_maintenance-documents_settings-database-editor/Settings-Database-Editor>
-    Locking Pins Without Home <docs/ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins/Locking-Pins-Without-Home>
-    Manage EUI Users <docs/ts_tma_tma-documentation_maintenance-documents_eui-user-management/Manage-EUI-Users>
-    Change IPs <docs/ts_tma_tma-documentation_maintenance-documents_changing-ips/Change-IPs>
+    docs/tma_maintenance_deployment/deployment
+    EIB - Position Measurement and References <docs/tma_maintenance_eib_position-measurement-and-references/Position-Measurement-and-References>
+    EIB - Check Encoder Tape <docs/tma_maintenance_eib_check-encoder-tape/Check-Encoder-Tape>
+    EIB - Change IP <docs/tma_maintenance_eib_eib-change-ip/Change-IP>
+    EtherCAT - Manage EtherCAT Line Status <docs/tma_maintenance_ethercat_manage-ethercat-line-status/Manage-EtherCAT-Line-Status>
+    EtherCAT - EtherCAT Line Diagnostic <docs/tma_maintenance_ethercat_ethercat-line-diagnostic/EtherCAT-Line-Diagnostic>
+    EtherCAT - Update EtherCAT Slave <docs/tma_maintenance_ethercat_update-ethercat-slave/Update-EtherCAT-Slave>
+    Main Power Supply - Motor DC Voltage Drop Causes <docs/tma_maintenance_main-power-supply_motor-dc-voltagedropcauses/Motor-DC-Voltage-Drop-Causes>
+    Main Power Supply - Power Supply Charge Times <docs/tma_maintenance_main-power-supply_power-supply-charge-times/Power-Supply-Charge>
+    Bosch Controller - Bosch Controller Startup and Configuration <docs/tma_maintenance_bosch-controller_bosch-controller-startup-configurati/Bosch-Controller-Startup-and-Configuration>
+    Bosch Controller - Bosch Rexroth Recovery <docs/tma_maintenance_bosch-controller_bosch-rexroth-recovery/Bosch-Rexroth-Recovery>
+    Bosch Controller - Replace Bosch Motor <docs/tma_maintenance_bosch-controller_replace-bosch-motor/Replace-Bosch-Motor>
+    Mirror Cover - Move Mirror Cover without checks <docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
+    Mechanical Elements - Brakes Replacement <docs/tma_maintenance_mechanical-elements_brakes-replacement/Brakes-Replacement>
+    NI Linux RT Installation (on none NI HW) <docs/tma_maintenance_ni-linux-rt-installation/NI-Linux-RT-Installation>
+    Settings Database Editor <docs/tma_maintenance_settings-database-editor/Settings-Database-Editor>
+    Locking Pins Without Home <docs/tma_maintenance_balancing_locking-pins/Locking-Pins-Without-Home>
+    Manage EUI Users <docs/tma_maintenance_eui-user-management/Manage-EUI-Users>
+    Change IPs <docs/tma_maintenance_changing-ips/Change-IPs>
 
 `Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>`_
 
@@ -68,12 +68,12 @@ This is TMA general documentation.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_tma-documentation_mcs-equipment-general-description/MCS_Equipment_General_Description
-    docs/ts_tma_tma-documentation_mcs-operation/MCS_Operation
-    docs/ts_tma_tma-documentation_mcs-sw-design/MCS_SW_Design_Report
-    docs/ts_tma_tma-documentation_verifications_lts-103-mcs/LTS-103
-    docs/ts_tma_tma-documentation_reports_encoder-performance-after-ip-change/Encoder-Performance-After-IP-Change
-    docs/ts_tma_tma-documentation_ethernet-conexions/Ethernet-Connections
+    docs/tma_mcs-equipment-general-description/MCS_Equipment_General_Description
+    docs/tma_mcs-operation/MCS_Operation
+    docs/tma_mcs-sw-design/MCS_SW_Design_Report
+    docs/tma_verifications_lts-103-mcs/LTS-103
+    docs/tma_reports_encoder-performance-after-ip-change/Encoder-Performance-After-IP-Change
+    docs/tma_ethernet-conexions/Ethernet-Connections
 
 .. _tma-is:
 
@@ -85,10 +85,10 @@ This is the TMA Interlock System (TMA-IS) related documentation.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_tma-documentation_tma-is_safety-matrix/index
-    docs/ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment/TMA-IS-Over-Speed-Limit-Adjustment
-    docs/ts_tma_tma-documentation_tma-is_tma-is-design/TMA_IS_Design
-    docs/ts_tma_tma-documentation_tma-is_tma-is-equipment-general-description/TMA IS Equipment General Description
+    docs/tma_tma-is_safety-matrix/index
+    docs/tma_tma-is_over-speed-limit-adjustment/TMA-IS-Over-Speed-Limit-Adjustment
+    docs/tma_tma-is_tma-is-design/TMA_IS_Design
+    docs/tma_tma-is_tma-is-equipment-general-description/TMA IS Equipment General Description
 
 .. _code-docs:
 
@@ -100,9 +100,9 @@ This is the TMA code related documentation.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_tma-documentation_hmi-computers_documentation/index
-    docs/ts_tma_tma-documentation_pxi-controller_documentation/index
-    docs/ts_tma_tma-documentation_settings/Settings-Events-Documentation
+    docs/tma_hmi-computers_documentation/index
+    docs/tma_pxi-controller_documentation/index
+    docs/tma_settings/Settings-Events-Documentation
 
 .. _ats-docs:
 
@@ -114,7 +114,7 @@ This is the ATS related documentation.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt/EtherCat-Normal-PC-Linux-RT
+    docs/tma_ats_ethercat-configuration-desktop-computer-running-linux-rt/EtherCat-Normal-PC-Linux-RT
 
 .. _gis-docs:
 
@@ -126,12 +126,12 @@ This is the GIS related documentation.
     :maxdepth: 1
     :titlesonly:
     
-    docs/ts_tma_gis-documentation_pas-connect-integration/PAS-Connect-Integration
-    docs/ts_tma_gis-documentation_pas-connect-interface/PAS-Connect-Interface
-    docs/ts_tma_gis-documentation_gisto-tcs-interface/GIS-TCS-Interface
-    docs/ts_tma_gis-documentation_user-interface-manual/User-Interface-Manual
-    docs/ts_tma_gis-documentation_test-plan-site/Test-Plan-Site
-    docs/ts_tma_gis-documentation_test-plan/Test-Plan
+    docs/gis_pas-connect-integration/PAS-Connect-Integration
+    docs/gis_pas-connect-interface/PAS-Connect-Interface
+    docs/gis_gisto-tcs-interface/GIS-TCS-Interface
+    docs/gis_user-interface-manual/User-Interface-Manual
+    docs/gis_test-plan-site/Test-Plan-Site
+    docs/gis_test-plan/Test-Plan
 
 `GIS - Electrical schematics <https://github.com/lsst-ts/ts_tma_gis-documentation_electrical-schematics/blob/master/GIS_LSST_Schematics.pdf>`_
 
