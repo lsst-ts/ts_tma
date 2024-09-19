@@ -122,3 +122,7 @@
 	path = docs/ts_tma_tma-documentation_tma-is_safety-matrix
 	url = ../ts_tma_tma-documentation_tma-is_safety-matrix.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment"]
+	path = docs/ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment
+	url = ../ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment.git
+	branch = master
