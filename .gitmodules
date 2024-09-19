@@ -146,3 +146,7 @@
 	path = docs/ts_tma_tma-documentation_settings
 	url = ../ts_tma_tma-documentation_settings.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt"]
+	path = docs/ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt
+	url = ../ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt.git
+	branch = master

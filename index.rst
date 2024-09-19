@@ -102,3 +102,15 @@ This is the TMA code related documentation.
     docs/ts_tma_tma-documentation_hmi-computers_documentation/index
     docs/ts_tma_tma-documentation_pxi-controller_documentation/index
     docs/ts_tma_tma-documentation_settings/Settings-Events-Documentation
+
+.. _ats-docs:
+
+ATS docs
+========
+This is the ATS related documentation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    
+    docs/ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt/EtherCat-Normal-PC-Linux-RT
