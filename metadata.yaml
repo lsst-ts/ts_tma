@@ -17,7 +17,7 @@ doc_title: "Telescope Mount Assembly Documentation"
 
 # Author names, ordered as a list. Each author name should be formatted as 'First Last'
 authors:
-  - "Andrew Heyer"
+  - "Julen Garcia"
 
 # Current document revision date, YYYY-MM-DD
 # Only set this field if you need to manually fix the revision date;
@@ -34,10 +34,10 @@ authors:
 # doi: 10.5281/zenodo.#####
 
 # Copyright statement
-copyright: "2019, Association of Universities for Research in Astronomy, Inc. (AURA)"
+copyright: "2024 Tekniker"
 
 # Description. A short, 1-2 sentence statemement used by document indices.
-description: "The vendor for the TMA is Tekniker. They will be providing a  PDF documents for operating the TMA. In an effort to have consistency across software documentation I will be transcibing the TMA documents onto this TMA Technote. "
+description: "Documentation for the TMA."
 
 # Abstract, if available
 # abstract: >

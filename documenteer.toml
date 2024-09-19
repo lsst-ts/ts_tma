@@ -1,6 +1,6 @@
 [project]
-title = "TMA documentation"
-copyright = "2018-2023 Association of Universities for Research in Astronomy, Inc. (AURA)"
+title = "TMA Documentation"
+copyright = "2024 Tekniker"
 base_url = "https://ts-tma.lsst.io"
 github_url = "https://github.com/lsst-ts/ts_tma"
 version = "0.0.0"

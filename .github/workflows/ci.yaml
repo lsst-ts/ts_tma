@@ -7,18 +7,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # full history for metadata
           submodules: true
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.11
 
       - name: Python install
         run: |
+          sudo apt-get install plantuml -y
           python -m pip install --upgrade pip
           python -m pip install ltd-conveyor
           python -m pip install -r requirements.txt

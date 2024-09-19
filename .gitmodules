@@ -1,4 +1,172 @@
 [submodule "ts_tma_tma-documentation_maintenance-documents_deployment"]
-	path = ts_tma_tma-documentation_maintenance-documents_deployment
+	path = docs/tma_maintenance_deployment
 	url = ../ts_tma_tma-documentation_maintenance-documents_deployment.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_0-project-acronyms"]
+	path = docs/tma_0-project-acronyms
+	url = ../ts_tma_tma-documentation_0-project-acronyms.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_eui-manual-english"]
+	path = docs/tma_eui-manual-english
+	url = ../ts_tma_tma-documentation_eui-manual-english.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-faults"]
+	path = docs/tma_tma-faults
+	url = ../ts_tma_tma-documentation_tma-faults.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_training_2023-october"]
+	path = docs/tma_training_2023-october
+	url = ../ts_tma_tma-documentation_training_2023-october.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_eib_position-measurement-and-references"]
+	path = docs/tma_maintenance_eib_position-measurement-and-references
+	url = ../ts_tma_tma-documentation_maintenance-documents_eib_position-measurement-and-references.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_eib_check-encoder-tape"]
+	path = docs/tma_maintenance_eib_check-encoder-tape
+	url = ../ts_tma_tma-documentation_maintenance-documents_eib_check-encoder-tape.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip"]
+	path = docs/tma_maintenance_eib_eib-change-ip
+	url = ../ts_tma_tma-documentation_maintenance-documents_eib_eib-change-ip.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status"]
+	path = docs/tma_maintenance_ethercat_manage-ethercat-line-status
+	url = ../ts_tma_tma-documentation_maintenance-documents_ethercat_manage-ethercat-line-status.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic"]
+	path = docs/tma_maintenance_ethercat_ethercat-line-diagnostic
+	url = ../ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_ethercat_update-ethercat-slave"]
+	path = docs/tma_maintenance_ethercat_update-ethercat-slave
+	url = ../ts_tma_tma-documentation_maintenance-documents_ethercat_update-ethercat-slave.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_motor-dc-voltagedropcauses"]
+	path = docs/tma_maintenance_main-power-supply_motor-dc-voltagedropcauses
+	url = ../ts_tma_tma-documentation_maintenance-documents_main-power-supply_motor-dc-voltagedropcauses.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times"]
+	path = docs/tma_maintenance_main-power-supply_power-supply-charge-times
+	url = ../ts_tma_tma-documentation_maintenance-documents_main-power-supply_power-supply-charge-times.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-controller-startup-configurati"]
+	path = docs/tma_maintenance_bosch-controller_bosch-controller-startup-configurati
+	url = ../ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-controller-startup-configurati.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-rexroth-recovery"]
+	path = docs/tma_maintenance_bosch-controller_bosch-rexroth-recovery
+	url = ../ts_tma_tma-documentation_maintenance-documents_bosch-controller_bosch-rexroth-recovery.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor"]
+	path = docs/tma_maintenance_bosch-controller_replace-bosch-motor
+	url = ../ts_tma_tma-documentation_maintenance-documents_bosch-controller_replace-bosch-motor.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks"]
+	path = docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks
+	url = ../ts_tma_tma-documentation_maintenance-documents_mirror-cover_move-mirror-coverwithoutchecks.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_mechanical-elements_brakes-replacement"]
+	path = docs/tma_maintenance_mechanical-elements_brakes-replacement
+	url = ../ts_tma_tma-documentation_maintenance-documents_mechanical-elements_brakes-replacement.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_ni-linux-rt-installation"]
+	path = docs/tma_maintenance_ni-linux-rt-installation
+	url = ../ts_tma_tma-documentation_maintenance-documents_ni-linux-rt-installation.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_settings-database-editor"]
+	path = docs/tma_maintenance_settings-database-editor
+	url = ../ts_tma_tma-documentation_maintenance-documents_settings-database-editor.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins"]
+	path = docs/tma_maintenance_balancing_locking-pins
+	url = ../ts_tma_tma-documentation_maintenance-documents_balancing_locking-pins.git
+	branch = main
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_eui-user-management"]
+	path = docs/tma_maintenance_eui-user-management
+	url = ../ts_tma_tma-documentation_maintenance-documents_eui-user-management.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_maintenance-documents_changing-ips"]
+	path = docs/tma_maintenance_changing-ips
+	url = ../ts_tma_tma-documentation_maintenance-documents_changing-ips.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_mcs-equipment-general-description"]
+	path = docs/tma_mcs-equipment-general-description
+	url = ../ts_tma_tma-documentation_mcs-equipment-general-description.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_mcs-operation"]
+	path = docs/tma_mcs-operation
+	url = ../ts_tma_tma-documentation_mcs-operation.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_mcs-sw-design"]
+	path = docs/tma_mcs-sw-design
+	url = ../ts_tma_tma-documentation_mcs-sw-design.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_verifications_lts-103-mcs"]
+	path = docs/tma_verifications_lts-103-mcs
+	url = ../ts_tma_tma-documentation_verifications_lts-103-mcs.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_reports_encoder-performance-after-ip-change"]
+	path = docs/tma_reports_encoder-performance-after-ip-change
+	url = ../ts_tma_tma-documentation_reports_encoder-performance-after-ip-change.git
+	branch = main
+[submodule "docs/ts_tma_tma-documentation_ethernet-conexions"]
+	path = docs/tma_ethernet-conexions
+	url = ../ts_tma_tma-documentation_ethernet-conexions.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-is_safety-matrix"]
+	path = docs/tma_tma-is_safety-matrix
+	url = ../ts_tma_tma-documentation_tma-is_safety-matrix.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment"]
+	path = docs/tma_tma-is_over-speed-limit-adjustment
+	url = ../ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-is_tma-is-design"]
+	path = docs/tma_tma-is_tma-is-design
+	url = ../ts_tma_tma-documentation_tma-is_tma-is-design.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-is_tma-is-equipment-general-description"]
+	path = docs/tma_tma-is_tma-is-equipment-general-description
+	url = ../ts_tma_tma-documentation_tma-is_tma-is-equipment-general-description.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_hmi-computers_documentation"]
+	path = docs/tma_hmi-computers_documentation
+	url = ../ts_tma_tma-documentation_hmi-computers_documentation.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_pxi-controller_documentation"]
+	path = docs/tma_pxi-controller_documentation
+	url = ../ts_tma_tma-documentation_pxi-controller_documentation.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_settings"]
+	path = docs/tma_settings
+	url = ../ts_tma_tma-documentation_settings.git
+	branch = master
+[submodule "docs/ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt"]
+	path = docs/tma_ats_ethercat-configuration-desktop-computer-running-linux-rt
+	url = ../ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_pas-connect-integration"]
+	path = docs/gis_pas-connect-integration
+	url = ../ts_tma_gis-documentation_pas-connect-integration.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_pas-connect-interface"]
+	path = docs/gis_pas-connect-interface
+	url = ../ts_tma_gis-documentation_pas-connect-interface.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_gisto-tcs-interface"]
+	path = docs/gis_gisto-tcs-interface
+	url = ../ts_tma_gis-documentation_gisto-tcs-interface.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_user-interface-manual"]
+	path = docs/gis_user-interface-manual
+	url = ../ts_tma_gis-documentation_user-interface-manual.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_test-plan-site"]
+	path = docs/gis_test-plan-site
+	url = ../ts_tma_gis-documentation_test-plan-site.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_test-plan"]
+	path = docs/gis_test-plan
+	url = ../ts_tma_gis-documentation_test-plan.git
 	branch = master
