@@ -118,3 +118,7 @@
 	path = docs/ts_tma_tma-documentation_ethernet-conexions
 	url = ../ts_tma_tma-documentation_ethernet-conexions.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-is_safety-matrix"]
+	path = docs/ts_tma_tma-documentation_tma-is_safety-matrix
+	url = ../ts_tma_tma-documentation_tma-is_safety-matrix.git
+	branch = master

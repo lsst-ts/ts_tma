@@ -73,3 +73,16 @@ This is TMA general documentation.
     docs/ts_tma_tma-documentation_verifications_lts-103-mcs/LTS-103
     docs/ts_tma_tma-documentation_reports_encoder-performance-after-ip-change/Encoder-Performance-After-IP-Change
     docs/ts_tma_tma-documentation_ethernet-conexions/Ethernet-Connections
+
+.. _tma-is:
+
+TMA IS
+=======
+This is the TMA Interlock System (TMA-IS) related documentation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    
+    docs/ts_tma_tma-documentation_tma-is_safety-matrix/index
+
