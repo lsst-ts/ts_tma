@@ -138,3 +138,7 @@
 	path = docs/ts_tma_tma-documentation_hmi-computers_documentation
 	url = ../ts_tma_tma-documentation_hmi-computers_documentation.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_pxi-controller_documentation"]
+	path = docs/ts_tma_tma-documentation_pxi-controller_documentation
+	url = ../ts_tma_tma-documentation_pxi-controller_documentation.git
+	branch = master
