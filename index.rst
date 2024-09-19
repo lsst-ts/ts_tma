@@ -86,4 +86,5 @@ This is the TMA Interlock System (TMA-IS) related documentation.
     
     docs/ts_tma_tma-documentation_tma-is_safety-matrix/index
     docs/ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment/TMA-IS-Over-Speed-Limit-Adjustment
+    docs/ts_tma_tma-documentation_tma-is_tma-is-design/TMA_IS_Design
 

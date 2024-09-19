@@ -126,3 +126,7 @@
 	path = docs/ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment
 	url = ../ts_tma_tma-documentation_tma-is_over-speed-limit-adjustment.git
 	branch = master
+[submodule "docs/ts_tma_tma-documentation_tma-is_tma-is-design"]
+	path = docs/ts_tma_tma-documentation_tma-is_tma-is-design
+	url = ../ts_tma_tma-documentation_tma-is_tma-is-design.git
+	branch = master
