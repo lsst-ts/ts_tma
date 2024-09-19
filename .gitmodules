@@ -150,3 +150,27 @@
 	path = docs/ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt
 	url = ../ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt.git
 	branch = master
+[submodule "docs/ts_tma_gis-documentation_pas-connect-integration"]
+	path = docs/ts_tma_gis-documentation_pas-connect-integration
+	url = ../ts_tma_gis-documentation_pas-connect-integration.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_pas-connect-interface"]
+	path = docs/ts_tma_gis-documentation_pas-connect-interface
+	url = ../ts_tma_gis-documentation_pas-connect-interface.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_gisto-tcs-interface"]
+	path = docs/ts_tma_gis-documentation_gisto-tcs-interface
+	url = ../ts_tma_gis-documentation_gisto-tcs-interface.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_user-interface-manual"]
+	path = docs/ts_tma_gis-documentation_user-interface-manual
+	url = ../ts_tma_gis-documentation_user-interface-manual.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_test-plan-site"]
+	path = docs/ts_tma_gis-documentation_test-plan-site
+	url = ../ts_tma_gis-documentation_test-plan-site.git
+	branch = master
+[submodule "docs/ts_tma_gis-documentation_test-plan"]
+	path = docs/ts_tma_gis-documentation_test-plan
+	url = ../ts_tma_gis-documentation_test-plan.git
+	branch = master

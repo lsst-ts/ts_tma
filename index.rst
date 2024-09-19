@@ -114,3 +114,24 @@ This is the ATS related documentation.
     :titlesonly:
     
     docs/ts_tma_tma-documentation_ats_ethercat-configuration-desktop-computer-running-linux-rt/EtherCat-Normal-PC-Linux-RT
+
+.. _gis-docs:
+
+GIS docs
+========
+This is the GIS related documentation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    
+    docs/ts_tma_gis-documentation_pas-connect-integration/PAS-Connect-Integration
+    docs/ts_tma_gis-documentation_pas-connect-interface/PAS-Connect-Interface
+    docs/ts_tma_gis-documentation_gisto-tcs-interface/GIS-TCS-Interface
+    docs/ts_tma_gis-documentation_user-interface-manual/User-Interface-Manual
+    docs/ts_tma_gis-documentation_test-plan-site/Test-Plan-Site
+    docs/ts_tma_gis-documentation_test-plan/Test-Plan
+
+`GIS - Electrical schematics <https://github.com/lsst-ts/ts_tma_gis-documentation_electrical-schematics/blob/master/GIS_LSST_Schematics.pdf>`_
+
+`GIS - Test system electrical schematics <https://github.com/lsst-ts/ts_tma_gis-documentation_test-system-electrical-schematics/blob/master/GIS_TestSystem_Schematics.pdf>`_
