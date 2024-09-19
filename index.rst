@@ -115,6 +115,8 @@ This is the ATS related documentation.
     :titlesonly:
     
     docs/tma_ats_ethercat-configuration-desktop-computer-running-linux-rt/EtherCat-Normal-PC-Linux-RT
+    docs/developer/ats_deployment_guide
+    docs/developer/virtual_machines
 
 .. _gis-docs:
 

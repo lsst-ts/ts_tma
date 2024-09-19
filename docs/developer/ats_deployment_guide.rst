@@ -51,7 +51,7 @@ Tools needed:
 * LabVIEW packages listed in the table in section 4 of 3151_MCS_0036 - All of the packages that the installer comes with except for NI statemachine which is now a VIPM package.
 * VI packages listed in section 4 of the deployment document
 * QMT database MySQL can be downloaded from the source repo.
-* Tekniker made VIs - https://github.com/lsst-ts/ts_tekniker_labview_template *private repo*
+* Tekniker made VIs - https://github.com/lsst-ts/ts_tma_vipm_dependency *private repo*
 
 Speedgoat
 ---------
