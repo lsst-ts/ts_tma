@@ -14,9 +14,9 @@
 	path = docs/tma_tma-faults
 	url = ../ts_tma_tma-documentation_tma-faults.git
 	branch = master
-[submodule "docs/ts_tma_tma-documentation_training_2023-october"]
+[submodule "docs/ts_tma_tma-documentation_training"]
 	path = docs/tma_training
-	url = ../ts_tma_tma-documentation_training_2023-october.git
+	url = ../ts_tma_tma-documentation_training.git
 	branch = master
 [submodule "docs/ts_tma_tma-documentation_maintenance-documents_eib_position-measurement-and-references"]
 	path = docs/tma_maintenance_eib_position-measurement-and-references
