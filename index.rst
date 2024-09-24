@@ -26,7 +26,14 @@ This section is for documentation for the TMA users.
     
     docs/tma_eui-manual-english/index
     docs/tma_tma-faults/TMA Faults
-    docs/tma_training/Training September-October 2023
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Training
+
+    docs/tma_training/2023 - Training September-October
+    docs/tma_training/2024 - Training September
 
 .. _maintenance-documentation:
 
