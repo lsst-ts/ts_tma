@@ -41,11 +41,10 @@ jobs:
         with:
           name: html
           path: html_build
-      - name: Deployment
-        env:
-          LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
-          LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
-        run: |
-          ls -laR
-          python -m pip install ltd-conveyor
-          ltd upload --product ts-tma --dir html_build --gh
+      - name: Upload documentation
+        uses: lsst-sqre/ltd-upload@v1
+        with:
+          project: "ts-tma"
+          dir: "html_build"
+          username: ${{ secrets.ltd_username }}
+          password: ${{ secrets.ltd_password }}
