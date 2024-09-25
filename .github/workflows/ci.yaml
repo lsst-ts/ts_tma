@@ -1,31 +1,32 @@
 name: CI
 
-"on": [push]
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # full history for metadata
           submodules: true
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-
       - name: Python install
         run: |
           sudo apt-get install plantuml -y
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-
       - name: Sphinx build
         run: |
           make html
+      - uses: actions/upload-artifact@v3
+        with:
+          name: html
+          path: _build/html
+          retention-days: 5
 
 
   deploy:
@@ -34,6 +35,9 @@ jobs:
     container: python:3.11
     if: github.ref == 'refs/heads/main'
     steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: html
       - name: Deployment
         env:
           LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
