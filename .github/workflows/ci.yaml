@@ -14,9 +14,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-      - name: Python install
+      - name: Install plantuml
         run: |
           sudo apt-get install plantuml -y
+      - name: Python install
+        run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
       - name: Sphinx build
@@ -26,7 +28,7 @@ jobs:
         with:
           name: html
           path: _build/html
-          retention-days: 5
+          retention-days: 1
 
 
   deploy:
@@ -35,7 +37,7 @@ jobs:
     container: python:3.11
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: html
       - name: Deployment
@@ -43,5 +45,6 @@ jobs:
           LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
           LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
         run: |
+          ls -laR
           python -m pip install ltd-conveyor
           ltd upload --product ts-tma --dir html --gh
