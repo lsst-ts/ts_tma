@@ -40,6 +40,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: html
+          path: html_build
       - name: Deployment
         env:
           LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
@@ -47,4 +48,4 @@ jobs:
         run: |
           ls -laR
           python -m pip install ltd-conveyor
-          ltd upload --product ts-tma --dir html --gh
+          ltd upload --product ts-tma --dir html_build --gh
