@@ -21,15 +21,20 @@ jobs:
         run: |
           sudo apt-get install plantuml -y
           python -m pip install --upgrade pip
-          python -m pip install ltd-conveyor
           python -m pip install -r requirements.txt
 
       - name: Sphinx build
         run: |
           make html
 
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    container: python:3.11
+    if: github.ref == 'refs/heads/main'
+    steps:
       - name: Deployment
-        if: github.ref == 'refs/heads/main'
         env:
           LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
           LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
