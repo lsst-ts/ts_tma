@@ -39,4 +39,5 @@ jobs:
           LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
           LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
         run: |
+          python -m pip install ltd-conveyor
           ltd upload --product ts-tma --dir _build/html --gh
