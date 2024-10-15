@@ -1,2 +1,2 @@
-documenteer[guide]>=0.6.0
+documenteer[guide]==1.4.0
 sphinxcontrib-plantuml
