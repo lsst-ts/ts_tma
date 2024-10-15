@@ -16,7 +16,7 @@ jobs:
           python-version: 3.11
       - name: Add mermaid
         run: |
-          sudo npm install mermaid
+          sudo npm install -g @mermaid-js/mermaid-cli
       - name: Install plantuml
         run: |
           sudo apt-get install plantuml -y
