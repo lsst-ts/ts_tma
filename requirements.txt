@@ -1,3 +1,5 @@
 documenteer[guide]==1.4.1
 sphinxcontrib-plantuml
+
+# for fixing error when running the CI, as the newer version requires a newer mermaid installation that i couldn't install
 sphinxcontrib-mermaid==0.9.2
