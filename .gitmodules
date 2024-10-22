@@ -170,3 +170,7 @@
 	path = docs/gis_test-plan
 	url = ../ts_tma_gis-documentation_test-plan.git
 	branch = master
+[submodule "docs/tma_cabinet-contents"]
+	path = docs/tma_cabinet-contents
+	url = ../ts_tma_tma-documentation_cabinet-contents.git
+	branch = master
