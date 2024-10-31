@@ -51,6 +51,7 @@ This is for documentation for maintaining the TMA.
     Settings Database Editor <docs/tma_maintenance_settings-database-editor/Settings-Database-Editor>
     Manage EUI Users <docs/tma_maintenance_eui-user-management/Manage-EUI-Users>
     Change IPs <docs/tma_maintenance_changing-ips/Change-IPs>
+    docs/tma_power_on_off/TMA-Powering
 
 .. toctree::
     :maxdepth: 1
