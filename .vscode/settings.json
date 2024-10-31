@@ -1,5 +1,9 @@
 {
-  "cSpell.words": ["Softkey", "Softkeys"],
+  "cSpell.words": [
+    "labviewmessages",
+    "Softkey",
+    "Softkeys"
+  ],
   "markdownlint.config": {
     "MD024": false,
     "MD033": false
