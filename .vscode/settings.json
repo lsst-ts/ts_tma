@@ -6,6 +6,7 @@
     "ECAT",
     "slrtbinariesforspeedgoat",
     "rtexe"
+    "labviewmessages"
   ],
   "markdownlint.config": {
     "MD024": false,
