@@ -179,7 +179,7 @@ Follow next steps to deploy this software:
 
 #### OilSupplySystemSimulator
 
-This is a simulator for the Oil Supply System (OSS), this simulator contains a modbus server that connects to the TMA
+This is a simulator for the Oil Supply System (OSS), this simulator contains a modbus server that connects to the AUX
 PXI to transmit the status of the OSS. The source code and more documentation about configuration can be found in
 [this repo](https://github.com/lsst-ts/ts_tma_hil_oil-supply-system_oil-supply-system-simulator)
 
