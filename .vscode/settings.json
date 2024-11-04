@@ -5,8 +5,11 @@
     "TMAPXI",
     "ECAT",
     "slrtbinariesforspeedgoat",
-    "rtexe"
-    "labviewmessages"
+    "rtexe",
+    "labviewmessages",
+    "mtmount",
+    "netgear",
+    "unmanaged"
   ],
   "markdownlint.config": {
     "MD024": false,
