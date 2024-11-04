@@ -208,6 +208,14 @@ Follow next steps to deploy this software:
 
    ![Two folders with the corresponding files](media/slrtBinariesFolder.png)
 
+#### Top End Chiller simulator
+
+This is a simulator for the Top End Chiller (TEC), this simulator contains a modbus server that connects to the AUX
+PXI to transmit the status of the TEC. The source code and more documentation about configuration can be found in
+[this repo](https://github.com/lsst-ts/ts_tma_hil_simulator_top-end-chiller/)
+
+Follow the steps defined in the repo [README](https://github.com/lsst-ts/ts_tma_hil_simulator_top-end-chiller/blob/develop/README.md)
+
 ### Linux Machine
 
 In the Linux Machine the secondary axis simulators and the robot framework tests are running.
