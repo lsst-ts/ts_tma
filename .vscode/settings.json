@@ -9,7 +9,8 @@
     "labviewmessages",
     "mtmount",
     "netgear",
-    "unmanaged"
+    "unmanaged",
+    "postconditions"
   ],
   "markdownlint.config": {
     "MD024": false,
