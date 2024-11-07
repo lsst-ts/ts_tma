@@ -179,8 +179,6 @@ temperature and pressure of ducts for instance. No software test is related with
 In the [repository](https://github.com/lsst-ts/ts_tma_hil_network-shared-variables-simulation) for the simulation module
 more information can be found.
 
-![Network Shared variables simulator interactions](./media/NSV_sim_deprecatedModule.png)
-
 #### Limit simulator (Limits_simulator)
 
 This module simulates the behavior of the hardware limits that are wired to the IOs module. Since there are not
