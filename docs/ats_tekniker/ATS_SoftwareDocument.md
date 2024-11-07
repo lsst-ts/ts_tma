@@ -1004,5 +1004,3 @@ The scripts can be found [here](https://github.com/lsst-ts/ts_tma_hil_simulators
 | ReadAXES_PXI_NSV_tool | 10.1.22.158 | 50042 |
 | TekNSV_tool           | 10.1.22.158 | 50044 |
 | SpeedgoatManager      | 10.1.22.158 | 52000 |
-
-
