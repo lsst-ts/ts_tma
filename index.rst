@@ -171,6 +171,15 @@ This is the ATS related documentation.
     docs/developer/ats_deployment_guide
     docs/developer/virtual_machines
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Tekniker ATS
+
+    docs/ats_tekniker/ATS_HardwareDesign
+    docs/ats_tekniker/ATS_Deployment
+    docs/ats_tekniker/ATS_SoftwareDocument
+
 .. _gis-docs:
 
 GIS docs
