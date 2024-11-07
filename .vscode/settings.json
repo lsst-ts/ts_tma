@@ -1,16 +1,17 @@
 {
   "cSpell.words": [
-    "Softkey",
-    "Softkeys",
-    "TMAPXI",
+    "Deinitialize",
     "ECAT",
-    "slrtbinariesforspeedgoat",
-    "rtexe",
     "labviewmessages",
     "mtmount",
     "netgear",
-    "unmanaged",
-    "postconditions"
+    "postconditions",
+    "rtexe",
+    "slrtbinariesforspeedgoat",
+    "Softkey",
+    "Softkeys",
+    "TMAPXI",
+    "unmanaged"
   ],
   "markdownlint.config": {
     "MD024": false,
