@@ -950,3 +950,59 @@ from the real EIB.
 In the [repository](https://github.com/lsst-ts/ts_tma_hil_main-axes_lsst-hil) for the simulation
 module more information can be found.
 
+### Tools
+
+#### Force EtherCAT (ForceEthercat_tool) DEPRECATED
+
+This is a tool that allows forcing etherCAT variables from the TMA PXI. The communication with this tool is done using a
+custom TCP protocol, this protocol is similar in all the different tools used for the ATS.
+
+In the [repository](https://github.com/lsst-ts/ts_tma_hil_force-ethercat-vars) for the tool
+more information can be found, including the TCP protocol details.
+
+#### Speedgoat manager (SpeedgoatManager)
+
+This is a tool that allows managing the code running on the speedgoat: start/stop the model, cause alarm in the drives
+and cause alarms in the encoder. For interacting with the speedgoat from the robot framework there is a specific python
+interface available.
+
+- [Python interface repo](https://github.com/lsst-ts/ts_tma_hil_speedgoat_speedgoat-manager-python-interface)
+- [Speedgoat Manager source code](https://github.com/lsst-ts/ts_tma_hil_speedgoat_speedgoat-manager)
+- [Speedgoat Manager compiled code](https://github.com/lsst-ts/ts_tma_hil_speedgoat_speedgoat-manager-binaries)
+
+#### ReadVariables (ReadTMA_PXI_NSV_tool, ReadAXES_PXI_NSV_tool and ReadLocal_NSV_tool)
+
+This is a tool that allows reading and writing variables from the different variable host: TMA PXI, Axes PXI and Window
+Machine. For each of the variable host a different instance of the tool must be launched, this means there must be 3
+instances of the same application running. The configuration for each of the instances can be found inside the tool
+repo.
+
+The communication with this tool is done using a custom TCP protocol, this protocol is similar in all the different
+tools used for the ATS.
+
+In the [repository](https://github.com/lsst-ts/ts_tma_hil_read-variables) for the tool
+more information can be found, including the TCP protocol details.
+
+#### EtherCAT slave for IOs DEPRECATED
+
+This is a cRIO (hardware) used to simulate the distributed input and output modules (hardware modules) connected to the
+TMA PXI. The variables here are read/written by the ReadVars tool. With this hardware the EtherCAT communication is
+included in the system in a simple way.
+
+#### Scripts to start and stop the simulators on windows
+
+There are some scripts to start and stop the simulators running on the windows machine.
+
+The scripts can be found [here](https://github.com/lsst-ts/ts_tma_hil_simulators-start-stop-scripts)
+
+#### Tool ports Tekniker ATS
+
+| Tool                  | IP          | Port  |
+| --------------------- | ----------- | ----- |
+| ReadTMA_PXI_NSV_tool  | 10.1.22.158 | 50040 |
+| ReadLocal_NSV_tool    | 10.1.22.158 | 50041 |
+| ReadAXES_PXI_NSV_tool | 10.1.22.158 | 50042 |
+| TekNSV_tool           | 10.1.22.158 | 50044 |
+| SpeedgoatManager      | 10.1.22.158 | 52000 |
+
+
