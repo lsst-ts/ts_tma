@@ -31,7 +31,7 @@ In figure below the general overview of all elements is shown. The simulators ar
 all axes simulators.
 
 ```plantuml
-@startuml ATS Modules
+@startuml
 skinparam component {
   BackgroundColor<<simulator>> White
   BackgroundColor<<tool>> Pink
