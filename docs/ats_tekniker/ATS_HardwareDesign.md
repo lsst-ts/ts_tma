@@ -154,12 +154,12 @@ This is the main switch where the following items are connected:
 
 #### Unmanaged Switch
 
-TODO: check and add
+> TODO: check and add
 
 ## Hardware connections diagram
 
-TODO: update
+> TODO: update
 
 Here the connections between the different hardware devices explained in this document are represented.
 
-![ATS connections schematic](./media/ATS_ConnectionsSchematic.png)
+> TODO: update ![ATS connections schematic](./media/ATS_ConnectionsSchematic.png)
