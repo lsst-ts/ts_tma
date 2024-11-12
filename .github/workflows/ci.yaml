@@ -16,6 +16,7 @@ jobs:
           python-version: 3.11
       - name: Install latest plantuml version
         run: |
+          sudo apt-get update -y
           sudo bash -c "curl -L https://raw.githubusercontent.com/riboseinc/plantuml-install/main/ubuntu.sh | bash"
       - name: Python install
         run: |
