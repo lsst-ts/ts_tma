@@ -44,10 +44,6 @@ jobs:
         with:
           name: html
           path: html_build
-      - name: Set python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.11.10
       - name: Upload documentation
         uses: lsst-sqre/ltd-upload@v1
         with:
