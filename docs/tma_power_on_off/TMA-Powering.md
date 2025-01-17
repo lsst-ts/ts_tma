@@ -27,23 +27,24 @@ things don't always reach the desired state on their own when this kind of event
 
    > Remember that the TMA has 2 ethercat lines, one for the drives and one for the IO signals and the power supply
 
-4. At this point if there are no errors in the PXIs using the `labviewmessages` command in each of them, and the ethercat
-   lines are OK, the system should be ready. In any case, before moving on, it would be good to check each system
+> At this point if there are no errors in the PXIs using the `labviewmessages` command in each of them, and the ethercat
+> lines are OK, the system should be ready.
+
+4. Check each system
    individually using the EUI.
 
-   - Ensure that the safety system is working, reset the active causes in the TMA IS using the EUI
-   - Ensure that the thermal systems are working, by setting them to tracking ambient (drives, cabinets, top end chiller)
-   - Ensure that the auxiliary bosch systems are working, a power on and off without errors should be enough
+   - Ensure that the **safety system** is working, reset the active causes in the TMA IS using the EUI
+   - Ensure that the **thermal systems** are working, by setting them to tracking ambient (drives, cabinets, top end chiller)
+   - Ensure that the **auxiliary bosch systems** are working, a power on and off without errors should be enough
      - Locking Pins
      - Deployable Platforms
      - Cable Wraps (CCW, ACW)
      - Fine Balancing
      - Mirror Covers (with locks)
-   - Ensure that the power supply can be powered on and off, the off part can be skipped, as the last step would be
-     checking AZ and EL
-   - Ensure that the OSS can be powered on and off, the off part can be skipped, as the last step would be
-     checking AZ and EL
-   - Ensure that AZ and EL can be powered on and off
+   - Ensure that the **power supply** can be powered on
+   - Ensure that the **OSS** can be powered on
+   - Ensure that **AZ** and **EL** can be powered on and off
+   - Ensure that the **power supply** and **OSS** can be powered off
 
 ## Powering off
 
