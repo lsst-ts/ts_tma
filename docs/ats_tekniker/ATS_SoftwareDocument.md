@@ -268,9 +268,9 @@ Safety_Controller <-[#Green]-> TMA_PXI
 This module simulates the thermal behavior of the Phase Drives and the TMA_AZ_CS_CBT_0001 cabinet. This module uses the
 ReadWrite three instances.
 
-- The instance to read and write NSVs from the Axes PXI allows to simulate the temperature of the motors
+- The instance to read and write NSVs from the Axes PXI allows to simulate the temperature of the motors.
 - The instance to read and write NSVs from the TMA PXI allows to simulate the temperature of the TMA_AZ_CS_CBT_0001 cabinet.
-- The instance to read and write TekNSVs allows to TODO: check
+- The instance to read and write TekNSVs allows reading the ambient temperature defined in the PXI.
 
 In the [repository](https://github.com/lsst-ts/ts_tma_hil_motor-thermal-model_motor-thermal-model-simulator) for the
 simulation module more information can be found.
