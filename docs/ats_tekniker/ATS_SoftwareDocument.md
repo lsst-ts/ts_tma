@@ -21,9 +21,9 @@ elements are tools that will be explained [here](#tools).
 For axes simulators we found two different solutions:
 
 - For main axis, high speed simulation is needed and then a HIL solution with a specific hardware, Speedgoat, is used.
-  This is explained [here](#main-axes-simulator).
+  This is explained [here](#main-axes-simulator-mainaxes_sim).
 - For auxiliary axes, the simulation is based on a software simulation with a less demanding timing, running on a Linux
-  (Ubuntu) machine, [see](#secondaryaxissil).
+  (Ubuntu) machine, [see](#secondaryaxissil-secondary_axis_sil).
 
 Tests are programmed in robot framework and they run on the Linux machine.
 
