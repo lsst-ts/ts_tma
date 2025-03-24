@@ -92,7 +92,6 @@ node speedgoat <<simulationHardware>> {
 node WindowsMachine <<simulationHardware>> {
   interface LocalNSV
   component ReadTMA_PXI_NSV_tool <<tool>>
-  ' component ForceEthercat_tool <<tool>> 'no longer in use TODO: remove from limits simulator
   component ReadAXES_PXI_NSV_tool <<tool>>
   component ReadLocal_NSV_tool <<tool>>
   component TekNSV_tool <<tool>>
@@ -951,6 +950,8 @@ module more information can be found.
 ### Tools
 
 #### Force EtherCAT (ForceEthercat_tool) DEPRECATED
+
+> This tool is no longer needed, as the variables that were forced/managed by it are now NSV variables
 
 This is a tool that allows forcing etherCAT variables from the TMA PXI. The communication with this tool is done using a
 custom TCP protocol, this protocol is similar in all the different tools used for the ATS.
