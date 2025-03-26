@@ -210,6 +210,21 @@ PXI to transmit the status of the TEC. The source code and more documentation ab
 
 Follow the steps defined in the repo [README](https://github.com/lsst-ts/ts_tma_hil_simulator_top-end-chiller/blob/develop/README.md)
 
+#### WriteTekNsvVariables
+
+This is a tool to update the required TekNSV variables in the TMA-PXI with a default value or by manually providing one.
+This is used for setting the status of the deployable extensions as well as the AZ and EL brakes pressures, but more
+variables can be written by updating the config file of the tool. The source code and more documentation about
+configuration can be found in [this repo](https://github.com/lsst-ts/ts_tma_hil_write-TekNSV-variables).
+
+1. If the installer or executable is available continue to step 6
+2. Clone the repository in the link above
+3. Open the project `Write TekNSV Variables.lvproj`
+4. Go to *Build Specifications* and right click in *Executable* to select *Build*
+5. When build finishes go to build folder and copy all files and folder
+6. Paste compilation files to desired destination in Windows Machine
+7. Run *WriteTekNsvVariables.exe*
+
 ### Linux Machine
 
 In the Linux Machine the secondary axis simulators and the robot framework tests are running.
