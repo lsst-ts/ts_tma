@@ -59,7 +59,6 @@ node speedgoat <<simulationHardware>> {
 node WindowsMachine <<simulationHardware>> {
   interface LocalNSV
   component ReadTMA_PXI_NSV_tool <<tool>>
-  ' component ForceEthercat_tool <<tool>> 'no longer in use TODO: remove from limits simulator
   component ReadAXES_PXI_NSV_tool <<tool>>
   component ReadLocal_NSV_tool <<tool>>
   component TekNSV_tool <<tool>>
@@ -72,6 +71,7 @@ node WindowsMachine <<simulationHardware>> {
   component OSS_simulator <<simulator>>
   component SpeedgoatManager <<tool>>
   component TopEndChiller_simulator <<simulator>>
+  component WriteTekNsvVariables <<tool>>
 
   LocalNSV <-u[#Blue]-> ReadLocal_NSV_tool
   LocalNSV <-u[#Blue]-> BoschPowerSupply_simulator
@@ -106,6 +106,7 @@ node WindowsMachine <<simulationHardware>> {
 
 TMA_PXI <-[#Fuchsia]u-> EUI
 TMA_PXI <-[#Fuchsia]-> TekNSV_tool
+TMA_PXI <-[#Fuchsia]- WriteTekNsvVariables
 AUX_PXI <-[#Fuchsia]u-> EUI
 TMA_PXI <-[#Purple]-> AXES_PXI
 TMA_PXI <-[#Orange]-> ReadTMA_PXI_NSV_tool
