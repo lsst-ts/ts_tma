@@ -329,6 +329,7 @@ documentation about configuration can be found in
     ![Open project downloader](./media/PasOpenProjectDownloader.png)
 
     > If asked to build changes say YES
+    >
     > ![Build changes](./media/PasBuildChanges.png)
 
     2. Start download:
