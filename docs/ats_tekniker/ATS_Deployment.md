@@ -18,7 +18,7 @@ each hardware element is explained.
 In the Windows Machine some simulators and some tools are running. Start installing the Force EtherCAT Variables
 installer, this will install the LabVIEW runtime needed in many other tools and simulators.
 
-#### Force EtherCAT Variables
+#### Force EtherCAT Variables DEPRECATED
 
 This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol. The value
 written using this tool will overwrite any set value, so any slave value will be overwritten with the written value. The
@@ -125,14 +125,8 @@ Follow next steps to deploy this software:
 5. When build finishes go to build folder and copy all files and folders
 6. Paste compiled files to desired destination in the Windows Machine
 7. Open the `data` folder and open `GeneralConfiguration.xml`
-8. Change the first path of the field *TCP_senders_configuration_Path* to point to *ForceECATVars_TCP_SenderConfig.xml*
-  file in the same data folder.
-9. Change `dim='[X]'` to `dim='[1]'` for *TCP_senders_configuration_Path* and for *LimitsDefinition* tags. We are only
-  using the first configured limit because you need the safety full simulator with PILZ hardware to use other limits,
-  When you get this hardware (perhaps you have one on the summit) we can download code to it and use those other limits.
-10. Run *SimulateLimits.exe*
-
-> TODO: Steps 8 and 9 are not 100% clear, need to check
+8. Check the IPs for the limits variables
+9. Run *SimulateLimits.exe*
 
 #### cabinetTemperatureControllerSimulator
 
@@ -337,3 +331,36 @@ documentation about configuration can be found in
   ![Logout](./media/PasLogOut.jpg)
 
 8. Close the PAS4000
+
+## Relevant considerations and miscellaneous
+
+### Database
+
+When setting up the ATS is important to have a separated database instance just for the ATS system, the backups for these
+can be found [**here**](https://github.com/lsst-ts/ts_tma_ats_database-backup).
+
+### Cabinet modbus temperature controllers
+
+For the auxiliary cabinets temperature controllers the `Send reset` and `Reset value` settings are updated to *TRUE* and
+*1* respectively, to act as a power on when sending the reset command. This means that each time the cabinets simulators
+is booted, the cabinets temperature controllers would be off, until a reset command is sent to each of them.
+
+> This is done with the `ManualReset` variable from the PXI which for the ATS is pointing to the `1016` register of the
+> simulators, the power register.
+
+![Auxiliary boxes settings](media/AuxiliaryBoxesSettings.png)
+
+![Auxiliary boxes after sending a reset command](media/AuxiliaryBoxesEnabled.png)
+
+### Elevation inclinometer
+
+The default value for the elevation inclinometer variable `TMA-EL-CS-CBT-0101-220A30_ElevationInclinometer` is set to
+`10430` which means a position of `45.22500002` deg. This is done to have a valid EL position when powering on the EL
+axis, this variable is not updated by any simulator, but it can be manually updated.
+
+### EUI
+
+The executable of the EUI for the ATS and the TMA are the same, the only difference is that the database, the PXIs and
+the operation manager it targets must be different. This is why the ATS must use a different instance of the EUI than
+the real TMA, for this we recommend using a different machine. The EUI can be installed from a RPM package found
+[here](https://repo-nexus.lsst.org/nexus/#browse/search=keyword%3Dtma_eui)
