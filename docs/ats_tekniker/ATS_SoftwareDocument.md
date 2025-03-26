@@ -104,6 +104,7 @@ node WindowsMachine <<simulationHardware>> {
   component OSS_simulator <<simulator>>
   component SpeedgoatManager <<tool>>
   component TopEndChiller_simulator <<simulator>>
+  component WriteTekNsvVariables <<tool>>
 
   LocalNSV <-u[#Blue]-> ReadLocal_NSV_tool
   LocalNSV <-u[#Blue]-> BoschPowerSupply_simulator
@@ -138,6 +139,7 @@ node WindowsMachine <<simulationHardware>> {
 
 TMA_PXI <-[#Fuchsia]u-> EUI
 TMA_PXI <-[#Fuchsia]-> TekNSV_tool
+TMA_PXI <-[#Fuchsia]- WriteTekNsvVariables
 AUX_PXI <-[#Fuchsia]u-> EUI
 TMA_PXI <-[#Purple]-> AXES_PXI
 TMA_PXI <-[#Orange]-> ReadTMA_PXI_NSV_tool
@@ -981,6 +983,15 @@ tools used for the ATS.
 
 In the [repository](https://github.com/lsst-ts/ts_tma_hil_read-variables) for the tool
 more information can be found, including the TCP protocol details.
+
+#### WriteTekNsvVariables
+
+This is a tool to update the required TekNSV variables in the TMA-PXI with a default value or by manually providing one.
+This is used for setting the status of the deployable extensions as well as the AZ and EL brakes pressures, but more
+variables can be written by updating the config file of the tool.
+
+In the [repository](https://github.com/lsst-ts/ts_tma_hil_write-TekNSV-variables) for the tool more information can be
+found.
 
 #### EtherCAT slave for IOs DEPRECATED
 
