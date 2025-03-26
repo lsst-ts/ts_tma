@@ -179,6 +179,7 @@ This is the ATS related documentation.
     docs/ats_tekniker/ATS_HardwareDesign
     docs/ats_tekniker/ATS_Deployment
     docs/ats_tekniker/ATS_SoftwareDocument
+    docs/ats_tekniker/ATS_TestingPlan
 
 .. _gis-docs:
 
