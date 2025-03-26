@@ -75,7 +75,7 @@ The configuration of the hardware is:
   - Tekniker local and internet network
   - PXIs subnet
 
-The configuration of the hardware for a newer OS version is:
+The configuration of the hardware for a ALMA9 OS version is:
 
 - Non-NI hardware: DELL Precision 3660
 - CPU: Intel i7-12700
@@ -125,15 +125,77 @@ The EIB is the encoder system used to monitor the heads of azimuth and elevation
 This *cRIO + 8 DIO Module NI 9401* are used to trigger the EIB, same as in the summit, more info
 [here](https://ts-tma.lsst.io/docs/tma_mcs-equipment-general-description/MCS_Equipment_General_Description.html#crio-system)
 
-### Ethernet Switches
+### Ethernet Switches and Connections
 
-TODO: review
+The setup in Tekniker uses 2 switches, a managed one and a unmanaged one.
+
+```plantuml
+@startuml network connections
+nwdiag {
+    tekniker_network [ shape = cloud, description = "Tekniker network"];
+    tekniker_network -- wall_port
+    network d_link {
+      address = "10.1.22.0/24"
+      description = "Unmanaged Switch"
+
+      wall_port [address = "port 1"]
+      router [address = "port 3" description = "WiFi router"]
+      ats_mcc [address = "port 9\n10.1.22.39" description = "MCC CentOS 7"]
+      alma [address = "port 10\n10.1.22.67" description = "MCC ALMA 9"]
+      ats_win [address = "port 11\n10.1.22.158" description = "ATS Windows"]
+      speedgoat [address = "port 12\n10.1.22.211" description = "Speedgoat config port"]
+      csc [address = "port 13" description = "CSC running PC"]
+    }
+
+    network netgear_209 {
+        address = "192.168.209.0/24"
+        description = "Managed Switch\nVLAN 209"
+        
+        ats_linux [address = "port 1\n192.168.209.131" description = "Linux Machine"]
+        ats_win [address = "port 2\n192.168.209.130" description = "Windows Machine"]
+        ats_mcc [address = "port 3\n192.168.209.200" description = "MCC CentOS 7"]
+        ats_tma [address = "port 4\n192.168.209.10" description = "TMA PXI"]
+        ats_aux [address = "port 5\n192.168.209.11" description = "AUX PXI"]
+    }
+
+    network netgear_213 {
+        address = "192.168.213.0/24"
+        description = "Managed Switch\nVLAN 213"
+        
+        ats_tma [address = "port 7\n192.168.213.10" description = "TMA PXI"]
+        ats_axes [address = "port 8\n192.168.213.11" description = "AXES PXI"]
+    }
+
+    network netgear_211 {
+        address = "192.168.211.0/24"
+        description = "Managed Switch\nVLAN 211"
+        
+        ats_tma [address = "port 9\n192.168.211.10" description = "TMA PXI"]
+        ats_eib [address = "port 10\n192.168.211.1" description = "EIB"]
+        ats_axes [address = "port 11\n192.168.211.11" description = "AXES PXI"]
+    }
+
+    network netgear_180 {
+        address = "192.168.180.0/24"
+        description = "Managed Switch\nVLAN 180"
+        
+        ats_tma [address = "port 13\n192.168.180.100" description = "TMA PXI"]
+        ats_pilz [address = "port 14\n192.168.180.10" description = "PILZ PSS 4000"]
+    }
+
+    network netgear_config {
+        address = "192.168.0.0/24"
+        description = "Managed Switch\nConfig"
+
+        ats_win [address = "port 23\n192.168.0.50" description = "Windows Machine"]
+    }
+}
+@enduml
+```
 
 #### Managed Switch
 
-Netgear GS724Tv4 ProSafe 24-port Gigabit Ethernet Smart Switch.
-
-##### Managed switch port configuration
+Netgear GS724Tv4 ProSafe 24-port Gigabit Ethernet Smart Switch. Managed switch ports and VLAN configuration:
 
 | Ports   | VLAN |
 |---------|------|
@@ -152,14 +214,144 @@ This is the main switch where the following items are connected:
 - AXES PXI (VLAN 211: for communication with the EIB)
 - EIB (VLAN 211: for communication with the EIB)
 
+##### VLAN 209
+
+```plantuml
+@startuml vlan 209
+nwdiag {
+    network netgear_209 {
+        address = "192.168.209.0/24"
+        description = "Managed Switch\nVLAN 209"
+        
+        ats_linux [address = "port 1\n192.168.209.131" description = "Linux Machine"]
+        ats_win [address = "port 2\n192.168.209.130" description = "Windows Machine"]
+        ats_mcc [address = "port 3\n192.168.209.200" description = "MCC CentOS 7"]
+        ats_tma [address = "port 4\n192.168.209.10" description = "TMA PXI"]
+        ats_aux [address = "port 5\n192.168.209.11" description = "AUX PXI"]
+    }
+}
+@enduml
+```
+
+##### VLAN 213
+
+```plantuml
+@startuml vlan 213
+nwdiag {
+    network netgear_213 {
+        address = "192.168.213.0/24"
+        description = "Managed Switch\nVLAN 213"
+        
+        ats_tma [address = "port 7\n192.168.213.10" description = "TMA PXI"]
+        ats_axes [address = "port 8\n192.168.213.11" description = "AXES PXI"]
+    }
+}
+@enduml
+```
+
+##### VLAN 211
+
+```plantuml
+@startuml vlan 211
+nwdiag {
+    network netgear_211 {
+        address = "192.168.211.0/24"
+        description = "Managed Switch\nVLAN 211"
+        
+        ats_tma [address = "port 9\n192.168.211.10" description = "TMA PXI"]
+        ats_eib [address = "port 10\n192.168.211.1" description = "EIB"]
+        ats_axes [address = "port 11\n192.168.211.11" description = "AXES PXI"]
+    }
+}
+@enduml
+```
+
+##### VLAN 180
+
+```plantuml
+@startuml vlan 180
+nwdiag {
+    network netgear_180 {
+        address = "192.168.180.0/24"
+        description = "Managed Switch\nVLAN 180"
+        
+        ats_tma [address = "port 13\n192.168.180.100" description = "TMA PXI"]
+        ats_pilz [address = "port 14\n192.168.180.10" description = "PILZ PSS 4000"]
+    }
+}
+@enduml
+```
+
+##### Switch config
+
+```plantuml
+@startuml switch config
+nwdiag {
+    network netgear_config {
+        address = "192.168.0.0/24"
+        description = "Managed Switch\nConfig"
+
+        ats_win [address = "port 23\n192.168.0.50" description = "Windows Machine"]
+    }
+}
+@enduml
+```
+
 #### Unmanaged Switch
 
-> TODO: check and add
+D-Link DGS-1024D 24 ports Gigabit Ethernet Switch for local network access, this connects to the local network in Tekniker.
 
-## Hardware connections diagram
+```plantuml
+@startuml network connections
+nwdiag {
+    tekniker_network [ shape = cloud, description = "Tekniker network"];
+    tekniker_network -- wall_port
+    network d_link {
+      address = "10.1.22.0/24"
+      description = "Unmanaged Switch"
 
-> TODO: update
+      wall_port [address = "port 1"]
+      router [address = "port 3" description = "WiFi router"]
+      ats_mcc [address = "port 9\n10.1.22.39" description = "MCC CentOS 7"]
+      alma [address = "port 10\n10.1.22.67" description = "MCC ALMA 9"]
+      ats_win [address = "port 11\n10.1.22.158" description = "ATS Windows"]
+      speedgoat [address = "port 12\n10.1.22.211" description = "Speedgoat config port"]
+      csc [address = "port 13" description = "CSC running PC"]
+    }
+}
+@enduml
+```
 
-Here the connections between the different hardware devices explained in this document are represented.
+## Electrical connections
 
-> TODO: update ![ATS connections schematic](./media/ATS_ConnectionsSchematic.png)
+The setup for the ATS is very simple compared to the real one, but there are a couple of connections anyway.
+
+```plantuml
+@startuml
+rectangle axes_pxi as "AXES PXI"
+rectangle crio as "cRIO NI 9144"
+rectangle Speedgoat
+rectangle EIB
+rectangle PILZ as "PILZ PSS 4000"
+
+axes_pxi <--> crio #red
+crio <-> Speedgoat #red
+
+crio --> EIB #blue :trigger eib\nreadings
+PILZ --> Speedgoat #blue : manage model\nbrakes from PILZ
+
+' set legend to have a white background
+skinparam legendBackgroundColor #FFFFFF
+' remove box around legend
+skinparam legendBorderColor #FFFFFF
+' remove the lines between the legend items
+skinparam legendEntrySeparator #FFFFFF
+
+legend right
+'   the <#FFFFFF,#FFFFFF> sets the background color of the legend to white
+    <#FFFFFF,#FFFFFF>|<#red>| ethernet connection, for ethercat communication |
+    ' the space between the | and <#blue> is important to make the color column wider
+    |<#blue>     | 24v connection, for digital signals |
+endlegend
+@enduml
+```
