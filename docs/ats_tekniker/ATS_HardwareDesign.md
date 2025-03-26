@@ -138,56 +138,56 @@ nwdiag {
       address = "10.1.22.0/24"
       description = "Unmanaged Switch"
 
-      wall_port [address = "port 1"]
-      router [address = "port 3" description = "WiFi router"]
-      ats_mcc [address = "port 9\n10.1.22.39" description = "MCC CentOS 7"]
-      alma [address = "port 10\n10.1.22.67" description = "MCC ALMA 9"]
-      ats_win [address = "port 11\n10.1.22.158" description = "ATS Windows"]
-      speedgoat [address = "port 12\n10.1.22.211" description = "Speedgoat config port"]
-      csc [address = "port 13" description = "CSC running PC"]
+      wall_port
+      router [description = "WiFi router"]
+      ats_mcc [description = "MCC CentOS 7"]
+      alma [description = "MCC ALMA 9"]
+      ats_win [description = "ATS Windows"]
+      speedgoat [description = "Speedgoat config port"]
+      csc [description = "CSC running PC"]
     }
 
     network netgear_209 {
         address = "192.168.209.0/24"
         description = "Managed Switch\nVLAN 209"
         
-        ats_linux [address = "port 1\n192.168.209.131" description = "Linux Machine"]
-        ats_win [address = "port 2\n192.168.209.130" description = "Windows Machine"]
-        ats_mcc [address = "port 3\n192.168.209.200" description = "MCC CentOS 7"]
-        ats_tma [address = "port 4\n192.168.209.10" description = "TMA PXI"]
-        ats_aux [address = "port 5\n192.168.209.11" description = "AUX PXI"]
+        ats_linux [ description = "Linux Machine"]
+        ats_win [ description = "Windows Machine"]
+        ats_mcc [ description = "MCC CentOS 7"]
+        ats_tma [ description = "TMA PXI"]
+        ats_aux [ description = "AUX PXI"]
     }
 
     network netgear_213 {
         address = "192.168.213.0/24"
         description = "Managed Switch\nVLAN 213"
         
-        ats_tma [address = "port 7\n192.168.213.10" description = "TMA PXI"]
-        ats_axes [address = "port 8\n192.168.213.11" description = "AXES PXI"]
+        ats_tma [ description = "TMA PXI"]
+        ats_axes [ description = "AXES PXI"]
     }
 
     network netgear_211 {
         address = "192.168.211.0/24"
         description = "Managed Switch\nVLAN 211"
         
-        ats_tma [address = "port 9\n192.168.211.10" description = "TMA PXI"]
-        ats_eib [address = "port 10\n192.168.211.1" description = "EIB"]
-        ats_axes [address = "port 11\n192.168.211.11" description = "AXES PXI"]
+        ats_tma [ description = "TMA PXI"]
+        ats_eib [ description = "EIB"]
+        ats_axes [ description = "AXES PXI"]
     }
 
     network netgear_180 {
         address = "192.168.180.0/24"
         description = "Managed Switch\nVLAN 180"
         
-        ats_tma [address = "port 13\n192.168.180.100" description = "TMA PXI"]
-        ats_pilz [address = "port 14\n192.168.180.10" description = "PILZ PSS 4000"]
+        ats_tma [ description = "TMA PXI"]
+        ats_pilz [ description = "PILZ PSS 4000"]
     }
 
     network netgear_config {
         address = "192.168.0.0/24"
         description = "Managed Switch\nConfig"
 
-        ats_win [address = "port 23\n192.168.0.50" description = "Windows Machine"]
+        ats_win [ description = "Windows Machine"]
     }
 }
 @enduml
