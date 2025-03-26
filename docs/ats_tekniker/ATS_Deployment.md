@@ -271,7 +271,9 @@ development PC should be configured as shown in the
 
   > To test just one subsystem some specific test VIs can be found inside the corresponding subsystem folder. For
   > example the Balancing specific test VI shown bellow:
+  >
   > ![Balancing test code](./media/balancingTestCode.png)
+  >
   > These are not built, but could be run and deployed from the project directly if needed
 
 ### Axes PXI
