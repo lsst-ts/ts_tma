@@ -1,4 +1,4 @@
-# Testing Plan
+# ATS Testing Plan
 
 > This test plan was created before shipping the TMA to Chile, to test the code without the TMA. Therefore, the tests
 > are outdated

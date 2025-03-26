@@ -127,7 +127,7 @@ This *cRIO + 8 DIO Module NI 9401* are used to trigger the EIB, same as in the s
 
 ### Ethernet Switches and Connections
 
-The setup in Tekniker uses 2 switches, a managed one and a unmanaged one.
+The setup in Tekniker uses 2 switches, a managed one and an unmanaged one.
 
 ```plantuml
 @startuml network connections
