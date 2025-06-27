@@ -11,7 +11,6 @@ html_title = project
 html_short_title = project
 extensions += ["sphinx.ext.autosectionlabel"]
 extensions += ['sphinxcontrib.plantuml']
-extensions += ['sphinx-prompt']
 autosectionlabel_prefix_document = True
 
 # remove sidebars for all pages
