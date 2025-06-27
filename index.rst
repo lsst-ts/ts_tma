@@ -69,7 +69,7 @@ This is for documentation for maintaining the TMA.
 
     EtherCAT - Manage EtherCAT Line Status <docs/tma_maintenance_ethercat_manage-ethercat-line-status/Manage-EtherCAT-Line-Status>
     EtherCAT - EtherCAT Line Diagnostic <docs/tma_maintenance_ethercat_ethercat-line-diagnostic/EtherCAT-Line-Diagnostic>
-    EtherCAT - Update EtherCAT Slave <docs/tma_maintenance_ethercat_update-ethercat-slave/Update-EtherCAT-Slave>
+    EtherCAT - Replace Ethercat Drive/Slave <docs/tma_maintenance_ethercat-replace-drive/Replace-Ethercat-Drive>
 
 .. toctree::
     :maxdepth: 1
