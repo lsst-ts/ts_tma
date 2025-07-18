@@ -42,11 +42,19 @@ $headGain (\frac{deg}{lines})=arctg(\frac{40um}{RadiusOfTheTapeLocation}) \appro
 
 The operations done with the data sent by the EIB to obtain angular degrees are:
 
-- Get the in between lines value -> $headSubLineValue (lines) = Double(\frac{DistanceBetweenLines}{2^{16}})$
+- Get the in between lines value
+
+  $headSubLineValue (lines) = Double(\frac{DistanceBetweenLines}{2^{16}})$
+
   > This number is always less than 1.
 
-- Get the total lines, counted lines + the in between lines value -> $headLinesValue (lines) = Double(NumberOfCountedLines) + headSubLineValue$
-- Get the head relative position -> $headRelativePosition (deg)= HeadLinesValue * headGain$
+- Get the total lines, counted lines + the in between lines value
+
+  $headLinesValue (lines) = Double(NumberOfCountedLines) + headSubLineValue$
+
+- Get the head relative position
+
+  $headRelativePosition (deg)= HeadLinesValue * headGain$
 
 All the *headRelativePosition* values have a similar value all the time without any offset, since they start always at 0.
 The differences between them are related with Encoder precision, encoder tape runout, deformations in the structure,
