@@ -38,15 +38,15 @@ period (counting the number of lines in the tape that the head passes over) and 
 two lines). So, the data sent by the EIB can be interpreted as TODO: (no entiendo esto ->) NumberOfCountedLines.DistanceBetweenLines numberOfLines.
 The distance between lines is 40um, so the data sent by the EIB can be multiplied by a constant value that converts this
 data into *rad* or *deg*, this constant will be the *headGain* and is obtained using the formula
-$headGain (deg/lines)=arctg(40um/RadiusOfTheTapeLocation) \approx 40um/RadiusOfTheTapeLocation$.
+$headGain (\frac{deg}{lines})=arctg(\frac{40um}{RadiusOfTheTapeLocation}) \approx \frac{40um}{RadiusOfTheTapeLocation}$
 
-The operations done with the data sent by the EIB are:
+The operations done with the data sent by the EIB to obtain angular degrees are:
 
-$headSubLineValue (lines) = Double(DistanceBetweenLines/2^{16})$ This number is always less than 1.
+- Get the in between lines value -> $headSubLineValue (lines) = Double(\frac{DistanceBetweenLines}{2^{16}})$
+  > This number is always less than 1.
 
-$headLinesValue (lines) = Double(NumberOfCountedLines) + subLineValue$
-
-$headRelativePosition (deg)= HeadLinesValue * headGain$
+- Get the total lines, counted lines + the in between lines value -> $headLinesValue (lines) = Double(NumberOfCountedLines) + headSubLineValue$
+- Get the head relative position -> $headRelativePosition (deg)= HeadLinesValue * headGain$
 
 All the *headRelativePosition* values have a similar value all the time without any offset, since they start always at 0.
 The differences between them are related with Encoder precision, encoder tape runout, deformations in the structure,
@@ -54,23 +54,25 @@ temperature changes in different parts of the telescope due to the sun or other 
 
 ## How the position from each head is used for the control loop
 
-With all valid head positions (heads could be in error, those are rejected) the mean value is calculated and this plus an
-offset (calculated using the inclinometer or the Azimuth cable wrap (ACW) at the axis powering on), is considered the
-relative position of the controller. This value is used to control the axis. **The controller never uses other value to
-control the axis**. This is NOT an absolute position, but this is not meaningful, as the control just needs a continuous
-value, it doesn't care if the position is the real one or something else, for correcting this offsets are used on top of
-this relative position. The offsets are used to adapt the commands received to the relative position for the control and
-back to a position that actually represents the absolute position of the TMA.
+The position feedback value used for the axis control loop is the average value of the *headRelativePosition* measured
+by the valid[^1] heads + an offset (*axisStartupOffset*), this offset is calculated using the inclinometer for EL and the
+Azimuth Cable Wrap (ACW) for AZ during the axis powering on. **The controller never uses other value to control the axis**.
 
-The axis relative position can be calculated as shown bellow when the 4 heads of the axis have a valid value.
-*axisStartupOffset* is the offset calculated to have a rough absolute position for starting the axis, this is calculated
-using the inclinometer position (for EL) or the ACW position (for AZ).
+The control position is NOT an absolute position, but this is not meaningful, as the control just needs a continuous value
+to perform the control operations properly. This is the reason why the relative position is used and offsets are applied
+to it to make it absolute for adapting received commands and to update published telemetry.
 
-$axisRelativePosition = (headRelativePosition1 + headRelativePosition2 + headRelativePosition3 + headRelativePosition4)/4 + axisStartupOffset$
+The axis relative position (*axisRelativePosition*) can be calculated as shown bellow when the 4 heads of the axis have
+a valid value.
 
-> *axisStartupOffset* is constant for each power cicle.
+$axisRelativePosition = \frac{(headRelativePosition1 + headRelativePosition2 + headRelativePosition3 + headRelativePosition4)} 4 + axisStartupOffset$
 
-If there are only 3 valid values of encoder heads, the mean value is calculated using only the 3 valid values. If there
+> *axisStartupOffset* is the offset calculated to have a rough absolute position for starting the axis, which provides a
+> good enough estimation of where the axis is before performing a home. Without this offset the axis will always start at
+> 0 deg. This offset is calculated using the inclinometer position for EL or the ACW position for AZ. This offset is
+> constant for each power cycle, as it's just calculated during powering on.
+
+If there are only 3 valid encoder heads, the mean value is calculated using only the 3 valid values. If there
 are 2 valid values only 2 will be used. If there is only one valid value that value will be used as the mean value.
 
 ## Home process
@@ -87,31 +89,31 @@ position. So there are some steps in the home process, these are:
 3. The value calculated in step 2 is the absolute position of each head in the tape, but in order to be a valid value,
    all the heads must be about the same value. This is done using and offset for each head.
    $headLineAbsoluteReferencedToSamePosition (lines) = headLinesValue - referenceValue + headOffset$. The calculation of
-   this offset, *headOffset (lines)*, is explained
-   [in this document](https://ts-tma.lsst.io/docs/tma_maintenance_eib_position-measurement-and-references/Position-Measurement-and-References.html).
-   After calculating this offset, all the heads return the absolute position of the axis. These absolute positions are not
+   this offset, *headOffset (lines)*, is explained in
+   [this document](https://ts-tma.lsst.io/docs/tma_maintenance_eib_position-measurement-and-references/Position-Measurement-and-References.html).
+   With this offset, all the heads return the same absolute position of the axis. These absolute positions are not
    precisely aligned with the axes of the telescope reference system but they will be corrected later, step 6. This
-   corrected position has the 0 reference as follows, when the azimuth cable wrap is at its center position for azimuth
-   and at horizontal plane for elevation.
+   corrected position has the zero reference as follows, for azimuth 0 is when the azimuth cable wrap is at its centered
+   position and for elevation 0 is when elevation is at horizontal plane.
 4. The absolute position in deg for each head is obtained multiplying this last value by the *headGain*
    $headAbsoluteReferencedToSamePosition (deg) = headLineAbsoluteReferencedToSamePosition * headGain$
 5. As azimuth allows more than 360 deg movement, an additional step is needed to adapt the reference value. The value
    obtained in step 4 for each head is compared with the ACW value, and if the position is 360 deg away from the ACW
-   position, the *headOffset* is modified in the number of lines of the tape (360 deg) so that the position matches the
-   actual ACW position.
+   position, the *headOffset* is modified in the number of lines of the tape (360 deg are X lines) so that the position
+   matches the actual ACW position.
 6. To make the position of each head match the axes of the telescope reference (AZ having the 0 match the north and EL
    have the 0 match the horizontal plane), there is another offset applied to the head position, this is the *TelescopeOffset (deg)*.
-   This offset has a different value for each axis, but the same value for all heads in one axis.
+   This offset has a different value for each axis, but the same value for all heads in the same axis.
    $headTelescopeAbsolutePosition (deg)= headAbsoluteReferencedToSamePosition  + telescopeOffset$.
    The mean of these values for the active heads is considered the telescope absolute position.
-   $axisEncoderAbsolutePosition (deg)=(headTelescopeAbsolutePosition1+headTelescopeAbsolutePosition2+headTelescopeAbsolutePosition3+headTelescopeAbsolutePosition4)/4$
+   $axisEncoderAbsolutePosition (deg) = \frac{(headTelescopeAbsolutePosition1+headTelescopeAbsolutePosition2+headTelescopeAbsolutePosition3+headTelescopeAbsolutePosition4)}4$
 7. After the homing procedure for the EIB (the first 6 steps) are OK, the axis waits for a stabilization time. This time
    is to be sure that the telescope is fully stopped and without any oscillations.
-8. After the stabilization time, the average of *axisEncoderAbsolutePosition* for the last X ms (this time can be defined
-   with a setting) is sent to the axis controller as absolute position. This generates and offset, *axisHomeOffset (deg)*
-   that is applied to received commands (*axisAbsolutePositionSetPoint*) and to the telemetry in the axis. The value of
+8. After the stabilization time, the average of *axisEncoderAbsolutePosition* for the last X ms (this X time can be defined
+   with a setting) is sent to the axis controller as absolute position. This generates an offset, *axisHomeOffset (deg)*,
+   that is applied to the received commands (*axisAbsolutePositionSetPoint*) and to the telemetry in the axis. The value of
    this offset will be invariant until a new home is done or the axis is powered off, when it becomes zero.
-   $axisAbsolutePositionSetPoint (deg) = axisRelativePositionSetPoint(deg)+axisHomeOffset$ and $axisAbsolutePosition (deg) = axisRelativePosition+axisHomeOffset$.
+   $axisAbsolutePositionSetPoint (deg) = axisRelativePositionSetPoint(deg) + axisHomeOffset$ and $axisAbsolutePosition (deg) = axisRelativePosition + axisHomeOffset$.
    The commands sent to the telescope are *axisAbsolutePositionSetPoint*, so the controller calculates the *axisRelativePositionSetPoint*.
 
 > In all the homing process only the *axisHomeOffset* is calculated, the offsets for heads are constants calculated in
@@ -122,7 +124,7 @@ position. So there are some steps in the home process, these are:
 The published telemetry by the PXI is listed bellow. Replace <AxisName> with *Azimuth* or *Elevation* and <AxisEncoderName>
 with *EL* or *AZ*.
 
-- **<AxisName> Angle Actual** = *axisAbsolutePosition* after the home procedure is completed, otherwise it is axisRelativePosition.
+- **<AxisName> Angle Actual** = *axisAbsolutePosition* after the home procedure is completed, otherwise it is *axisRelativePosition*, because *axisHomeOffset* is 0.
 - **<AxisName> Absolute Angle Actual** = *axisAbsolutePosition*
 - **<AxisName> Softmotion Head #**. These are the values of each head converted with all the offsets used by the axis
   $axisSoftmotionHead = headRelativePosition + axisStartupOffset + axisHomeOffset$
@@ -140,7 +142,7 @@ with *EL* or *AZ*.
 ## Published telemetry to the CSC (EFD) from the EUI
 
 All the telemetry published by the PXI is not passed over to the CSC, the following list covers the telemetry sent by the
-EUI to the CSC.
+EUI to the CSC, related to the variables covered in this document.
 
 > Note that the variables below don't have the AZ or EL references in the names, as they come inside corresponding topics
 
@@ -156,14 +158,14 @@ EUI to the CSC.
   - **elevationEncoderAbsolutePosition2** = Encoder Head Absolute EL 2
   - **elevationEncoderAbsolutePosition3** = Encoder Head Absolute EL 3
   - **elevationEncoderAbsolutePosition4** = Encoder Head Absolute EL 4
-  - **azimuthEncoderRelativePosition1** = Encoder Head Relative AZ 1 [^1]
-  - **azimuthEncoderRelativePosition2** = Encoder Head Relative AZ 2 [^1]
-  - **azimuthEncoderRelativePosition3** = Encoder Head Relative AZ 3 [^1]
-  - **azimuthEncoderRelativePosition4** = Encoder Head Relative AZ 4 [^1]
-  - **elevationEncoderRelativePosition1** = Encoder Head Relative EL 1 [^1]
-  - **elevationEncoderRelativePosition2** = Encoder Head Relative EL 2 [^1]
-  - **elevationEncoderRelativePosition3** = Encoder Head Relative EL 3 [^1]
-  - **elevationEncoderRelativePosition4** = Encoder Head Relative EL 4 [^1]
+  - **azimuthEncoderRelativePosition1** = Encoder Head Relative AZ 1 [^2]
+  - **azimuthEncoderRelativePosition2** = Encoder Head Relative AZ 2 [^2]
+  - **azimuthEncoderRelativePosition3** = Encoder Head Relative AZ 3 [^2]
+  - **azimuthEncoderRelativePosition4** = Encoder Head Relative AZ 4 [^2]
+  - **elevationEncoderRelativePosition1** = Encoder Head Relative EL 1 [^2]
+  - **elevationEncoderRelativePosition2** = Encoder Head Relative EL 2 [^2]
+  - **elevationEncoderRelativePosition3** = Encoder Head Relative EL 3 [^2]
+  - **elevationEncoderRelativePosition4** = Encoder Head Relative EL 4 [^2]
   - **azimuthEncoderPosition1** = Encoder Head Telescope AZ 1
   - **azimuthEncoderPosition2** = Encoder Head Telescope AZ 2
   - **azimuthEncoderPosition3** = Encoder Head Telescope AZ 3
@@ -173,5 +175,9 @@ EUI to the CSC.
   - **elevationEncoderPosition3** = Encoder Head Telescope EL 3
   - **elevationEncoderPosition4** = Encoder Head Telescope EL 4
 
-[^1]: TODO: the plan is to change these variables with the `<AxisName> Softmotion Head #` variables, as they are more
+[^1]: An encoder head could give invalid data for various reasons, the most common one has proven to be dirt or oil on
+the tape which makes the encoder head fail at some reading and enter an invalid state, as the counts reported by the head are no
+longer valid. This can be fixed with a reset of the axis.
+
+[^2]: TODO: the plan is to change these variables with the `<AxisName> Softmotion Head #` variables, as they are more
 meaningful
