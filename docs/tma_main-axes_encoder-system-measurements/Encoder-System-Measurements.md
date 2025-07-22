@@ -34,8 +34,10 @@ The measured position value of each head (*relative position*) is reset to 0 eac
 TMA software. In normal operation, this happens every time AZ or EL is powered ON after being both OFF.
 
 The value of the *relative position* is sent by the EIB as a composed number, 48 bits. This number has 32 bits for the
-period (counting the number of lines in the tape that the head passes over) and 16 bits for the phase (the space between
-two lines). So, the data sent by the EIB can be interpreted as TODO: (no entiendo esto ->) NumberOfCountedLines.DistanceBetweenLines numberOfLines.
+period (counting the number of lines in the tape that the head passes over, NumberOfCountedLines) and 16 bits for the phase (the space between
+two lines, DistanceBetweenLines). So, the data sent by the EIB can be interpreted as TODO: (no entiendo esto ->) NumberOfCountedLines.DistanceBetweenLines (lines).
+This is, if the lines passed over by the head is 33 and the has moved 55% of the distance to the next line,
+the data can sent by EIB could be interpreted as 33.55 lines passed over by the head).
 The distance between lines is 40um, so the data sent by the EIB can be multiplied by a constant value that converts this
 data into *rad* or *deg*, this constant will be the *headGain* and is obtained using the formula
 $headGain (\frac{deg}{lines})=arctg(\frac{40um}{RadiusOfTheTapeLocation}) \approx \frac{40um}{RadiusOfTheTapeLocation}$
@@ -107,7 +109,7 @@ position. So there are some steps in the home process, these are:
    $headAbsoluteReferencedToSamePosition (deg) = headLineAbsoluteReferencedToSamePosition * headGain$
 5. As azimuth allows more than 360 deg movement, an additional step is needed to adapt the reference value. The value
    obtained in step 4 for each head is compared with the ACW value, and if the position is 360 deg away from the ACW
-   position, the *headOffset* is modified in the number of lines of the tape (360 deg are X lines) so that the position
+   position, the *headOffset* is modified in the number of lines of the tape (360 deg are 1243770 lines) so that the position
    matches the actual ACW position.
 6. To make the position of each head match the axes of the telescope reference (AZ having the 0 match the north and EL
    have the 0 match the horizontal plane), there is another offset applied to the head position, this is the *TelescopeOffset (deg)*.
