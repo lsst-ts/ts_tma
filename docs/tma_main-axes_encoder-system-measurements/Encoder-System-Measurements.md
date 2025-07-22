@@ -13,7 +13,7 @@ The measuring system for the TMA, for AZ and EL axes, has the following hardware
   - 1 for Azimuth axis
   - 2 for Elevation axis, one per side
 
-> As seen in the hardware list above, there's just 1 EIB for both axes, this means that the EIB needs to be one even when
+> As seen in the hardware list above, there's just 1 EIB for both axes, this means that the EIB needs to be on even when
 > just one axis (Az or El) is on.
 
 ### Azimuth heads location
@@ -97,7 +97,7 @@ position. So there are some steps in the home process, these are:
    $headLineAbsoluteValue (lines) = headLinesValue - referenceValue$. This position is the absolute position of each
    head in the encoder tape. So, those values are different for each head.
 3. The value calculated in step 2 is the absolute position of each head in the tape, but in order to be a valid value,
-   all the heads must be about the same value. This is done using and offset for each head.
+   all the heads must be about the same value. This is done using an offset for each head.
    $headLineAbsoluteReferencedToSamePosition (lines) = headLinesValue - referenceValue + headOffset$. The calculation of
    this offset, *headOffset (lines)*, is explained in
    [this document](https://ts-tma.lsst.io/docs/tma_maintenance_eib_position-measurement-and-references/Position-Measurement-and-References.html).
