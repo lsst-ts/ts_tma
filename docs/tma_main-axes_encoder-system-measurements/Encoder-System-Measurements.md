@@ -34,12 +34,11 @@ The measured position value of each head (*relative position*) is reset to 0 eac
 TMA software. In normal operation, this happens every time AZ or EL is powered ON after being both OFF.
 
 The value of the *relative position* is sent by the EIB as a composed number, 48 bits. This number has 32 bits for the
-period (counting the number of lines in the tape that the head passes over, NumberOfCountedLines) and 16 bits for the phase (the space between
-two lines, DistanceBetweenLines). So, the data sent by the EIB can be interpreted as TODO: (no entiendo esto ->) NumberOfCountedLines.DistanceBetweenLines (lines).
-This is, if the lines passed over by the head is 33 and the has moved 55% of the distance to the next line,
-the data can sent by EIB could be interpreted as 33.55 lines passed over by the head).
-The distance between lines is 40um, so the data sent by the EIB can be multiplied by a constant value that converts this
-data into *rad* or *deg*, this constant will be the *headGain* and is obtained using the formula
+period (counting the number of lines in the tape that the head passes over, NumberOfCountedLines) and 16 bits for the
+phase (the space between two lines, DistanceBetweenLines). This is, if the lines passed over by the head are 33 and the
+has moved 55% of the distance to the next line, the data can sent by EIB could be interpreted as 33.55 lines passed over
+by the head. The distance between lines is 40um, so the data sent by the EIB can be multiplied by a constant value that
+converts this data into *rad* or *deg*, this constant will be the *headGain* and is obtained using the formula
 $headGain (\frac{deg}{lines})=arctg(\frac{40um}{RadiusOfTheTapeLocation}) \approx \frac{40um}{RadiusOfTheTapeLocation}$
 
 The operations done with the data sent by the EIB to obtain angular degrees are:
@@ -143,8 +142,8 @@ with *EL* or *AZ*.
 - **Encoder Head Telescope <AxisEncoderName> #** = *headTelescopeAbsolutePosition*
 - **Encoder Head Absolute <AxisEncoderName> #** = *headAbsoluteReferencedToSamePosition*
 - **Encoder Head Status <AxisEncoderName> #**. This is the status of the encoder head, in string format.
-   If the status is `On\Whatever` the value of the head, headRelativePosition, will be used in the calculation of the *axisRelativePosition*.
-  If the status is `On\ReferenceValid` the value of the head, headTelescopeAbsolutePosition, will be used in the calculation of the *axisAbsolutePosition*.
+  If the status is `On\Whatever` the value of the head, *headRelativePosition*, will be used in the calculation of the *axisRelativePosition*.
+  If the status is `On\ReferenceValid` the value of the head, *headTelescopeAbsolutePosition*, will be used in the calculation of the *axisAbsolutePosition*.
 
 > \# -> head numbers are 1, 2, 3 and 4 for both Azimuth and Elevation
 
