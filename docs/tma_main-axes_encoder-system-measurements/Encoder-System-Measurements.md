@@ -86,7 +86,7 @@ are 2 valid values only 2 will be used. If there is only one valid value that va
 
 ## Home process
 
-As the reference marks (see [Encoder + head detail](#encoder--head-detail)), home marks, are not continuous in the tape,
+As the reference marks (see [Encoder + head detail](#encoder-head-detail)), home marks, are not continuous in the tape,
 the axis needs to make some movements to find some reference marks in the encoder tape and then calculate the absolute
 position. So there are some steps in the home process, these are:
 
