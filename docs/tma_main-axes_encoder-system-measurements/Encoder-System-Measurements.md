@@ -143,9 +143,8 @@ with *EL* or *AZ*.
 - **Encoder Head Telescope <AxisEncoderName> #** = *headTelescopeAbsolutePosition*
 - **Encoder Head Absolute <AxisEncoderName> #** = *headAbsoluteReferencedToSamePosition*
 - **Encoder Head Status <AxisEncoderName> #**. This is the status of the encoder head, in string format.
-   TODO: aclarar esto -> The value will
-  be used to calculate the *axisRelativePosition* if the status is `On\Whatever` and the value will be used to calculate the
-  *axisAbsolutePosition* if the status is `On\ReferenceValid`.
+   If the status is `On\Whatever` the value of the head, headRelativePosition, will be used in the calculation of the *axisRelativePosition*.
+  If the status is `On\ReferenceValid` the value of the head, headTelescopeAbsolutePosition, will be used in the calculation of the *axisAbsolutePosition*.
 
 > \# -> head numbers are 1, 2, 3 and 4 for both Azimuth and Elevation
 
