@@ -57,11 +57,12 @@ This is for documentation for maintaining the TMA.
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :caption: EIB
+    :caption: Encoder System (EIB)
 
     EIB - Position Measurement and References <docs/tma_maintenance_eib_position-measurement-and-references/Position-Measurement-and-References>
     EIB - Check Encoder Tape <docs/tma_maintenance_eib_check-encoder-tape/Check-Encoder-Tape>
     EIB - Change IP <docs/tma_maintenance_eib_eib-change-ip/Change-IP>
+    EIB - Encoder System Measurements <docs/tma_main-axes_encoder-system-measurements/Encoder-System-Measurements>
 
 .. toctree::
     :maxdepth: 1
