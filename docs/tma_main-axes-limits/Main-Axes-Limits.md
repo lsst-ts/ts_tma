@@ -53,7 +53,7 @@ At this moment, these are the limits available in the system:
   *Power Off Limit Switch* is pressed the safety system disables the torque in the drives (safe torque off or STO is
   applied) and applies the brakes. So, the stopping distance and acceleration depends on the brakes capability at that
   moment.
-  > When for an error the TMA reaches one of these limits, an override is needed and teh TMA must be moved back far enough
+  > When for an error the TMA reaches one of these limits, an override is needed and the TMA must be moved back far enough
   > to clear it
 - **Hard Stop Limit:** this is a mechanical hard limit for when everything else fails. It is a mechanical stop
   system with a damping device. The telescope should reach the *Hard Stop Limit* without power in the drives, as the
