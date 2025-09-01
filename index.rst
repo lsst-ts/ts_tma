@@ -27,6 +27,7 @@ This section is for documentation for the TMA users.
     docs/tma_eui-manual-english/index
     docs/tma_tma-faults/TMA Faults
     docs/tma_cabinet-contents/CabinetContents
+    docs/tma_main-axes-limits/Main-Axes-Limits
 
 .. toctree::
     :maxdepth: 1
