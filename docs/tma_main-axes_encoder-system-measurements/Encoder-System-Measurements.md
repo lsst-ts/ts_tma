@@ -166,14 +166,14 @@ EUI to the CSC, related to the variables covered in this document.
   - **elevationEncoderAbsolutePosition2** = Encoder Head Absolute EL 2
   - **elevationEncoderAbsolutePosition3** = Encoder Head Absolute EL 3
   - **elevationEncoderAbsolutePosition4** = Encoder Head Absolute EL 4
-  - **azimuthEncoderRelativePosition1** = Encoder Head Relative AZ 1 [^2]
-  - **azimuthEncoderRelativePosition2** = Encoder Head Relative AZ 2 [^2]
-  - **azimuthEncoderRelativePosition3** = Encoder Head Relative AZ 3 [^2]
-  - **azimuthEncoderRelativePosition4** = Encoder Head Relative AZ 4 [^2]
-  - **elevationEncoderRelativePosition1** = Encoder Head Relative EL 1 [^2]
-  - **elevationEncoderRelativePosition2** = Encoder Head Relative EL 2 [^2]
-  - **elevationEncoderRelativePosition3** = Encoder Head Relative EL 3 [^2]
-  - **elevationEncoderRelativePosition4** = Encoder Head Relative EL 4 [^2]
+  - **azimuthEncoderRelativePosition1** = Azimuth Softmotion Head 1
+  - **azimuthEncoderRelativePosition2** = Azimuth Softmotion Head 2
+  - **azimuthEncoderRelativePosition3** = Azimuth Softmotion Head 3
+  - **azimuthEncoderRelativePosition4** = Azimuth Softmotion Head 4
+  - **elevationEncoderRelativePosition1** = Elevation Softmotion Head 1
+  - **elevationEncoderRelativePosition2** = Elevation Softmotion Head 2
+  - **elevationEncoderRelativePosition3** = Elevation Softmotion Head 3
+  - **elevationEncoderRelativePosition4** = Elevation Softmotion Head 4
   - **azimuthEncoderPosition1** = Encoder Head Telescope AZ 1
   - **azimuthEncoderPosition2** = Encoder Head Telescope AZ 2
   - **azimuthEncoderPosition3** = Encoder Head Telescope AZ 3
@@ -186,6 +186,3 @@ EUI to the CSC, related to the variables covered in this document.
 [^1]: An encoder head could give invalid data for various reasons, the most common one has proven to be dirt or oil on
 the tape which makes the encoder head fail at some reading and enter an invalid state, as the counts reported by the head are no
 longer valid. This can be fixed with a reset of the axis.
-
-[^2]: TODO: the plan is to change these variables with the `<AxisName> Softmotion Head #` variables, as they are more
-meaningful
