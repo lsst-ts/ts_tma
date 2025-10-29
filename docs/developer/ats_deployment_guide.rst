@@ -368,7 +368,7 @@ This is the PXI where the control code for all subsystems is running.
 To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document.
     
 1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
-2. Open the LSST_MainControllerPXIATS.lvproj under the ATS folder.
+2. Open the `ATS_Projects/ATS_LSST_MainControllerPXI.lvproj`.
 3. Ensure that in the project properties the Conditional Disable Symbol “HIL” is set to “True”
 
   a. Right click in the project an select properties
@@ -411,7 +411,7 @@ This is the PXI where the control code for the main axes is running.
 To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document
 
 1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
-2. Open the LSST_MainAxesPXIATS.lvproj under the ATS.
+2. Open the `ATS_Projects/ATS_MainAxes.lvproj`.
 3. Ensure that in the project properties the Conditional Disable Symbol “HIL” is set to “True”
 
   a. Right click in the Axes PXI an select properties
@@ -460,7 +460,7 @@ The PXI is a virtual machine running NI RT linux.
 Start by setting up the configuration directory using `this document <https://gitlab.tekniker.es/publico/3151-lsst/documentation/pxicontroller_documentation/-/blob/master/80%20DeployOnTargets/02%20AUX%20PXI.md?ref_type=heads>`_.
 You can find the files in the `ESIFiles` directory inside of the `PXIController` repo.
 
-#. Open AuxMainControllerATS under ATS folder.
+#. Open `ATS_Projects/ATS_AuxSystemsController.lvproj`.
 #. Save project.
 #. Close project
 #. Clear cache
