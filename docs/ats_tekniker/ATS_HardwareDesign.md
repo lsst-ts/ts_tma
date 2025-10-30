@@ -33,10 +33,9 @@ The configuration of the hardware is:
 - CPU: Intel i7-7700K @ 4.20GHz
 - RAM: 4 GB
 - Hard Drive: SSD 500 GB
-- Input/Output modules:
+- Required Input/Output modules:
   - Ethercat Slave module IO750 (x2)
   - Digital IOs module IO306
-  - Analog IOs module IO131
 
 ### PILZ CPU
 
@@ -45,19 +44,49 @@ This is used to simulate and test the safety software.
 The configuration of the hardware is:
 
 - PILZ PSSu 4000 ref 314070
-- PSSu E F 4DI-T
+- PSSu E F 4DI-T (not really in use at the moment)
 - PSSu E F 4DO 0.5-T
 
-### Linux Machine
+### Linux VMs
 
-This is an Ubuntu 18.04 machine used to run the secondary axes simulators and execute the robot framework tests.
+There are two Debian 12 VMs for the ATS.
 
-The configuration of the hardware is:
+#### ATS Bosch Dockers
 
-- CPU: Intel i5-750 @ 2.67GHz
-- RAM: 4 GB
-- Hard Drive: HHD 500GB
-- x2 Ethernet gigabit connection ports
+For running the secondary axis (bosch axis) simulators in docker containers, no graphical interface installed.
+
+This has the following software installed:
+
+- xe-guest-utilities -> for status reporting to the hypervisor
+- git
+- docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+- vim
+
+VM hardware config:
+
+- x4 cores
+- 4 GB RAM
+- 80 GB ROM
+
+#### ATS Run Tests
+
+For running the robot framework tests.
+
+This has the following software installed:
+
+- xe-guest-utilities -> for status reporting to the hypervisor
+- git
+- vim
+- Python 3.11.2
+- requirements from [here](https://github.com/lsst-ts/ts_tma_test_automatic-test-code/blob/develop/docs/Installation.md)
+- KDE Plasma for graphical interface
+- Remote desktop for running the tests
+
+VM hardware config:
+
+- x12 cores
+- 16 GB RAM
+- 80 GB ROM
 
 ### Mount Control Computer (MCC)
 
@@ -355,3 +384,33 @@ legend right
 endlegend
 @enduml
 ```
+
+### Ethercat line device order
+
+TMA PXI -> cRIO 9145 -> Speedgoat IO750 -> Speedgoat IO750(2)
+
+### Digital signals
+
+Speedgoat IO306 card -> module with the 24V signals from the PILZ
+
+[**More details see images here**](#pilz-and-speedgoat-connections)
+
+## Hardware configuration at Tekniker
+
+### Speedgoat modules
+
+![SpeedgoatCards](./media/SpeedgoatCards.jpg)
+
+### Pilz And Speedgoat Connections
+
+![PilzAndSpeedgoatConnections](./media/PilzAndSpeedgoatConnections.jpg)
+
+![PilzAndSpeedgoatConnectionsDetail_1](./media/PilzAndSpeedgoatConnectionsDetail_1.jpg)
+
+![PilzAndSpeedgoatConnectionsDetail_2](media/PilzAndSpeedgoatConnectionsDetail_2.jpg)
+
+![PilzAndSpeedgoatConnectionsDetail_3](media/PilzAndSpeedgoatConnectionsDetail_3.jpg)
+
+![PilzAndSpeedgoatConnectionsDetail_4](media/PilzAndSpeedgoatConnectionsDetail_4.jpg)
+
+![PilzAndSpeedgoatConnectionsDetail_5](media/PilzAndSpeedgoatConnectionsDetail_5.jpg)
