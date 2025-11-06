@@ -149,7 +149,7 @@ The configuration of the hardware is:
 The EIB is the encoder system used to monitor the heads of azimuth and elevation, same as in the summit, more info
 [here](https://ts-tma.lsst.io/docs/tma_mcs-equipment-general-description/MCS_Equipment_General_Description.html#encoder-heidenhain-eib-8791)
 
-### cRIO NI 9144
+### cRIO NI 9145
 
 This *cRIO + 8 DIO Module NI 9401* are used to trigger the EIB, same as in the summit, more info
 [here](https://ts-tma.lsst.io/docs/tma_mcs-equipment-general-description/MCS_Equipment_General_Description.html#crio-system)
@@ -358,7 +358,7 @@ The setup for the ATS is very simple compared to the real one, but there are a c
 ```plantuml
 @startuml
 rectangle axes_pxi as "AXES PXI"
-rectangle crio as "cRIO NI 9144"
+rectangle crio as "cRIO NI 9145"
 rectangle Speedgoat
 rectangle EIB
 rectangle PILZ as "PILZ PSS 4000"
@@ -387,7 +387,7 @@ endlegend
 
 ### Ethercat line device order
 
-TMA PXI -> cRIO 9145 -> Speedgoat IO750 -> Speedgoat IO750(2)
+AXES PXI -> cRIO 9145 -> Speedgoat IO750 -> Speedgoat IO750(2)
 
 ### Digital signals
 
