@@ -128,7 +128,7 @@ This is TMA general documentation.
     docs/tma_reports_encoder-performance-after-ip-change/Encoder-Performance-After-IP-Change
     docs/tma_ethernet-conexions/Ethernet-Connections
 
-    `Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>`_
+`Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>`_
 
 .. _tma-operations-using-the-tma-eui:
 
@@ -142,7 +142,7 @@ These are the common operations that can be done in the TMA from the EUI.
 
     Turn on/off OSS
     Turn on/off PS
-    `Change TMA performance settings <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking#TMA-performance-settings-note>`_
+    Change TMA performance settings <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking#TMA-performance-settings-note>
 
 .. toctree::
     :maxdepth: 1
