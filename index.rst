@@ -149,7 +149,7 @@ These are the common operations that can be done in the TMA from the EUI.
     :titlesonly:
     :caption: Locking pins operations
 
-    Locking pins move sequence <docs/tma_eui-manual-english/02_Monitor&Control/004_LockingPins#locking-pins-move-sequence>
+    Locking pins move sequence <docs/tma_eui-manual-english/02_Monitor&Control/004_LockingPins>
 
 .. _tma-is:
 
