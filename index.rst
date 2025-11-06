@@ -140,16 +140,42 @@ These are the common operations that can be done in the TMA from the EUI.
     :maxdepth: 1
     :titlesonly:
 
-    Turn on/off OSS
-    Turn on/off PS
+    Turn on/off OSS  TODO:
+    Turn on/off PS  TODO:
     Change TMA performance settings <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking#TMA-performance-settings-note>
+    Park/Unpark the TMA <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking>
+    Move the TMA  TODO:
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
     :caption: Locking pins operations
 
-    Locking pins move sequence <docs/tma_eui-manual-english/02_Monitor&Control/004_LockingPins.md#locking-pins-move-sequence>
+    Locking pins move sequence <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/004_LockingPins.html#locking-pins-move-sequence>
+    Locking Pins Without Home - For engineers during Balancing <https://ts-tma.lsst.io/docs/tma_maintenance_balancing_locking-pins/Locking-Pins-Without-Home.html>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Deployable platforms operations
+
+    Retract/Extend Deployable Platforms <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/033_DeployablePlatforms.html#deployable-platform-deploy-retract-sequence>
+    Deployable Platform extensions management <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/033_DeployablePlatforms.html#deployable-platform-extensions-management>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Mirror Covers operations
+
+    Deploy/Retract mirror covers <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/021_MirrorCoverGeneralView.html#mirror-cover-deploy-retract-sequence>
+    Move mirror cover without checks (when TMA below 15 deg) <https://ts-tma.lsst.io/docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks.html>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Thermal System Operations
+
+    TMA Thermal Control System checking procedure <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39686718/TMA+Thermal+Control+System+checking+procedure>
 
 .. _tma-is:
 
