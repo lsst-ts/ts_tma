@@ -132,8 +132,8 @@ These are the common operations that can be done in the TMA from the EUI.
     :maxdepth: 1
     :titlesonly:
 
-    Turn on/off OSS  TODO:
-    Turn on/off PS  TODO:
+    Turn on/off OSS  <docs/tma_power_on_off_oss/OSS-Powering>
+    Turn on/off Power Supply  <docs/tma_power_on_off_powerSupply/PowerSupply-Powering>
     Change TMA performance settings <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking#TMA-performance-settings-note>
     Park/Unpark the TMA <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking>
     Move the TMA  TODO:
