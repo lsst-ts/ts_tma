@@ -93,13 +93,6 @@ This is for documentation for maintaining the TMA.
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :caption: Mirror Cover
-
-    Mirror Cover - Move Mirror Cover without checks <docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
     :caption: Mechanical Elements
 
     Mechanical Elements - Brakes Replacement <docs/tma_maintenance_mechanical-elements_brakes-replacement/Brakes-Replacement>
@@ -168,7 +161,7 @@ These are the common operations that can be done in the TMA from the EUI.
     :caption: Mirror Covers operations
 
     Deploy/Retract mirror covers <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/021_MirrorCoverGeneralView.html#mirror-cover-deploy-retract-sequence>
-    Move mirror cover without checks (when TMA below 15 deg) <https://ts-tma.lsst.io/docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks.html>
+    Move mirror cover without checks (when TMA below 15 deg) <docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
 
 .. toctree::
     :maxdepth: 1
