@@ -93,13 +93,6 @@ This is for documentation for maintaining the TMA.
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :caption: Mirror Cover
-
-    Mirror Cover - Move Mirror Cover without checks <docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
     :caption: Mechanical Elements
 
     Mechanical Elements - Brakes Replacement <docs/tma_maintenance_mechanical-elements_brakes-replacement/Brakes-Replacement>
@@ -127,8 +120,54 @@ This is TMA general documentation.
     docs/tma_verifications_lts-103-mcs/LTS-103
     docs/tma_reports_encoder-performance-after-ip-change/Encoder-Performance-After-IP-Change
     docs/tma_ethernet-conexions/Ethernet-Connections
+    Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>
 
-`Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>`_
+.. _tma-operations-using-the-tma-eui:
+
+TMA Operations using the TMA EUI
+=================================
+These are the common operations that can be done in the TMA from the EUI.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    Turn on/off OSS  <docs/tma_power_on_off_oss/OSS-Powering>
+    Turn on/off Power Supply  <docs/tma_power_on_off_powerSupply/PowerSupply-Powering>
+    Change TMA performance settings <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking#TMA-performance-settings-note>
+    Park/Unpark the TMA <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking>
+    Main Axes Moving <docs/tma_main-axes-move/Main-Axes-Moving>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Locking pins operations
+
+    Locking pins move sequence <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/004_LockingPins.html#locking-pins-move-sequence>
+    Locking Pins Without Home - For engineers during Balancing <https://ts-tma.lsst.io/docs/tma_maintenance_balancing_locking-pins/Locking-Pins-Without-Home.html>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Deployable platforms operations
+
+    Retract/Extend Deployable Platforms <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/033_DeployablePlatforms.html#deployable-platform-deploy-retract-sequence>
+    Deployable Platform extensions management <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/033_DeployablePlatforms.html#deployable-platform-extensions-management>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Mirror Covers operations
+
+    Deploy/Retract mirror covers <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/021_MirrorCoverGeneralView.html#mirror-cover-deploy-retract-sequence>
+    Move mirror cover without checks (when TMA below 15 deg) <docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Thermal System Operations
+
+    TMA Thermal Control System checking procedure <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39686718/TMA+Thermal+Control+System+checking+procedure>
 
 .. _tma-is:
 
