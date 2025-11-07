@@ -120,8 +120,7 @@ This is TMA general documentation.
     docs/tma_verifications_lts-103-mcs/LTS-103
     docs/tma_reports_encoder-performance-after-ip-change/Encoder-Performance-After-IP-Change
     docs/tma_ethernet-conexions/Ethernet-Connections
-
-`Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>`_
+    Electrical schematics <https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf>
 
 .. _tma-operations-using-the-tma-eui:
 
