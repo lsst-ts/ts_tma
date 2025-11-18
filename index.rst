@@ -221,6 +221,7 @@ This is the ATS related documentation.
     docs/ats_tekniker/ATS_Deployment
     docs/ats_tekniker/ATS_SoftwareDocument
     docs/ats_tekniker/ATS_TestingPlan
+    ATS Electrical schematics <https://github.com/lsst-ts/ts_tma/tree/main/docs/ats_tekniker/ATS_ElectricalSchematics.pdf>
 
 .. _gis-docs:
 
