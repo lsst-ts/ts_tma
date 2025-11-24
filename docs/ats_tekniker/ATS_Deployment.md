@@ -15,8 +15,7 @@ each hardware element is explained.
 
 ### Windows Machine
 
-In the Windows Machine some simulators and some tools are running. Start installing the Force EtherCAT Variables
-installer, this will install the LabVIEW runtime needed in many other tools and simulators.
+In the Windows Machine some simulators and some tools are running.
 
 #### Force EtherCAT Variables DEPRECATED
 
