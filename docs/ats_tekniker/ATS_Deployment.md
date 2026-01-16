@@ -252,6 +252,9 @@ development PC should be configured as shown in the
 
 1. Download the [PXI repository](https://github.com/lsst-ts/ts_tma_labview_pxi-controller)
 2. Open the `ATS_Projects/ATS_LSST_MainControllerPXI.lvproj`
+
+   > This project is only meant to be used for building the TMA PXI code for the ATS
+
 3. Ensure that in the project properties the *Conditional Disable Symbol* `HIL` is set to `True`
 
     1. Right click in the project an select properties
@@ -279,6 +282,9 @@ development PC should be configured as shown in the
    3. Deploy the `ATS_ECATSlave_NSV.lvlib`. This lib contains the NSVs for the ATS simulation mode.
 
     ![DeployAtsEthercatSlave](media/DeployAtsEthercatSlave.png)
+
+    > Note that these NSV variables are meant to replace the need for an ethercat master in the TMA PXI for the ATS.
+    > Therefore, deploying the ethercat config in this project is not necessary.
 
    4. Disconnect from the project
 8. Reboot the PXI -> check the boot of the PXI with the *labviewmessages* alias command
