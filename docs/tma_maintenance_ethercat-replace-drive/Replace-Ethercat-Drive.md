@@ -1,7 +1,65 @@
 # Replace EtherCAT Drive for AZ or EL
 
-This guide will only cover the replacement from the software point of view, the electrical and mechanical parts are not
-part of this guide.
+## Resources
+
+[Check electrical schematics for details on the ethercat connections](https://github.com/lsst-ts/ts_tma_tma-documentation_electrical-schematics/blob/master/MCS_Design_ElectricalSchematics.pdf)
+
+## Definitions
+
+- **Faulty drive**: The drive that has the main issue, comms or power related.
+- **Previous drive**: Is the drive that is set before the faulty one, closer to the Master's end.
+- **Next drive**: Is the drive that is set after the faulty one, far away from the master's end.
+- **M12**: EtherCAT connection implemented on the Drives'end.
+- **RJ45**: EtherCAT connection used at the MAster end (PXI or Support Computer)
+- **TMA Support Computer**: Is the computer used for any engineering work on TMA and its subsystems. This PC was originally the Black one located nearby the TMA Cabinet (Tekniker ownership) or a new one that will be installed inside the cabinet.
+
+## Procedure
+
+### 1. Getting the faulty drive configurations
+
+The current faulty drive configuration file must be downloaded from the faulty drive using the PHASE Support PC. There
+will be a PHASE procedure for this soon. If the PHASE procedure has not been delivered yet, contact Marco Rossi, from
+Phase for this.
+
+### 2. Replace the faulty drive by the new one physically
+
+> Note that if the faulty drive is bypassed the ethercat wires will not be disconnected/connected in this step.
+
+1. Remove the connections from the faulty one
+2. Take out the faulty drive
+3. Put in the spare drive
+4. Connect all the wires from the faulty one:
+   1. CAN Bus
+   2. DC Power bus
+   3. PT100
+   4. Ethercat only if no bypass is in place
+
+### 3. Configuring the spare/new drive
+
+The recovered configuration file from the faulty drive must be uploaded to the new/spare drive. This could be done
+following the PHASE procedure, but if the procedure has not been delivered yet, please contact Marco Rossi rom Phase for this.
+
+### 4. Recovering the original bus line (hardware, only if a bypass was in place)
+
+Once the new drive has been set and configured, the next step is to remove the bypass cable.
+Once this is done the original line will be connected, with a spare drive in instead the faulty one.
+
+### 5. Software preliminary verification (using TwinCAT)
+
+1. Access to the TMA Support PC / Tekniker L8 PC remotely or in person.
+2. Open the browser for access the EtherCAT switch.
+3. Set the EtherCAT line from the PXI to the computer.
+4. Open the TwinCAT application with the PhaseDrive project, [details on how to do this are here](https://ts-tma.lsst.io/docs/tma_maintenance_ethercat_ethercat-line-diagnostic/EtherCAT-Line-Diagnostic.html#twicat)
+5. Enable the faulty drive on the left tree section (right click on it -> Disable)
+
+   ![Disable Drive](resources/DisableDrive.png)
+
+6. Some errors are expected due to the Serial Number mismatching in between the faulty drive and the new one. But
+   the drives should all be in OP at this point
+7. Set TwinCAT to Config Mode.
+8. Set back the EtherCAT switch to be connected to the PXI.
+
+### 6. Labview project updates
 
 Once the new drive is mounted and electrically connected to the rest of the EtherCAT line, the steps listed below must
 be followed:
@@ -88,6 +146,10 @@ be followed:
       - check that the variables are being updated
 
         ![NiDistributedSystemManager](resources/NiDistributedSystemManager.png)
+
+### 7. Final verification
+
+Power on the AZ and EL axis and perform some movements. This should not cause any issue or alarm.
 
 ## Troubleshooting
 
