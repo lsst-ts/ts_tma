@@ -37,7 +37,7 @@ Phase for this.
 ### 3. Configuring the spare/new drive
 
 The recovered configuration file from the faulty drive must be uploaded to the new/spare drive. This could be done
-following the PHASE procedure, but if the procedure has not been delivered yet, please contact Marco Rossi rom Phase for this.
+following the PHASE procedure, but if the procedure has not been delivered yet, please contact Marco Rossi from Phase for this.
 
 ### 4. Recovering the original bus line (hardware, only if a bypass was in place)
 
