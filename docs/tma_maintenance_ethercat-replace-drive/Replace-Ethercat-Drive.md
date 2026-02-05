@@ -97,6 +97,16 @@ be followed:
 
     ![RenameNewSlave](resources/RenameNewSlave.png)
 
+  - Deploy the master configuration onto the PXI, to include the new drive
+    - Right click on the `MainDrives EtherCAT Master` and select *Deploy*
+
+      ![DeployEthercatMasterToPxi](resources/DeployEthercatMasterToPxi.png)
+
+    - When deploying, it si likely that a conflict resolution pop up will appear. Before clicking apply, make sure the
+      conflict solution is set to an option that leaves the scan engine in active as the last step.
+
+      ![DeploymentConflictResolutionPopup](resources/DeploymentConflictResolutionPopup.png)
+
   - Check the serial number from the new drive and the data stored in the project
     - Right click on the new drive and select `Online Device State...`
 
@@ -118,8 +128,8 @@ be followed:
 
       - If they match move on, if not, close the LabVIEW project and edit it in text mode to make the revision/serial number match.
         If by doing this the project marks the new slave as unknown, a new XML must be created with the right revision/serial
-        for the new drive. For doing this, take the existing XML, create a new copy and edit the required parameter to match the
-        one taken from the slave in the *Identity Object* page.
+        for the new drive. For doing this, take the [existing XML](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/tree/develop/ESIFiles/Phase/lsst_xml),
+        create a new copy and edit the required parameter to match the one taken from the slave in the *Identity Object* page.
 
   - Once the configuration in the project is okay, the new master configuration can be deployed onto the PXI
     - Right click on the `MainDrives EtherCAT Master` and select *Deploy*
@@ -132,6 +142,7 @@ be followed:
       ![DeploymentConflictResolutionPopup](resources/DeploymentConflictResolutionPopup.png)
 
     - Then a progress pop up will appear and if there is no problem while deploying, the new slave should be properly working
+  - Disconnect the LabVIEW project from the PXI
   - Check the ethercat is running, this can be done from the EUI ethercat management window or from the NI Distributed System Manager
     - [Ethercat Management Window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/048_EthercatManagement.html)
       - Navigate to the corresponding window in the TMA EUI
