@@ -18,3 +18,7 @@ For powering off, this should be easier than the on sequence.
 
 1. Go to the [Power Supply window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/018_PowerSupply.html) and press OFF on the top
 2. The Power Supply should be OFF
+
+
+<!-- Good to go, no changes needed
+-->
