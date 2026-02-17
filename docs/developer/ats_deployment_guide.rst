@@ -104,11 +104,11 @@ Force EtherCAT Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^
 This tool allows writing data to EtherCAT variables to other simulators using a TCP based custom protocol.
 The value written using this tool will overwrite any set value, so any slave value will be overwritten with the written value.
-The source code and more documentation about configuration can be found in :fab:`gitlab` `forceethercatvars <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars>`_.
+The source code and more documentation about configuration can be found in :fab:`github` `forceethercatvars <https://github.com/lsst-ts/ts_tma_hil_force-ethercat-vars>`_.
 
 Follow next steps to deploy this software:
 
-1. Clone the repository :fab:`gitlab` `forceethercatvars <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/forceethercatvars>`_.
+1. Clone the repository :fab:`github` `forceethercatvars <https://github.com/lsst-ts/ts_tma_hil_force-ethercat-vars>`_.
 2. Open the project ForceEtherCATVars.lvproj
 3. Go to “Build Specifications” and right click in “ForceIOs” to select “Build”
 4. Go to “Build Specifications” and right click in “ForceEtherCatVars Installer” to select “Build”
@@ -121,11 +121,11 @@ Read/Write Network Shared Variables Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This tool allows reading and writing data from network shared variables to other simulators and uses a TCP based custom protocol.
-The source code and more documentation about configuration can be found in `readvariables(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables>`_.
+The source code and more documentation about configuration can be found in `readvariables(github) <https://github.com/lsst-ts/ts_tma_hil_read-variables>`_.
 
 Follow next steps to deploy this software:
 
-1. Clone the repository https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables
+1. Clone the repository https://github.com/lsst-ts/ts_tma_hil_read-variables
 2. Open the project ReadVariables.lvproj
 3. Go to “Build Specifications” and right click in “Executable” to select “Build”
 4. When build finishes go to build folder and copy all files and folder
@@ -134,7 +134,7 @@ Follow next steps to deploy this software:
 7. Change the path of the field TCP_configuration_file to point to TCP_ServerConfig.xml file in the same data folder.
 8. Run ReadWriteNSVs.exe
 
-This tool is used for reading the variables from 3 different hosts the configuration for each of the instances can be found here: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/readvariables/-/tree/develop/Configuration
+This tool is used for reading the variables from 3 different hosts the configuration for each of the instances can be found here: https://github.com/lsst-ts/ts_tma_hil_read-variables/tree/develop/Configuration
 
 - ReadWriteAxesPXI_NSVs: the configuration for the instance that reads/writes the variables from the AxesPXI.
 - ReadWriteTMAPXI_NSVs: the configuration for the instance that reads/writes the variables from the TMA_PXI.
@@ -144,11 +144,11 @@ BoschPowerSupplySimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the bosch power supply, this simulator manages the digital inputs that tell the TMA PXI the status of the power supply.
-The source code and more documentation about configuration can be found in `boschpowersupplysimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/boschpowersupply/boschpowersupplysimulator>`_
+The source code and more documentation about configuration can be found in `boschpowersupplysimulator(github) <https://github.com/lsst-ts/ts_tma_hil_bosch-power-supply_bosch-power-supply-simulator>`_
 
 Follow next steps to deploy this software:
 
-1. Clone the repository https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/boschpowersupply/boschpowersupplysimulator
+1. Clone the repository https://github.com/lsst-ts/ts_tma_hil_bosch-power-supply_bosch-power-supply-simulator
 2. Open the project BoschPowerSupplySimulator.lvproj
 3. Go to “Build Specifications” and right click in “Executable” to select “Build”
 4. When build finishes go to build folder and copy all files and folder 
@@ -159,11 +159,11 @@ motorThermalModelSimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the thermal behavior of the phase motors, this simulator manages the analog inputs that tell the TMA PXI the temperatures of the motors and uses this values to control the output signal of the valve to manage the temperature of them.
-The source code and more documentation about configuration can be found in `motorthermalmodelsimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/motorthermalmodel/motorthermalmodelsimulator>`_.
+The source code and more documentation about configuration can be found in `motorthermalmodelsimulator(github) <https://github.com/lsst-ts/ts_tma_hil_motor-thermal-model_motor-thermal-model-simulator>`_.
 
 Follow next steps to deploy this software:
 
-1. Clone the repository in the link above https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/motorthermalmodel/motorthermalmodelsimulator
+1. Clone the repository in the link above https://github.com/lsst-ts/ts_tma_hil_motor-thermal-model_motor-thermal-model-simulator
 2. Open the project motorThermalModelSimulator.lvproj
 3. Go to “Build Specifications” and right click in “Executable” to select “Build”
 4. When build finishes go to build folder and copy all files and folder 
@@ -174,7 +174,7 @@ PhasePowerSupplySimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the phase power supply, this simulator manages the analog inputs that tell the TMA PXI the status of the power supply.
-The source code and more documentation about configuration can be found in `phasepowersupplysimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/phasepowersupply/phasepowersupplysimulator>`_.
+The source code and more documentation about configuration can be found in `phasepowersupplysimulator(github) <https://github.com/lsst-ts/ts_tma_hil_phase-power-supply_phase-power-supply-simulator>`_.
 
 Follow next steps to deploy this software:
 
@@ -191,7 +191,7 @@ Simulate limits
 
 This software allows to simulate the behavior of some subsystem limit switches.
 Those limits could be part of safety system or EtherCAT distributed IOs.
-The source code and more documentation about configuration can be found in `simulatelimits(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/simulatelimits>`_.
+The source code and more documentation about configuration can be found in `simulatelimits(github) <https://github.com/lsst-ts/ts_tma_hil_simulate-limits>`_.
 
 Follow next steps to deploy this software:
 
@@ -211,7 +211,8 @@ cabinetTemperatureControllerSimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the temperature controller of the cabinets, this simulator contains the simulator of the different temperature controllers available all over the telescope.
-The source code and more documentation about configuration can be found in `cabinet-az0001(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/cabinettemperaturecontroller/cabinet-az0001>`_.
+The source code and more documentation about configuration can be found in `cabinet-az0001(github) <https://github.com/lsst-ts/ts_tma_hil_cabinet-temperature-controller_cabinets>`_.
+The related configuration file is `TMA_AZ_CS_CBT_0001 <https://github.com/lsst-ts/ts_tma_hil_cabinet-temperature-controller_cabinets/tree/develop/configFiles/TMA_AZ_CS_CBT_0001>`_.
 
 Follow next steps to deploy this software:
 
@@ -236,7 +237,7 @@ extensionSimulatorForDP
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the extensions of the deployable platforms, this simulator manages the digital inputs that tell the Safety system the status of the extensions of the deployable platforms.
-The source code and more documentation about configuration can be found in `dpextensionssimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/dpextensionssimulator>`_.
+The source code and more documentation about configuration can be found in `dpextensionssimulator(github) <https://github.com/lsst-ts/ts_tma_hil_deployable-platform-extensions-simulator>`_.
 
 Follow next steps to deploy this software:
 
@@ -252,7 +253,7 @@ OilSupplySystemSimulator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a simulator for the Oil Supply System (OSS), this simulator contains a modbus server that connects to the TMA PXI to transmit the status of the OSS.
-The source code and more documentation about configuration can be found in `oilsupplysystemsimulator(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/oilsupplysystem/oilsupplysystemsimulator>`_.
+The source code and more documentation about configuration can be found in `oilsupplysystemsimulator(github) <https://github.com/lsst-ts/ts_tma_hil_oil-supply-system_oil-supply-system-simulator>`_.
 
 Follow next steps to deploy this software:
 
@@ -287,11 +288,11 @@ SpeedgoatManager
 ^^^^^^^^^^^^^^^^
 
 This is a simulator tool used for the robot framework tests to connect to the Speedgoat.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/speedgoat
+The source code and more documentation about configuration can be found in https://github.com/lsst-ts/ts_tma_hil_speedgoat_speedgoat-manager
 
 Follow next steps to deploy this software:
 
-1. Get the latest version of the compiled code from here: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/speedgoat/speedgoatmanagerbinaries
+1. Get the latest version of the compiled code from here: https://github.com/lsst-ts/ts_tma_hil_speedgoat_speedgoat-manager-binaries
 2. Change the ip address setting to become the windows machine's ip address
 3. Paste it to the windows machine
 
@@ -307,20 +308,20 @@ secondaryAxisSil
 ^^^^^^^^^^^^^^^^
 
 This is a simulator for the secondary axes (bosch axes), this simulator contains a modbus server that connects to the TMA PXI to transmit the status of each of the axes.
-The source code and more documentation about configuration can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissil
+The source code and more documentation about configuration can be found in https://github.com/lsst-ts/ts_tma_hil_secondary-axis_secondaryaxissil
 
-Because of the use of certain internal libaries in the source code, download the compiled binaries from https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissilbinaries
+Because of the use of certain internal libaries in the source code, download the compiled binaries from https://github.com/lsst-ts/ts_tma_hil_secondary-axis_secondary-axis-sil-binaries
 
 Follow the steps defined in the secondaryAxisSilREADME_.
 
-.. _secondaryAxisSilREADME: https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/secondaryaxis/secondaryaxissil/-/blob/master/README.md
+.. _secondaryAxisSilREADME: https://github.com/lsst-ts/ts_tma_hil_secondary-axis_secondaryaxissil/blob/master/README.md
 
 robotFramework
 ^^^^^^^^^^^^^^
 
-This refers to the automatic test framework the installation steps to setup the environment for robot framework is explained `here: <https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework/-/wikis/Installation>`_
+This refers to the automatic test framework the installation steps to setup the environment for robot framework is explained `here: <https://github.com/lsst-ts/ts_tma_test_automatic-test-code/blob/develop/docs/Installation.md>`_
 
-The source code and more documentation can be found in https://gitlab.tekniker.es/aut/projects/3151-LSST/test/robotframework
+The source code and more documentation can be found in https://github.com/lsst-ts/ts_tma_test_automatic-test-code
 
 .. list-table:: Hostnames for the ATS
   :widths: 50 50
@@ -354,7 +355,7 @@ The PXI is a model 1086.
 
 Use NI-MAX to install NI Linux RT system image along with Variable Engine and Ethercat driver.
 
-Then create configuration directories and files using `this document <https://gitlab.tekniker.es/publico/3151-lsst/documentation/pxicontroller_documentation/-/blob/master/80%20DeployOnTargets/01%20TMA%20PXI.md?ref_type=heads>`_.
+Then create configuration directories and files using `this document <https://github.com/lsst-ts/ts_tma_tma-documentation_pxi-controller_documentation/blob/master/80%20DeployOnTargets/01%20TMA%20PXI.md>`_.
 
 .. prompt:: bash
 
@@ -367,7 +368,7 @@ Some of the files have the suffix ForATS and those are the ones that you want to
 This is the PXI where the control code for all subsystems is running.
 To be able to configure the TMA PXI, the development PC should be configured as shown in the deployment document.
     
-1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
+1. Download the PXI repository: https://github.com/lsst-ts/ts_tma_labview_pxi-controller
 2. Open the `ATS_Projects/ATS_LSST_MainControllerPXI.lvproj`.
 3. Ensure that in the project properties the Conditional Disable Symbol “HIL” is set to “True”
 
@@ -401,7 +402,7 @@ AXES PXI
 
 The PXI is a model 1086.
 
-Start by adding the necessary configuration files from `ESIfiles` using `this document <https://gitlab.tekniker.es/publico/3151-lsst/documentation/pxicontroller_documentation/-/blob/master/80%20DeployOnTargets/03%20AXES%20PXI.md?ref_type=heads>`_.
+Start by adding the necessary configuration files from `ESIfiles` using `this document <https://github.com/lsst-ts/ts_tma_tma-documentation_pxi-controller_documentation/blob/master/80%20DeployOnTargets/03%20AXES%20PXI.md>`_.
 
 .. prompt:: bash
 
@@ -410,7 +411,7 @@ Start by adding the necessary configuration files from `ESIfiles` using `this do
 This is the PXI where the control code for the main axes is running.
 To be able to configure the AXES PXI, the development PC should be configured as shown in the deployment document
 
-1. Download the PXI repository: https://gitlab.tekniker.es/aut/projects/3151-LSST/LabVIEWCode/PXIController
+1. Download the PXI repository: https://github.com/lsst-ts/ts_tma_labview_pxi-controller
 2. Open the `ATS_Projects/ATS_MainAxes.lvproj`.
 3. Ensure that in the project properties the Conditional Disable Symbol “HIL” is set to “True”
 
@@ -457,7 +458,7 @@ AUX PXI
 =======
 The PXI is a virtual machine running NI RT linux.
 
-Start by setting up the configuration directory using `this document <https://gitlab.tekniker.es/publico/3151-lsst/documentation/pxicontroller_documentation/-/blob/master/80%20DeployOnTargets/02%20AUX%20PXI.md?ref_type=heads>`_.
+Start by setting up the configuration directory using `this document <https://github.com/lsst-ts/ts_tma_tma-documentation_pxi-controller_documentation/blob/master/80%20DeployOnTargets/02%20AUX%20PXI.md>`_.
 You can find the files in the `ESIFiles` directory inside of the `PXIController` repo.
 
 #. Open `ATS_Projects/ATS_AuxSystemsController.lvproj`.
@@ -477,7 +478,7 @@ Safety code deployment
 ======================
 
 The code that runs on the PILZ controller to simulate the behavior of the TMA Interlock System.
-The source code and more documentation about configuration can be found in `testdualmodbus(gitlab) <https://gitlab.tekniker.es/aut/projects/3151-LSST/hil/testdualmodbus>`_
+The source code and more documentation about configuration can be found in `testdualmodbus(github) <https://github.com/lsst-ts/ts_tma_hil_test-dual-modbus>`_
 
 1. Open the "TestDualModbus" project with PAS4000 version 1.18.0
 2. Activate the "TestDualModbus"
