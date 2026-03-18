@@ -296,12 +296,25 @@ development PC should be configured as shown in the
   >
   > These are not built, but could be run and deployed from the project directly if needed
 
+You need to copy the required `.so` libraries, setup NTP/PTP, set the `cron` job, add the configruraion files in `/c/Configuration`, modify the IPs in the configuration file, and more.
+This step applies to the Axes PXI and AUX PXI as well.
+See [tma-pxi deployment](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#tma-pxi),  [tma-pxi target](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/01%20TMA%20PXI.html#tma-pxi), and [Deploy On Targets introduction](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/00%20Introduction.html) for more details.
+For the EIB configuration file (`multi_ext.txt`), use the [multi_extForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/EIB/multi_ext_forATS.txt) instead and rename it to `multi_ext.txt`.
+
+Since there are many IPs in the configuration files in `/c/Configuration` directory, it would be good to check the current values on summit or ATS before any modification.
+You can do `grep -nr "139" /c/Configuration` or `grep -nr "192" /c/Configuration` to check each IP address based on the case that the PXIs are on the summit or ATS.
+`139.x.x.x` belongs to the Rubin IP domain in Chile and `192.x.x.x` belongs to the Tekniker IP domain (in case you copy the configuration file from the [ts_tma_labview_pxi-controller](https://github.com/lsst-ts/ts_tma_labview_pxi-controller)).
+You can use the `host` command to check each IP address if it has an assigned hostname.
+
 ### Axes PXI
 
 Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/ATS_MainAxes.lvproj` and the
 `MAIN_AxesPXI.vi`. And instead of deploying the NSVs library, deploy the ethercat master, see image below.
 
 ![Deploy ethercat master](media/DeployEthercatMaster.png)
+
+You might need to download the build cRIO-9145 FPGA bitfile.
+See [ethercat-crio-9145](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#ethercat-crio-9145).
 
 ### AUX PXI
 
