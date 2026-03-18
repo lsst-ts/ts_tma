@@ -300,11 +300,20 @@ You need to copy the required `.so` libraries, setup NTP/PTP, set the `cron` job
 This step applies to the Axes PXI and AUX PXI as well.
 See [tma-pxi deployment](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#tma-pxi),  [tma-pxi target](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/01%20TMA%20PXI.html#tma-pxi), and [Deploy On Targets introduction](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/00%20Introduction.html) for more details.
 For the EIB configuration file (`multi_ext.txt`), use the [multi_extForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/EIB/multi_ext_forATS.txt) instead and rename it to `multi_ext.txt`.
+You might need to get or update the related IP, port, and gateway as well (see [changing-eib-ip](https://ts-tma.lsst.io/docs/tma_maintenance_eib_eib-change-ip/Change-IP.html#changing-eib-ip)).
 
 Since there are many IPs in the configuration files in `/c/Configuration` directory, it would be good to check the current values on summit or ATS before any modification.
 You can do `grep -nr "139" /c/Configuration` or `grep -nr "192" /c/Configuration` to check each IP address based on the case that the PXIs are on the summit or ATS.
 `139.x.x.x` belongs to the Rubin IP domain in Chile and `192.x.x.x` belongs to the Tekniker IP domain (in case you copy the configuration file from the [ts_tma_labview_pxi-controller](https://github.com/lsst-ts/ts_tma_labview_pxi-controller)).
 You can use the `host` command to check each IP address if it has an assigned hostname.
+You can also check the current TMA setup here: [Ethernet-Connections](https://ts-tma.lsst.io/docs/tma_ethernet-conexions/Ethernet-Connections.html).
+
+The control system will generate the log file in the `/home/lvuser/log` directory.
+Make sure you create this directory in advance.
+The ownership of log directory should be `lvuser:ni`.
+This ownership appies to the `/c/Configuration` as well.
+You can do a soft link of `/home/admin/logs` to this log directory.
+This step applies to the Axes PXI and AUX PXI.
 
 ### Axes PXI
 
@@ -316,10 +325,33 @@ Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/
 You might need to download the build cRIO-9145 FPGA bitfile.
 See [ethercat-crio-9145](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#ethercat-crio-9145).
 
+Copy the [MainAxisConfig_forATS.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/MainAxes/AxesPXI/Configuration/MainAxisConfig_forATS.ini) to the `/c/Configuration` in PXI and rename it to be the `/c/Configuration/MainAxisConfig.ini`.
+
+You may want to check the EtherCAT slaves can be put into the **Operational** state or not.
+Connect the **ATS_MainAxes.lvproj** project to the ATS AXES PXI.
+Right click the **MainDrives EtherCAT Master** to see the **Online Master State** option.
+Click it and the LabVIEW should pop up a window to show the current 3 slave states:
+
+- x2 are the speedgoat modules.
+- x1 is the cRIO that triggers the EIB signal, note that the EIB is NOT connected to the ethercat line directly.
+See the details in [ATS_HardwareDesign](https://ts-tma.lsst.io/docs/ats_tekniker/ATS_HardwareDesign.html).
+
+If the ATS AXES PXI does not detect the slaves using the **Online Master State**, check the following:
+
+1. The speedgoat is up and running.
+2. The ethercat connections are in place and right order, see [ethercat-line-device-order](https://ts-tma.lsst.io/docs/ats_tekniker/ATS_HardwareDesign.html#ethercat-line-device-order).
+
 ### AUX PXI
 
 Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/ATS_AuxSystemsController.lvproj` and the
 `AuxSystemsMain.vi`. For this PXI there are no libraries to be deployed
+
+For the CPU temperature monitor task to work, the ssh key generation is required.
+See (ssh-keys-for-cpu-temperatures)[https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/02%20AUX%20PXI.html#ssh-keys-for-cpu-temperatures].
+Make sure you have tested the `lvuser` in AUX PXI can `ssh` to the TMA PXI and AXES PXI.
+You need to put the public key to the `/home/admin/.ssh/authorized_keys` for the above two PXIs.
+You might need to modify `/c/Configuration/CpuTempMonitoring/PxiCpuMonitoringConfiguration.json` for the path of `temp1_input` file.
+It could be `/sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input`, `/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input`, or others, which depends on your PXI controller.
 
 ### Safety code deployment
 
