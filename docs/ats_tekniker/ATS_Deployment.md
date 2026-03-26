@@ -224,6 +224,11 @@ configuration can be found in [this repo](https://github.com/lsst-ts/ts_tma_hil_
 6. Paste compilation files to desired destination in Windows Machine
 7. Run *WriteTekNsvVariables.exe*
 
+#### Start/Stop the Simulators and Tools in Windows
+
+You can use the scripts in [ts_tma_hil_simulators-start-stop-scripts](https://github.com/lsst-ts/ts_tma_hil_simulators-start-stop-scripts) to start or stop all ATS related applications in a once.
+You need to modify the paths of applications in scripts.
+
 ### Linux Machine
 
 In the Linux Machine the secondary axis simulators and the robot framework tests are running.
@@ -301,6 +306,8 @@ This step applies to the Axes PXI and AUX PXI as well.
 See [tma-pxi deployment](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#tma-pxi),  [tma-pxi target](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/01%20TMA%20PXI.html#tma-pxi), and [Deploy On Targets introduction](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/00%20Introduction.html) for more details.
 For the EIB configuration file (`multi_ext.txt`), use the [multi_extForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/EIB/multi_ext_forATS.txt) instead and rename it to `multi_ext.txt`.
 You might need to get or update the related IP, port, and gateway as well (see [changing-eib-ip](https://ts-tma.lsst.io/docs/tma_maintenance_eib_eib-change-ip/Change-IP.html#changing-eib-ip)).
+
+For the safety configuration files (`Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`) in `/c/Configuration/Safety`, use the [Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt) and [Safety_ModBusMapping_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForATS.txt) instead and rename them to `Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`.
 
 Since there are many IPs in the configuration files in `/c/Configuration` directory, it would be good to check the current values on summit or ATS before any modification.
 You can do `grep -nr "139" /c/Configuration` or `grep -nr "192" /c/Configuration` to check each IP address based on the case that the PXIs are on the summit or ATS.
