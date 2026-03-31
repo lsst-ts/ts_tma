@@ -309,6 +309,8 @@ You might need to get or update the related IP, port, and gateway as well (see [
 
 For the safety configuration files (`Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`) in `/c/Configuration/Safety`, use the [Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt) and [Safety_ModBusMapping_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForATS.txt) instead and rename them to `Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`.
 
+For the Bosch system configuration file, copy the [BoschSILConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/RT%20Code/BoschMotor/HIL/Configuration/BoschSILConfig.ini) file to `/c/Configuration` directory and modify the IPs inside to point to the VM that runs the [ts_tma_hil_secondary-axis_secondaryaxissil](https://github.com/lsst-ts/ts_tma_hil_secondary-axis_secondaryaxissil).
+
 Since there are many IPs in the configuration files in `/c/Configuration` directory, it would be good to check the current values on summit or ATS before any modification.
 You can do `grep -nr "139" /c/Configuration` or `grep -nr "192" /c/Configuration` to check each IP address based on the case that the PXIs are on the summit or ATS.
 `139.x.x.x` belongs to the Rubin IP domain in Chile and `192.x.x.x` belongs to the Tekniker IP domain (in case you copy the configuration file from the [ts_tma_labview_pxi-controller](https://github.com/lsst-ts/ts_tma_labview_pxi-controller)).
@@ -359,6 +361,10 @@ Make sure you have tested the `lvuser` in AUX PXI can `ssh` to the TMA PXI and A
 You need to put the public key to the `/home/admin/.ssh/authorized_keys` for the above two PXIs.
 You might need to modify `/c/Configuration/CpuTempMonitoring/PxiCpuMonitoringConfiguration.json` for the path of `temp1_input` file.
 It could be `/sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input`, `/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input`, or others, which depends on your PXI controller.
+
+For the Modbus temperature controller configuration files, copy the [ModbusTemperatureControllers](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/tree/develop/ESIFiles/ModbusTemperatureControllers) directory to `/c/Configuration` directory and modify the IPs and ports in `ini` files to point to the VM that runs the [ts_tma_hil_cabinet-temperature-controller_cabinets](https://github.com/lsst-ts/ts_tma_hil_cabinet-temperature-controller_cabinets).
+You also need to remove the `_forATS` word in the file name.
+For example, rename the `TMA_AX_DZ_CBT_0001_mapping_forATS.txt` to `TMA_AX_DZ_CBT_0001_mapping.txt`.
 
 ### Safety code deployment
 
