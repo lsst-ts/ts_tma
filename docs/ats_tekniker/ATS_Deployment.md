@@ -366,6 +366,22 @@ For the Modbus temperature controller configuration files, copy the [ModbusTempe
 You also need to remove the `_forATS` word in the file name.
 For example, rename the `TMA_AX_DZ_CBT_0001_mapping_forATS.txt` to `TMA_AX_DZ_CBT_0001_mapping.txt`.
 
+For the top-end chiller, the configuration files are in the [TEC](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/tree/develop/ESIFiles/TEC).
+Note that for the ATS, you need to modify the `Address` and `Port` in [ServerConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/TEC/ServerConfig.ini).
+The `Port` value is assigned in [main.py](https://github.com/lsst-ts/ts_tma_hil_simulator_top-end-chiller/blob/develop/src/topEndChillerSimulator/main.py) of [ts_tma_hil_simulator_top-end-chiller](https://github.com/lsst-ts/ts_tma_hil_simulator_top-end-chiller).
+
+For the oil supply system, the configuration files are in the [OSS](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/tree/develop/ESIFiles/OSS).
+Note that for the ATS, you need to modify the `Address` and `Port` in [ServerConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/OSS/ServerConfig.ini).
+The `Port` value is assigned in [OSS_ServerConfig.ini](https://github.com/lsst-ts/ts_tma_hil_oil-supply-system_oil-supply-system-simulator/blob/develop/configFiles/OSS_ServerConfig.ini) of [ts_tma_hil_oil-supply-system_oil-supply-system-simulator](https://github.com/lsst-ts/ts_tma_hil_oil-supply-system_oil-supply-system-simulator).
+
+For the ATS AUX PXI, if it is a Beckhoff device as [aux-pxi](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/02%20AUX%20PXI.html#aux-pxi), you can configure it to be a PXI by following: [after-installation-to-set-as-pxi](https://ts-tma.lsst.io/docs/tma_maintenance_ni-linux-rt-installation/NI-Linux-RT-Installation.html#after-installation-to-set-as-pxi).
+Note you might need to use the following two commands instead for the instructions on the above link:
+
+```bash
+grub-editenv - set DeviceDesc=PXIe-8880_Beckhoff
+grub-editenv - set hostname=ats_AUX-PXI
+```
+
 ### Safety code deployment
 
 The code that runs on the PILZ controller to simulate the behavior of the TMA IS. The source code and more
