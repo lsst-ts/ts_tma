@@ -10,7 +10,7 @@ Transform the last 2 points into a note.
 
 This document explains how and what to check for moving the AZ and EL axes.
 
-Preconditions:
+## Preconditions:
 * Power supply and Oil Supply System are power On
 * NO active interlocks, clear them in:
    *   The TMA IS: verify [Safety System window in the EUI](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/034_SafetySystem.html)
