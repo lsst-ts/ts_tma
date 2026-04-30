@@ -305,7 +305,9 @@ You need to copy the required `.so` libraries, setup NTP/PTP, set the `cron` job
 This step applies to the Axes PXI and AUX PXI as well.
 See [tma-pxi deployment](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#tma-pxi),  [tma-pxi target](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/01%20TMA%20PXI.html#tma-pxi), and [Deploy On Targets introduction](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/00%20Introduction.html) for more details.
 For the EIB configuration file (`multi_ext.txt`), use the [multi_extForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/EIB/multi_ext_forATS.txt) instead and rename it to `multi_ext.txt`.
-You might need to get or update the related IP, port, and gateway as well (see [changing-eib-ip](https://ts-tma.lsst.io/docs/tma_maintenance_eib_eib-change-ip/Change-IP.html#changing-eib-ip)).
+You might need to get or update the related IP, port, gateway, and UDP destination (IP, MAC, and port) as well (see [changing-eib-ip](https://ts-tma.lsst.io/docs/tma_maintenance_eib_eib-change-ip/Change-IP.html#changing-eib-ip)).
+For the UDP destination, it would be the ATS AXES PXI.
+To test the EIB connection, you can go to the Encoder system window in the EUI and press power on for AZ or EL, if it comes on, then you are OK, if not, something is wrong.
 
 For the safety configuration files (`Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`) in `/c/Configuration/Safety`, use the [Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt) and [Safety_ModBusMapping_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForATS.txt) instead and rename them to `Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`.
 
