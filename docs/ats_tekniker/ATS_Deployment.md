@@ -224,6 +224,11 @@ configuration can be found in [this repo](https://github.com/lsst-ts/ts_tma_hil_
 6. Paste compilation files to desired destination in Windows Machine
 7. Run *WriteTekNsvVariables.exe*
 
+#### Start/Stop the Simulators and Tools in Windows
+
+You can use the scripts in [ts_tma_hil_simulators-start-stop-scripts](https://github.com/lsst-ts/ts_tma_hil_simulators-start-stop-scripts) to start or stop all ATS related applications in a once.
+You need to modify the paths of applications in scripts.
+
 ### Linux Machine
 
 In the Linux Machine the secondary axis simulators and the robot framework tests are running.
@@ -300,11 +305,26 @@ You need to copy the required `.so` libraries, setup NTP/PTP, set the `cron` job
 This step applies to the Axes PXI and AUX PXI as well.
 See [tma-pxi deployment](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#tma-pxi),  [tma-pxi target](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/01%20TMA%20PXI.html#tma-pxi), and [Deploy On Targets introduction](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/00%20Introduction.html) for more details.
 For the EIB configuration file (`multi_ext.txt`), use the [multi_extForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/EIB/multi_ext_forATS.txt) instead and rename it to `multi_ext.txt`.
+You might need to get or update the related IP, port, gateway, and UDP destination (IP, MAC, and port) as well (see [changing-eib-ip](https://ts-tma.lsst.io/docs/tma_maintenance_eib_eib-change-ip/Change-IP.html#changing-eib-ip)).
+For the UDP destination, it would be the ATS AXES PXI.
+To test the EIB connection, you can go to the Encoder system window in the EUI and press power on for AZ or EL, if it comes on, then you are OK, if not, something is wrong.
+
+For the safety configuration files (`Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`) in `/c/Configuration/Safety`, use the [Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt) and [Safety_ModBusMapping_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForATS.txt) instead and rename them to `Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`.
+
+For the Bosch system configuration file, copy the [BoschSILConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/RT%20Code/BoschMotor/HIL/Configuration/BoschSILConfig.ini) file to `/c/Configuration` directory and modify the IPs inside to point to the VM that runs the [ts_tma_hil_secondary-axis_secondaryaxissil](https://github.com/lsst-ts/ts_tma_hil_secondary-axis_secondaryaxissil).
 
 Since there are many IPs in the configuration files in `/c/Configuration` directory, it would be good to check the current values on summit or ATS before any modification.
 You can do `grep -nr "139" /c/Configuration` or `grep -nr "192" /c/Configuration` to check each IP address based on the case that the PXIs are on the summit or ATS.
 `139.x.x.x` belongs to the Rubin IP domain in Chile and `192.x.x.x` belongs to the Tekniker IP domain (in case you copy the configuration file from the [ts_tma_labview_pxi-controller](https://github.com/lsst-ts/ts_tma_labview_pxi-controller)).
 You can use the `host` command to check each IP address if it has an assigned hostname.
+You can also check the current TMA setup here: [Ethernet-Connections](https://ts-tma.lsst.io/docs/tma_ethernet-conexions/Ethernet-Connections.html).
+
+The control system will generate the log file in the `/home/lvuser/log` directory.
+Make sure you create this directory in advance.
+The ownership of log directory should be `lvuser:ni`.
+This ownership appies to the `/c/Configuration` as well.
+You can do a soft link of `/home/admin/logs` to this log directory.
+This step applies to the Axes PXI and AUX PXI.
 
 ### Axes PXI
 
@@ -316,10 +336,53 @@ Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/
 You might need to download the build cRIO-9145 FPGA bitfile.
 See [ethercat-crio-9145](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#ethercat-crio-9145).
 
+Copy the [MainAxisConfig_forATS.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/MainAxes/AxesPXI/Configuration/MainAxisConfig_forATS.ini) to the `/c/Configuration` in PXI and rename it to be the `/c/Configuration/MainAxisConfig.ini`.
+
+You may want to check the EtherCAT slaves can be put into the **Operational** state or not.
+Connect the **ATS_MainAxes.lvproj** project to the ATS AXES PXI.
+Right click the **MainDrives EtherCAT Master** to see the **Online Master State** option.
+Click it and the LabVIEW should pop up a window to show the current 3 slave states:
+
+- x2 are the speedgoat modules.
+- x1 is the cRIO that triggers the EIB signal, note that the EIB is NOT connected to the ethercat line directly.
+See the details in [ATS_HardwareDesign](https://ts-tma.lsst.io/docs/ats_tekniker/ATS_HardwareDesign.html).
+
+If the ATS AXES PXI does not detect the slaves using the **Online Master State**, check the following:
+
+1. The speedgoat is up and running.
+2. The ethercat connections are in place and right order, see [ethercat-line-device-order](https://ts-tma.lsst.io/docs/ats_tekniker/ATS_HardwareDesign.html#ethercat-line-device-order).
+
 ### AUX PXI
 
 Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/ATS_AuxSystemsController.lvproj` and the
 `AuxSystemsMain.vi`. For this PXI there are no libraries to be deployed
+
+For the CPU temperature monitor task to work, the ssh key generation is required.
+See (ssh-keys-for-cpu-temperatures)[https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/02%20AUX%20PXI.html#ssh-keys-for-cpu-temperatures].
+Make sure you have tested the `lvuser` in AUX PXI can `ssh` to the TMA PXI and AXES PXI.
+You need to put the public key to the `/home/admin/.ssh/authorized_keys` for the above two PXIs.
+You might need to modify `/c/Configuration/CpuTempMonitoring/PxiCpuMonitoringConfiguration.json` for the path of `temp1_input` file.
+It could be `/sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input`, `/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input`, or others, which depends on your PXI controller.
+
+For the Modbus temperature controller configuration files, copy the [ModbusTemperatureControllers](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/tree/develop/ESIFiles/ModbusTemperatureControllers) directory to `/c/Configuration` directory and modify the IPs and ports in `ini` files to point to the VM that runs the [ts_tma_hil_cabinet-temperature-controller_cabinets](https://github.com/lsst-ts/ts_tma_hil_cabinet-temperature-controller_cabinets).
+You also need to remove the `_forATS` word in the file name.
+For example, rename the `TMA_AX_DZ_CBT_0001_mapping_forATS.txt` to `TMA_AX_DZ_CBT_0001_mapping.txt`.
+
+For the top-end chiller, the configuration files are in the [TEC](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/tree/develop/ESIFiles/TEC).
+Note that for the ATS, you need to modify the `Address` and `Port` in [ServerConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/TEC/ServerConfig.ini).
+The `Port` value is assigned in [main.py](https://github.com/lsst-ts/ts_tma_hil_simulator_top-end-chiller/blob/develop/src/topEndChillerSimulator/main.py) of [ts_tma_hil_simulator_top-end-chiller](https://github.com/lsst-ts/ts_tma_hil_simulator_top-end-chiller).
+
+For the oil supply system, the configuration files are in the [OSS](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/tree/develop/ESIFiles/OSS).
+Note that for the ATS, you need to modify the `Address` and `Port` in [ServerConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/OSS/ServerConfig.ini).
+The `Port` value is assigned in [OSS_ServerConfig.ini](https://github.com/lsst-ts/ts_tma_hil_oil-supply-system_oil-supply-system-simulator/blob/develop/configFiles/OSS_ServerConfig.ini) of [ts_tma_hil_oil-supply-system_oil-supply-system-simulator](https://github.com/lsst-ts/ts_tma_hil_oil-supply-system_oil-supply-system-simulator).
+
+For the ATS AUX PXI, if it is a Beckhoff device as [aux-pxi](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/02%20AUX%20PXI.html#aux-pxi), you can configure it to be a PXI by following: [after-installation-to-set-as-pxi](https://ts-tma.lsst.io/docs/tma_maintenance_ni-linux-rt-installation/NI-Linux-RT-Installation.html#after-installation-to-set-as-pxi).
+Note you might need to use the following two commands instead for the instructions on the above link:
+
+```bash
+grub-editenv - set DeviceDesc=PXIe-8880_Beckhoff
+grub-editenv - set hostname=ats_AUX-PXI
+```
 
 ### Safety code deployment
 
