@@ -381,7 +381,7 @@ From the NI distribution system, you can see
 - OnTime_ticks = 6400
 - FPGA clock = 40 MHz
 
-Digital output ON time in seconds à 1/40MHz * 6400 = 0.00016 seconds (0.16 ms).
+Digital output ON time in seconds 1/40MHz * 6400 = 0.00016 seconds (0.16 ms).
 Therefore, it is recommended to use the oscilloscope to check this synchronous signal when needed.
 
 ### AUX PXI
