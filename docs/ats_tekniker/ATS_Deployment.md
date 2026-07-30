@@ -338,10 +338,10 @@ You might need to use the administor account instead of the operator account to 
 To test the EIB connection, you can go to the Encoder system window in the EUI and press power on for AZ or EL, if it comes on, then you are OK, if not, something is wrong.
 
 For the safety configuration files (`Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`) in `/c/Configuration/Safety`, use the [Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt) and [Safety_ModBusMapping_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForATS.txt) instead and rename them to `Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`.
-Since the control system will do the ModBus connection to the safety module, you need to make sure the safety module allows this peer connection.
+Since the control system will do the ModBus connection to the safety system, you need to make sure the safety systems allows this peer connection.
 Open the PAS4000 IDE and use the **IP Connections Editer** and **Online Network Editor** to check or modify the **Remote IP Address** under the **Modbus/TCP** protocol to have the ATS TMA PXI IP in the allowed list.
 See the **Network settings** in **IP Connections Editer** to do the related modification.
-If you do the change, you need to redeploy the change to the safety module.
+If you do the change, you need to redeploy the change to the safety system.
 
 For the Bosch system configuration file, copy the [BoschSILConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/RT%20Code/BoschMotor/HIL/Configuration/BoschSILConfig.ini) file to `/c/Configuration` directory and modify the IPs inside to point to the VM that runs the [ts_tma_hil_secondary-axis_secondaryaxissil](https://github.com/lsst-ts/ts_tma_hil_secondary-axis_secondaryaxissil).
 
@@ -368,8 +368,10 @@ Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/
 You might need to download the build cRIO-9145 FPGA bitfile.
 See [ethercat-crio-9145](https://ts-tma.lsst.io/docs/tma_maintenance_deployment/deployment.html#ethercat-crio-9145).
 See [note of NI-9145](#note-of-ni-9145), [electrical-connections](https://ts-tma.lsst.io/docs/ats_tekniker/ATS_HardwareDesign.html#electrical-connections), and [ATS_ElectricalSchematics.pdf](https://github.com/lsst-ts/ts_tma/blob/main/docs/ats_tekniker/ATS_ElectricalSchematics.pdf) for more details.
-Note the `MainFPGA.vi` is broken in `ATS_Projects/ATS_MainAxes.lvproj`.
-To fix it, re-select each network shared variable with the same name under the **Device2**.
+
+> Note the `MainFPGA.vi` might be broken in `ATS_Projects/ATS_MainAxes.lvproj`.
+> To fix it, re-select each network shared variable with the same name under the **Device2**.
+
 In addition, you need to change the mode of NI-9401 module to be the **output** mode (you can do so for DIO0-3 and DIO4-7, it will not hurt).
 See [Configuring NI 9401’s Bidirectional Pins As Inputs and Outputs](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P7ZESA0&l=en-US).
 After the fix, you can build the bitfile and download it to the cRIO-9145.
@@ -420,9 +422,11 @@ From the NI distribution system, you can see
 
 Digital output ON time in seconds 1/40MHz * 6400 = 0.00016 seconds (0.16 ms).
 Therefore, it is recommended to use the oscilloscope to check this synchronous signal when needed.
-You may want to set the **OnTime_ticks** value to be 65535 by the NI distribution manager to make sure there is the signal in oscilloscope.
 
-For example, the following is the figure of difference between the sync+ and sync- signals:
+If there are problems with the EIB trigger, the **OnTime_ticks** variable might have a `0`value when testing, set it to
+65535 with the NI distribution manager to make sure there is the signal in oscilloscope.
+
+For example, the following is the figure of difference between the sync+ and sync- signals, using a value of 65535:
 
 ![oscilloscope diff plus and minus](media/oscilloscope_diff_plus_and_minus.png)
 
@@ -432,7 +436,7 @@ Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/
 `AuxSystemsMain.vi`. For this PXI there are no libraries to be deployed
 
 For the CPU temperature monitor task to work, the ssh key generation is required.
-See (ssh-keys-for-cpu-temperatures)[https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/02%20AUX%20PXI.html#ssh-keys-for-cpu-temperatures].
+See [ssh-keys-for-cpu-temperatures](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/80%20DeployOnTargets/02%20AUX%20PXI.html#ssh-keys-for-cpu-temperatures).
 Make sure you have tested the `lvuser` in AUX PXI can `ssh` to the TMA PXI and AXES PXI (`admin` account in these two PXIs).
 When doing the test, note that you need to use the same IP assigned in `/c/Configuration/CpuTempMonitoring/PxiCpuMonitoringConfiguration.json`.
 That means if you use the numbered IP in `/c/Configuration/CpuTempMonitoring/PxiCpuMonitoringConfiguration.json`, test the `ssh` with this numbered IP.
@@ -475,10 +479,12 @@ grub-editenv - set DeviceDesc=PXIe-8880_Beckhoff
 grub-editenv - set hostname=ats_AUX-PXI
 ```
 
-### Fix the Locking Pins (LPs)
+### Main Axes Interlocks
 
-The main axes might be locked by interlocks.
+The main axes might be locked by interlocks, a very common one after a reboot is the Locking Pins (LP).
+
 To fix the interlock for the Locking pins, extend and retract the deployable platforms to update the limits.
+
 The initial condition is:
 
 ![Deployable platform initial condition](media/deployable_platform_initial.png)
@@ -540,25 +546,12 @@ To clear these several things must happen:
 
 1. The axis must be moved back, to a higher position, as this is a negative limit, for EL this was done to set it in a position suitable for the deployable platforms.
 2. Make sure that the simulator stops setting the value to limit pressed, this means the axis must be within the limits for the axis, see settings.
-3. The value for the safety encoder, in this case simulated with a variable, must be higher than the previously registered value, the value that had when the limit was tripped. To force this, there is a tool in the windows machine. you can do this now for the EL axis, see images.
+3. The value for the safety encoder, in this case simulated with a variable, must be higher than the previously registered value, the value that had when the limit was tripped. To force this, there is a tool in the windows machine.
 4. Finally reset from the safety window.
 
 ![Safety system error 1](media/safety_system_error_1.png)
 ![Safety system error 2](media/safety_system_error_2.png)
 ![Safety system error 3](media/safety_system_error_3.png)
-
-### Debug the Interlock of TMA-AXES PXI Communication
-
-For now you will keep trying to bring EL to life, so you go to the window and tried reset, it cleared the STO interlock, but there are still some interlocks:
-
-- TMA-AXES PXI comm
-- Trajectory Dara Not Available
-
-![Interlock tma axes communication](media/interlock_tma_axes_comm.png)
-
-After rebooting the AXES PXI, this cleared the TMA-AXES comm error but not the Trajectory Data error.
-
-![Interlock trajectory data error](media/interlock_trajectory_data_error.png)
 
 ### Safety code deployment
 
