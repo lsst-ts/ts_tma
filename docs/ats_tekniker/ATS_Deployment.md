@@ -358,6 +358,15 @@ This ownership appies to the `/c/Configuration` as well.
 You can do a soft link of `/home/admin/logs` to this log directory.
 This step applies to the Axes PXI and AUX PXI.
 
+To make the TCP/IP socket reusable immediately, add the following line to `/etc/natinst/share/lvrt.conf`:
+
+```text
+SocketSetReuseAddr=True
+```
+
+You can see the related reference here: [LabVIEW Returns Error 60 When Opening TCP Connection on Local Port](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P9ZQSA0&l=en-US).
+This step applies to the Axes PXI and AUX PXI.
+
 ### Axes PXI
 
 Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/ATS_MainAxes.lvproj` and the
