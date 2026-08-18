@@ -629,6 +629,16 @@ is booted, the cabinets temperature controllers would be off, until a reset comm
 
 ![Auxiliary boxes after sending a reset command](media/AuxiliaryBoxesEnabled.png)
 
+After this, you need to do the followings to persist the change:
+
+1. Stop all the Windows tools and simulators.
+2. Reboot the ATS AUX PXI.
+3. Reboot the ATS TMA PXI.
+4. Reboot the ATS AUX PXI.
+
+After each reboot before the step 4, if you run the Windows tools and simulators, you will see the connection issues of the auxiliary boxes and main cabinet.
+Only after the step 4, you will not see the communication issues anymore and you should be good to enable (or reset) the auxiliary boxes from the EUI.
+
 ### Elevation inclinometer
 
 The default value for the elevation inclinometer variable `TMA-EL-CS-CBT-0101-220A30_ElevationInclinometer` is set to
