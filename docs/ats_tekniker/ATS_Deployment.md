@@ -358,6 +358,15 @@ This ownership appies to the `/c/Configuration` as well.
 You can do a soft link of `/home/admin/logs` to this log directory.
 This step applies to the Axes PXI and AUX PXI.
 
+To make the TCP/IP socket reusable immediately, add the following line to `/etc/natinst/share/lvrt.conf`:
+
+```text
+SocketSetReuseAddr=True
+```
+
+You can see the related reference here: [LabVIEW Returns Error 60 When Opening TCP Connection on Local Port](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P9ZQSA0&l=en-US).
+This step applies to the Axes PXI and AUX PXI.
+
 ### Axes PXI
 
 Same as TMA-PXI, but instead of opening the TMA project, open the `ATS_Projects/ATS_MainAxes.lvproj` and the
@@ -619,6 +628,16 @@ is booted, the cabinets temperature controllers would be off, until a reset comm
 ![Auxiliary boxes settings](media/AuxiliaryBoxesSettings.png)
 
 ![Auxiliary boxes after sending a reset command](media/AuxiliaryBoxesEnabled.png)
+
+After this, you need to do the followings to persist the change:
+
+1. Stop all the Windows tools and simulators.
+2. Reboot the ATS AUX PXI.
+3. Reboot the ATS TMA PXI.
+4. Reboot the ATS AUX PXI.
+
+After each reboot before the step 4, if you run the Windows tools and simulators, you will see the connection issues of the auxiliary boxes and main cabinet.
+Only after the step 4, you will not see the communication issues anymore and you should be good to enable (or reset) the auxiliary boxes from the EUI.
 
 ### Elevation inclinometer
 

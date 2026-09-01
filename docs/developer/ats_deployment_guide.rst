@@ -328,17 +328,17 @@ The source code and more documentation can be found in https://github.com/lsst-t
   :header-rows: 1
 
   * - Name
-    - Host Name/IP Address
+    - Host Name
   * - TMA PXI
-    - ats-tma-pxi01.ls.lsst.org (139.229.145.241)
+    - ats-tma-pxi.ls.lsst.org
   * - AXES PXI
-    - ats-tma-axes-pxi.ls.lsst.org (139.229.145.242)
+    - ats-tma-axes-pxi.ls.lsst.org
   * - AUX PXI
-    - 139.229.145.238
+    - ats-tma-aux-pxi.ls.lsst.org
   * - PILZ
-    - tma-windows.ls.lsst.org (139.229.145.101)
+    - ats-tma-pilz.ls.lsst.org
   * - HMI/MCC
-    - tma-centos.ls.lsst.org (139.229.145.102)
+    - ats-manager.ls.lsst.org
 
 
 HMI
