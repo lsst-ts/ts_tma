@@ -337,6 +337,10 @@ You might need to use the administor account instead of the operator account to 
 
 To test the EIB connection, you can go to the Encoder system window in the EUI and press power on for AZ or EL, if it comes on, then you are OK, if not, something is wrong.
 
+The use of EIB is to be close to the real system.
+
+> Note that we are not using the values coming from the EIB to control AZ and EL when using the ATS.
+
 For the safety configuration files (`Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`) in `/c/Configuration/Safety`, use the [Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt) and [Safety_ModBusMapping_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForATS.txt) instead and rename them to `Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`.
 Since the control system will do the ModBus connection to the safety system, you need to make sure the safety systems allows this peer connection.
 Open the PAS4000 IDE and use the **IP Connections Editer** and **Online Network Editor** to check or modify the **Remote IP Address** under the **Modbus/TCP** protocol to have the ATS TMA PXI IP in the allowed list.
@@ -344,6 +348,8 @@ See the **Network settings** in **IP Connections Editer** to do the related modi
 If you do the change, you need to redeploy the change to the safety system.
 
 For the Bosch system configuration file, copy the [BoschSILConfig.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/RT%20Code/BoschMotor/HIL/Configuration/BoschSILConfig.ini) file to `/c/Configuration` directory and modify the IPs inside to point to the VM that runs the [ts_tma_hil_secondary-axis_secondaryaxissil](https://github.com/lsst-ts/ts_tma_hil_secondary-axis_secondaryaxissil).
+
+For the axis management communication, make sure the `Remote_Adress` in `/c/Configuration/axisManagementComm/SenderConfig.xml` points to the ATS AXES PXI.
 
 Since there are many IPs in the configuration files in `/c/Configuration` directory, it would be good to check the current values on summit or ATS before any modification.
 You can do `grep -nr "139" /c/Configuration` or `grep -nr "192" /c/Configuration` to check each IP address based on the case that the PXIs are on the summit or ATS.
@@ -384,6 +390,8 @@ See [note of NI-9145](#note-of-ni-9145), [electrical-connections](https://ts-tma
 In addition, you need to change the mode of NI-9401 module to be the **output** mode (you can do so for DIO0-3 and DIO4-7, it will not hurt).
 See [Configuring NI 9401’s Bidirectional Pins As Inputs and Outputs](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P7ZESA0&l=en-US).
 After the fix, you can build the bitfile and download it to the cRIO-9145.
+
+The reason that we need to fix this FPGA code at each time is because this is the same code for the non-ATS and ATS, so one has to be broken (because of the confliction) and we prefer to break the ATS one rather than the non-ATS one.
 
 Copy the [MainAxisConfig_forATS.ini](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/MainAxes/AxesPXI/Configuration/MainAxisConfig_forATS.ini) to the `/c/Configuration` in PXI and rename it to be the `/c/Configuration/MainAxisConfig.ini`.
 
