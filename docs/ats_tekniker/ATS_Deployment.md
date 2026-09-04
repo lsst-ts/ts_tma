@@ -570,6 +570,27 @@ To clear these several things must happen:
 ![Safety system error 2](media/safety_system_error_2.png)
 ![Safety system error 3](media/safety_system_error_3.png)
 
+### Locking Pin Retracted Interlock and Platform NO Total Extended Interlock
+
+For the "locking pin retracted" and "platform NO total extended" interlocks, you might see them to be in "orange" color in the safety matrix windows.
+This means that it will go away when the cause is no longer active.
+What you need to do then is to insert the locking pins, move them to the LOCK position.
+This movement will change the interlock from "Locking pin retracted" to "Locking pin inserted" which will create an interlock for EL but remove it for the deployable platforms.
+
+Here is how to remove the interlocks from the deployment platforms (DPs) by moving the locking pins (LPs):
+
+1. Power ON LPs
+2. Move LPs to LOCK
+3. Power OFF LPs
+4. Reset DPs
+5. Power ON DPs
+6. Move DPs
+
+![LP retracted and DP interlock 1](./media/lp_retracted_dp_interlock_1.png)
+![LP retracted and DP interlock 2](./media/lp_retracted_dp_interlock_2.png)
+![LP retracted and DP interlock 3](./media/lp_retracted_dp_interlock_3.png)
+![LP retracted and DP interlock 4](./media/lp_retracted_dp_interlock_4.png)
+
 ### Safety code deployment
 
 The code that runs on the PILZ controller to simulate the behavior of the TMA IS. The source code and more
