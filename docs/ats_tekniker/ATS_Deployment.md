@@ -338,7 +338,8 @@ You might need to use the administor account instead of the operator account to 
 To test the EIB connection, you can go to the Encoder system window in the EUI and press power on for AZ or EL, if it comes on, then you are OK, if not, something is wrong.
 
 The use of EIB is to be close to the real system.
-Note that we are not using the values coming from the EIB to control AZ and EL when using the ATS.
+
+> Note that we are not using the values coming from the EIB to control AZ and EL when using the ATS.
 
 For the safety configuration files (`Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`) in `/c/Configuration/Safety`, use the [Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForReadWriteDefinition_ForATS.txt) and [Safety_ModBusMapping_ForATS.txt](https://github.com/lsst-ts/ts_tma_labview_pxi-controller/blob/develop/ESIFiles/Safety/Safety_ModBusMapping_ForATS.txt) instead and rename them to `Safety_ModBusMapping_ForReadWriteDefinition.txt` and `Safety_ModBusMapping.txt`.
 Since the control system will do the ModBus connection to the safety system, you need to make sure the safety systems allows this peer connection.
