@@ -594,6 +594,22 @@ Here is how to remove the interlocks from the deployment platforms (DPs) by movi
 
    ![LP retracted and DP interlock 4](./media/lp_retracted_dp_interlock_4.png)
 
+### Note of the Safety Matrix
+
+You can see the details of safety matrix in [TMA IS Matrix](https://ts-tma.lsst.io/docs/tma_tma-is_safety-matrix/index.html).
+You need to know that it's impossible to have a 100% clean interlock table (aka. no triggered interlock), as there are causes that are opposite, for example:
+
+1. LPs, only have 3 options, all are covered by the table:
+
+   - Inserted (LOCK)
+   - Test intermediate position for balancing
+   - Retracted (FREE)
+
+2. DPs, have two options, and when one is not active the other will:
+
+   - Platform NO parking, this is active when the platforms are not completely retracted
+   - Platform NO total extended, this is active  until the platforms are completely extended
+
 ### Safety code deployment
 
 The code that runs on the PILZ controller to simulate the behavior of the TMA IS. The source code and more
