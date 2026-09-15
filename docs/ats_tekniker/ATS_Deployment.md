@@ -693,6 +693,55 @@ The default value for the elevation inclinometer variable `TMA-EL-CS-CBT-0101-22
 `10430` which means a position of `45.22500002` deg. This is done to have a valid EL position when powering on the EL
 axis, this variable is not updated by any simulator, but it can be manually updated.
 
+### Home the Azimuth and Elevation Axes
+
+To move the telescope azimuth position, you need to home the azimuth axis first.
+This applies to the elevation axis as well.
+However, sometimes, after homing the elevation axis, you might get the trigger of the limit switch.
+For example, in the process of resetting the alarm and homing the elevation axis, you might see the telescope goes to 60 degree first followed by -1.2 degree to trigger the limit switch.
+
+This is because the speedgoat position is the one taken when doing the home (assigned to be -1.2 deg) instead of the one from the inclinometer, which does not match the one from the speedgoat.
+These two values are only linked after a home, as we periodically update the inclinometer with the good value from the speedgoat, but if at some point one of them is changed the other may not notice it.
+When this happens and trigger the limit switch, you need:
+
+1. Use the NI distribution manager to update the elevation inclinometer variable `TMA-EL-CS-CBT-0101-220A30_ElevationInclinometer` (try-and-error).
+2. Reset the elevation axis to load the new value (you might need to do try-and-error for multiple times with the step 1 to get a good value of inclinometer).
+3. Fake the movement (`simuPositionEL`) in the safty module with the tool of [Write TekNSV Variables Tool](#write-teknsv-variables-tool).
+4. Finally reset the latched interlock in the safety matrix.
+
+### Write TekNSV Variables Tool
+
+You can see there are 4 varaibles related to the safety pilz:
+
+1. simuPositionAZ
+2. simuPositionEL
+3. simuaiBRKAZ1
+4. simuaiBRKAZ2
+
+For the trigger and release of `simuPositionEL`, see [Home the Azimuth and Elevation Axes](#home-the-azimuth-and-elevation-axes).
+For the `simuPositionAZ`, first of all, the azimuth movement is is -270 degree to 270, so it goes beyond 1 spin.
+This is greater than 360 degree range is achieved with the AZ topple blocks, see the section of **Azimuth Limit Switches and Topple Block** in [Training_Hardware_compressed.pdf](https://github.com/lsst-ts/ts_tma_tma-documentation_training/blob/master/slides/2023-September-October/Training_Hardware_compressed.pdf).
+
+So to trigger the safety limit the user should go beyond the allowed 270 range, unless changed the default values the user needs to go beyond are +/- 271.5.
+Once triggered, the value for `simuPositionAZ` will vary depending on the direction and the current value, remember that the position for the IS system is relative.
+There are details on how the limits work [here](https://ts-tma.lsst.io/docs/tma_main-axes-limits/Main-Axes-Limits.html#main-axes-limits) (the safety ones are the **Power Off Limit Switches** subsection).
+
+![Simulate limits tool](./media/simulate_limits.png)
+
+For the `simuaiBRKAZ1` and `simuaiBRKAZ2`, the brakes are engaged by default, by design these brakes are braking, unless hydraulic pressure is applied to release them.
+So the safety system to know if they are released or not it checks the pressure in the brakes:
+
+- No pressure -> brakes engaged.
+- Pressure higher than a certain value -> brakes released.
+
+So the values for `simuaiBRKAZ1 ...8` (yes there are more than 2, there are 8 brakes for AZ and 2 for EL `simuaiBRKEL1`, `simuaiBRKEL2`, you can see them by moving the index array in the simulate limits tool) are set to a value that "tricks" the IS system to think that they have pressure, if you put a lower value, lets say 100, you will see how the brake release process fails.
+Or if you do that with AZ already on, you will see it go to FAULT due to brake pressure failure.
+
+### Communication Among the Controllers and Hardwares
+
+See the [Real Time Code Structure](https://ts-tma.lsst.io/docs/tma_pxi-controller_documentation/01%20Structure/00%20Structure.html) for the communication among the controllers and hardwares.
+In the ATS, there's no Ethercat communication to the Input Output module, so the variables are emulated using the NSVs, that's why the ATS has NSVs and the summit doesn't.
+
 ### EUI
 
 The executable of the EUI for the ATS and the TMA are the same, the only difference is that the database, the PXIs and
