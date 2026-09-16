@@ -697,45 +697,68 @@ axis, this variable is not updated by any simulator, but it can be manually upda
 
 To move the telescope azimuth position, you need to home the azimuth axis first.
 This applies to the elevation axis as well.
-However, sometimes, after homing the elevation axis, you might get the trigger of the limit switch.
-For example, in the process of resetting the alarm and homing the elevation axis, you might see the telescope goes to 60 degree first followed by -1.2 degree to trigger the limit switch.
+However, sometimes, after homing the elevation axis, you might trigger the limit switch.
+For example, in the process of resetting the alarm and homing the elevation axis, you might see the telescope is at 60
+degrees, but after the home it goes to -1.2 degree, which triggers the limit switch.
 
-This is because the speedgoat position is the one taken when doing the home (assigned to be -1.2 deg) instead of the one from the inclinometer, which does not match the one from the speedgoat.
-These two values are only linked after a home, as we periodically update the inclinometer with the good value from the speedgoat, but if at some point one of them is changed the other may not notice it.
-When this happens and trigger the limit switch, you need:
+This is because the speedgoat position is the one taken when doing the home (which would be the last position to which it
+was moved, for example -1.2 deg) instead of the one from the inclinometer, which does not match the one from the speedgoat.
+These two values are only linked after a home, as we periodically update the inclinometer with the good value from the
+speedgoat, but if at some point one of them is changed the other may not notice it.
 
-1. Use the NI distribution manager to update the elevation inclinometer variable `TMA-EL-CS-CBT-0101-220A30_ElevationInclinometer` (try-and-error).
-2. Reset the elevation axis to load the new value (you might need to do try-and-error for multiple times with the step 1 to get a good value of inclinometer).
-3. Fake the movement (`simuPositionEL`) in the safty module with the tool of [Write TekNSV Variables Tool](#write-teknsv-variables-tool).
-4. Finally reset the latched interlock in the safety matrix.
+When this happens and the limit switch is triggered, you need to move Elevation back into range. There are different
+options for doing that, but here is the cleanest one:
+
+1. Override the active limit in the safety window
+2. Disable the negative limit in the EL settings
+3. Reset EL axis
+4. Power on EL axis
+5. Home EL axis
+6. Move EL into range >0 and <90, with the jog + or -
+7. Fake the movement (`simuPositionEL`) in the safety module with the tool of [Write TekNSV Variables Tool](#write-teknsv-variables-tool).
+8. Reset the cause in the safety window
+9. Release the override in the safety window
+10. EL shouldn't go to fault
 
 ### Write TekNSV Variables Tool
 
-You can see there are 4 varaibles related to the safety pilz:
+You can see there are 16 variables related to the safety pilz:
 
-1. simuPositionAZ
-2. simuPositionEL
-3. simuaiBRKAZ1
-4. simuaiBRKAZ2
+1. simuaiBRKAZ1
+2. simuaiBRKAZ2
+3. simuaiBRKAZ3
+4. simuaiBRKAZ4
+5. simuaiBRKAZ5
+6. simuaiBRKAZ6
+7. simuaiBRKAZ7
+8. simuaiBRKAZ8
+9. simuaiBRKEL1
+10. simuaiBRKEL2
+11. simuPositionAZ
+12. simuPositionEL
+13. simuSWEXTinsM2DPxP
+14. simuSWEXTinsM1M3DPxP
+15. simuSWEXTinsM2DPxN
+16. simuSWEXTinsM1M3DPxN
 
-For the trigger and release of `simuPositionEL`, see [Home the Azimuth and Elevation Axes](#home-the-azimuth-and-elevation-axes).
-For the `simuPositionAZ`, first of all, the azimuth movement is is -270 degree to 270, so it goes beyond 1 spin.
-This is greater than 360 degree range is achieved with the AZ topple blocks, see the section of **Azimuth Limit Switches and Topple Block** in [Training_Hardware_compressed.pdf](https://github.com/lsst-ts/ts_tma_tma-documentation_training/blob/master/slides/2023-September-October/Training_Hardware_compressed.pdf).
-
-So to trigger the safety limit the user should go beyond the allowed 270 range, unless changed the default values the user needs to go beyond are +/- 271.5.
-Once triggered, the value for `simuPositionAZ` will vary depending on the direction and the current value, remember that the position for the IS system is relative.
-There are details on how the limits work [here](https://ts-tma.lsst.io/docs/tma_main-axes-limits/Main-Axes-Limits.html#main-axes-limits) (the safety ones are the **Power Off Limit Switches** subsection).
-
-![Simulate limits tool](./media/simulate_limits.png)
-
-For the `simuaiBRKAZ1` and `simuaiBRKAZ2`, the brakes are engaged by default, by design these brakes are braking, unless hydraulic pressure is applied to release them.
-So the safety system to know if they are released or not it checks the pressure in the brakes:
+*simuaiBRK* AZ or EL are used to simulate the pressure in the brakes, as the ATS has no pressure meter for the brakes.
+In the TMA (AZ and EL) the brakes are engaged by default, by design these brakes are braking, unless hydraulic pressure
+is applied to release them. So the safety system needs to check the pressure in them to know if they are released or not:
 
 - No pressure -> brakes engaged.
 - Pressure higher than a certain value -> brakes released.
 
-So the values for `simuaiBRKAZ1 ...8` (yes there are more than 2, there are 8 brakes for AZ and 2 for EL `simuaiBRKEL1`, `simuaiBRKEL2`, you can see them by moving the index array in the simulate limits tool) are set to a value that "tricks" the IS system to think that they have pressure, if you put a lower value, lets say 100, you will see how the brake release process fails.
-Or if you do that with AZ already on, you will see it go to FAULT due to brake pressure failure.
+So the values for `simuaiBRKAZ1 ...8` (there are 8 brakes for AZ and 2 for EL `simuaiBRKEL1`, `simuaiBRKEL2`) are set to
+a value that "tricks" the IS system to think that they have pressure (9000), if you put a lower value, lets say 100,
+you will see how the brake release process fails. Or if you do that with AZ already on, you will see it go to FAULT due
+to brake pressure failure.
+
+*simuPositionAZ* and *simuPositionEL* are used to "trick" the safety system to think that AZ and EL were moved, this is
+required to release the limits interlocks for AZ and EL.
+[There are details on how the limits work here](https://ts-tma.lsst.io/docs/tma_main-axes-limits/Main-Axes-Limits.html#main-axes-limits)
+(the safety ones are the **Power Off Limit Switches** subsection).
+
+*simuSWEXTins* variables are used to manage the extensions of the deployable platforms
 
 ### Communication Among the Controllers and Hardwares
 
