@@ -19,12 +19,12 @@ You can find the list of available performance settings in the
 
 ## Procedure
 
-1. Go to HOME > Settings > [Settings Set  Management view](https://ts-tma.lsst.io/docs/tma_eui-manual-english/03_Settings/017_SettingsSetManagement.html )  
+1. Go to HOME > Settings > [Settings Set  Management view](https://ts-tma.lsst.io/docs/tma_eui-manual-english/03_Settings/017_SettingsSetManagement.html ). See the figure below, displaying the steps to follow.
 
 2. Press <code>RESTORE ALL TO DEFAULT</code>. This will set the TMA EUI default settings for velocity, 
 acceleration and jerk for both axes, which normally is 5%.
 
-3. Select the desired settings from the Setting set available section, 
+3. Select the desired settings from the **Setting Set Available** section, 
 e.g.  *ElevationParking* or *10percentperformance*.
 
 4. Verify the settings have change in the Home > Settings >:
@@ -33,9 +33,10 @@ e.g.  *ElevationParking* or *10percentperformance*.
 
    2. [Azimuth Settings](https://ts-tma.lsst.io/docs/tma_eui-manual-english/03_Settings/002_AzimuthSettings.html )
 
-![Settings set management](TMA-EUI-performance-settings.png)
+Alternatively, you can verify the settings in the EFD (Engineering Facility Database), which you can access through Chronograf.
 
-*Figure 1: TMA Settings set management window.*
+![Settings set management](TMA-EUI-performance-settings.png)
+<!--*Figure 1: TMA Settings set management window.* -->
 
 > [!IMPORTANT]
 > *ElevationParking* **ONLY disables the elevation limits (set to FALSE)**, it does NOT change velocity, acceleration and jerk limits values.
