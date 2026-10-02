@@ -32,7 +32,7 @@ This document explains how and what to check for powering on and off the OSS.
 > [!NOTE]
 > The oil warning and alarm limits are set in the TMA EUI settings and may vary by season.
 
-###Procedure
+### Procedure
 
 1. With the interlocks cleared, set the OSS to <code>AUTO</code> mode and <code>REMOTE</code> command by pressing those buttons.
    1. If it fails, read the message, it could be that something was not reseted properly or that something was tripped again. Press <code>RESET</code> and try again.
