@@ -138,6 +138,7 @@ These are the common operations that can be done in the TMA from the EUI.
     Change TMA performance settings <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking#TMA-performance-settings-note>
     Park/Unpark the TMA <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking>
     Main Axes Moving <docs/tma_main-axes-move/Main-Axes-Moving>
+    Set TMA performance settings <docs/tma_set_performance_settings/tma_set_performance_settings>
 
 .. toctree::
     :maxdepth: 1
@@ -145,7 +146,7 @@ These are the common operations that can be done in the TMA from the EUI.
     :caption: Locking pins operations
 
     Locking pins move sequence <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/004_LockingPins.html#locking-pins-move-sequence>
-    Locking Pins Without Home - For engineers during Balancing <https://ts-tma.lsst.io/docs/tma_maintenance_balancing_locking-pins/Locking-Pins-Without-Home.html>
+    Insert Locking pins without homing - For engineers during Balancing <https://ts-tma.lsst.io/docs/tma_maintenance_balancing_locking-pins/Locking-Pins-Without-Home.html>
 
 .. toctree::
     :maxdepth: 1
