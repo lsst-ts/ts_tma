@@ -594,6 +594,44 @@ Here is how to remove the interlocks from the deployment platforms (DPs) by movi
 
    ![LP retracted and DP interlock 4](./media/lp_retracted_dp_interlock_4.png)
 
+### Limit Switch Interlock of the Balancing System
+
+You might trigger the limit switch interlock when using the balancing system.
+You need to know that not all limit switches in the TMA go to the TMA interlock system (IS), this is one of those which does not go to it.
+For these balancing-related limit switches, they are not managed by the PXI code.
+So, they are not disabled in the TMA IS, they just prevent the movement in the drive.
+What we have are the software limits that we will disable to move out of the interlock situation if the interlock is triggered.
+
+For example, the following screenshot shows the triggered limit switch (negative position limit):
+
+![Balancing negative position limit](media/balancing_negative_position_limit.png)
+
+Disable the negative software limit:
+
+![Balancing disable limit 1](media/balancing_disable_limit_1.png)
+
+![Balancing disable limit 2](media/balancing_disable_limit_2.png)
+
+Reset the interlock:
+
+![Balancing reset](media/balancing_reset.png)
+
+After the reset and power on the system:
+
+![Balancing after reset and power on](media/balancing_after_reset_and_power_on.png)
+
+Move into the range, 500 - 800 is ok (the range 0-1000 or something like that):
+
+![Balancing move](media/balancing_move.png)
+
+Power off the system:
+
+![Balancing power off](media/balancing_power_off.png)
+
+Restore the settings for enabling the limit again:
+
+![Balancing restore setting](media/balancing_restore_setting.png)
+
 ### Note of the Safety Matrix
 
 You can see the details of safety matrix in [TMA IS Matrix](https://ts-tma.lsst.io/docs/tma_tma-is_safety-matrix/index.html).
