@@ -138,7 +138,7 @@ These are the common operations that can be done in the TMA from the EUI.
     Change TMA performance settings <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking#TMA-performance-settings-note>
     Park/Unpark the TMA <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39698782/TMA+Parking+and+Un-Parking>
     Main Axes Moving <docs/tma_main-axes-move/Main-Axes-Moving>
-    Set TMA performance settings <docs/tma_set_performance_settings/tma_set_performance_settings>
+    Set TMA performance settings <docs/tma_set_performance_settings/set_performance_settings>
 
 .. toctree::
     :maxdepth: 1
