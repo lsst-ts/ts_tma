@@ -170,3 +170,7 @@
 	path = docs/tma_cabinet-contents
 	url = ../ts_tma_tma-documentation_cabinet-contents.git
 	branch = master
+[submodule "docs/rubin_ats"]
+	path = docs/rubin_ats
+	url = ../rubin_ats.git
+	branch = main
