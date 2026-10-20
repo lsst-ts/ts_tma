@@ -210,6 +210,7 @@ This is the ATS related documentation.
     :maxdepth: 1
     :titlesonly:
     
+    Rubin ATS <docs/rubin_ats/docs/index>
     docs/tma_ats_ethercat-configuration-desktop-computer-running-linux-rt/EtherCat-Normal-PC-Linux-RT
     docs/developer/ats_deployment_guide
     docs/developer/virtual_machines
