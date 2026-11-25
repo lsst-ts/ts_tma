@@ -20,10 +20,10 @@ This document explains how and what to check for powering on and off the OSS.
 ### Preconditions
 
 1. Clear all the interlocks that affect the OSS, these can be [checked in the TMA Safety Matrix](https://ts-tma.lsst.io/docs/tma_tma-is_safety-matrix/index.html)
-   1. For clearing these, use the [Safety System window in the TMA EUI](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/034_SafetySystem.html)
+   1. For clearing these, use the [Safety System window in the TMA EUI](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/034_SafetySystem.html)
    2. And if there is something from the GIS active, clear that on the [GIS](https://obs-ops.lsst.io/Safety/Safety-Systems/GIS.html#troubleshooting)
 
-2. Access the [OSS General View window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/008_OSSGeneralView.html)
+2. Access the [OSS General View window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/008_OSSGeneralView.html)
 
 3. Oil tank level should be at least 900mm.
 
@@ -36,7 +36,7 @@ This document explains how and what to check for powering on and off the OSS.
    1. If it fails, read the message, it could be that something was not reseted properly or that something has tripped again. Press <code>RESET</code> in the same OSS window and try again.
    2. If the interlock is still triggered contact Electronics Support.
 
-2. Press the <code>ON</code> button, on the top of the [OSS General View window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/008_OSSGeneralView.html)
+2. Press the <code>ON</code> button, on the top of the [OSS General View window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/008_OSSGeneralView.html)
 
 3. The system should power on.
    1. If the process fails, usually is due to problems in the cooling part, check the chillers and reset them if needed. Refer to [OSS Fails to turn on](https://obs-ops.lsst.io/Simonyi/Troubleshooting/MTCS/TMA/OSS-Fails-to-Turn-On.html).
@@ -63,6 +63,6 @@ OSS is ON
 
 For powering off, this should be easier than the power on sequence.
 
-1. Go to the [OSS General View window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/008_OSSGeneralView.html)
+1. Go to the [OSS General View window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/008_OSSGeneralView.html)
 2. Press <code>OFF</code> on the top.
 3. The OSS should be OFF after a couple of minutes.
