@@ -18,7 +18,7 @@
 ### 1. Finding the issued drive
 
 Find the faulty drive, this can be done using the
-[Ethercat Management Window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor%26Control/048_EthercatManagement.html)
+[Ethercat Management Window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/048_EthercatManagement.html)
 or the by connecting the ethercat line to a Beckhoff master and using the
 [diagnostic project (this is available in the TMA Support Computer)](https://github.com/lsst-ts/ts_tma_tma-documentation_maintenance-documents_ethercat_ethercat-line-diagnostic/tree/master/TwinCATProjects/PhaseDrivesEtherCATLineTesting)
 
