@@ -144,7 +144,7 @@ be followed:
     - Then a progress pop up will appear and if there is no problem while deploying, the new slave should be properly working
   - Disconnect the LabVIEW project from the PXI
   - Check the ethercat is running, this can be done from the EUI ethercat management window or from the NI Distributed System Manager
-    - [Ethercat Management Window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/048_EthercatManagement.html)
+    - [Ethercat Management Window](https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_MonitorControl/048_EthercatManagement.html)
       - Navigate to the corresponding window in the TMA EUI
       - Check that all the slaves for the AXES PXI are in OP state and that the master is in active state
 

@@ -145,7 +145,7 @@ These are the common operations that can be done in the TMA from the EUI.
     :titlesonly:
     :caption: Locking pins operations
 
-    Locking pins move sequence <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/004_LockingPins.html#locking-pins-move-sequence>
+    Locking pins move sequence <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_MonitorControl/004_LockingPins.html#locking-pins-move-sequence>
     Insert Locking pins without homing - For engineers during Balancing <https://ts-tma.lsst.io/docs/tma_maintenance_balancing_locking-pins/Locking-Pins-Without-Home.html>
 
 .. toctree::
@@ -153,15 +153,15 @@ These are the common operations that can be done in the TMA from the EUI.
     :titlesonly:
     :caption: Deployable platforms operations
 
-    Retract/Extend Deployable Platforms <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/033_DeployablePlatforms.html#deployable-platform-deploy-retract-sequence>
-    Deployable Platform extensions management <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/033_DeployablePlatforms.html#deployable-platform-extensions-management>
+    Retract/Extend Deployable Platforms <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_MonitorControl/033_DeployablePlatforms.html#deployable-platform-deploy-retract-sequence>
+    Deployable Platform extensions management <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_MonitorControl/033_DeployablePlatforms.html#deployable-platform-extensions-management>
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
     :caption: Mirror Covers operations
 
-    Deploy/Retract mirror covers <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_Monitor&Control/021_MirrorCoverGeneralView.html#mirror-cover-deploy-retract-sequence>
+    Deploy/Retract mirror covers <https://ts-tma.lsst.io/docs/tma_eui-manual-english/02_MonitorControl/021_MirrorCoverGeneralView.html#mirror-cover-deploy-retract-sequence>
     Move mirror cover without checks (when TMA below 15 deg) <docs/tma_maintenance_mirror-cover_move-mirror-coverwithoutchecks/Move-Mirror-Cover-without-checks>
 
 .. toctree::
